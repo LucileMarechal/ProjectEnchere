@@ -9,6 +9,7 @@
 <body>
 
 	<h1>ENI-Encheres</h1>
+	<!-- HREF à FAIRE -->
 	<a href="#">S'inscrire - Se connecter</a>
 
 	<h2>Liste des enchères</h2>
