@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CreationProfilServlet
+ * Servlet implementation class ProfilUtilisateurServlet
  */
-@WebServlet("/creationProfil.html")
-public class CreationProfilServlet extends HttpServlet {
+@WebServlet("/ProfilUtilisateurServlet")
+public class ProfilUtilisateurServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreationProfilServlet() {
+    public ProfilUtilisateurServlet() {
         super();
     }
 
@@ -25,14 +25,14 @@ public class CreationProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/jsp/creationProfil.jsp").forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
+		
 	}
 
 }

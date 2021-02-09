@@ -9,25 +9,25 @@
 <body>
 
 	<div>
-			<div>
-				Identifiant : <input type="text" name="sid">
-			</div>
-			<br>
-			<div>
-				Mot de passe : <input type="password" name="spassword">
-			</div>
-			<br>
-			<div>
-				<a href="<%= request.getContextPath() %>/accueilAvecConnexion.html">
-				<input type="submit" value="Connexion">
-				</a>
-				<input type="checkbox" name="smemo" value="memo">Se souvenir de moi
-				<a href="/motDePasseOublié"><input type="button" value="Mot de passe oublié"></a>
-			<br>	
-				<a href="<%= request.getContextPath() %>/creationProfil.html">
-				<input type="submit" value="Créer un compte">
-				</a>
-			</div>
+		<div>
+			Identifiant : <input type="text" name="sid">
+		</div>
+		<br>
+		<div>
+			Mot de passe : <input type="password" name="spassword">
+		</div>
+		<br>
+		<div>
+			<a href="<%= request.getContextPath() %>/accueilAvecConnexion.html">
+			<input type="submit" value="Connexion">
+			</a>
+			<input type="checkbox" name="smemo" value="memo">Se souvenir de moi
+			<a href="/motDePasseOublié"><input type="button" value="Mot de passe oublié"></a>
+		<br>	
+			<a href="<%= request.getContextPath() %>/creationProfil.html">
+			<input type="submit" value="Créer un compte">
+			</a>
+		</div>
 	</div>
 </body>
 </html>
