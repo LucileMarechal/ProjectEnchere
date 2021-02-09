@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Création profil</title>
+<title>Mon profil</title>
 </head>
 <body>
 	<h1>Mon profil</h1>
