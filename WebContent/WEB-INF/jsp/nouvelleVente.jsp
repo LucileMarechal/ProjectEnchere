@@ -16,7 +16,7 @@
 
  
 
-    <form action="" method="post">
+    <form action="?" method="post">
         <div>
             <label>Article</label> <input type="text">
         </div>
