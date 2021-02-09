@@ -60,6 +60,7 @@
 					Crédit : <input type="text" name="scred"><br>
 				</div>
 				<br>
+				<!-- en cliquant sur supprimer, ça m'amène à l'accueil non connecté -->
 				<div>
 					<input type="submit" value="Enregistrer">
 				</div>
