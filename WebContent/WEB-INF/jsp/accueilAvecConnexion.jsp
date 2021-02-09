@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<script src="./javascript/js.js"></script>
 <title>Accueil</title>
 </head>
 <body>
-<!-- Test -->
+
 	<h1>ENI-Encheres</h1>
 	<!-- HREF à FAIRE -->
 	<a href="#">Vendre un article</a>
-	<a href="#">Mon profil</a>
-	<a href="#">Déconnexion</a>
+	<a href="#">  Mon profil</a>
+	<a href="#">  Déconnexion </a>
 
 	<h2>Liste des enchères</h2>
 
@@ -35,25 +35,27 @@
 	<br>
 
 	<!-- RESTE Dévalidation des checkbox à faire selon Achats ou Mes Ventes -->
-	<input type="radio" id="achats" name="name" value="achats" checked>
-	<label for="achats">Achats</label>
-	<div>
-  		<input type="checkbox" id="enchOuvertes" name="enchOuvertes"><label for="enchOuvertes"> Enchères ouvertes</label><br>
-  		<input type="checkbox" id="mesEncheres" name="mesEncheres"><label for="mesEncheres"> Mes enchères</label><br>
-  		<input type="checkbox" id="reporte" name="reporte"><label for="reporte"> Mes enchères reportées</label><br><br>
+	<form>
+	<div class="achat">
+	<input type="radio" id="achats" name="name" value="achats" onclick="selectAchatOuVente(this)" checked>
+	<label for="achats">Achats</label><br>
+  		<input type="checkbox" id="1" name="sAchats"><label for="enchOuvertes"> Enchères ouvertes</label><br>
+  		<input type="checkbox" id="2" name="sAchats"><label for="mesEncheres"> Mes enchères</label><br>
+  		<input type="checkbox" id="3" name="sAchats"><label for="reporte"> Mes enchères reportées</label><br><br>
 	</div>
-
-	<input type="radio" id="ventes" name="name" value="ventes">
-	<label for="ventes">Mes ventes</label>
-	<div>
-  		<input type="checkbox" id="enCours" name="encours"><label for="encours"> Mes ventes en cours</label><br>
-  		<input type="checkbox" id="nonDebute" name="nonDebute"><label for="nonDebute"> Ventes non débutées</label><br>
-  		<input type="checkbox" id="termine" name="termine"><label for="termine"> Ventes terminées</label><br>
+	
+	<div class="vente">
+	<input type="radio" id="ventes" name="name" value="ventes" onclick="selectAchatOuVente(this)">
+	<label for="ventes">Mes ventes</label><br>
+  		<input type="checkbox" id="4" name="sVentes"><label for="encours"> Mes ventes en cours</label><br>
+  		<input type="checkbox" id="5" name="sVentes"><label for="nonDebute"> Ventes non débutées</label><br>
+  		<input type="checkbox" id="6" name="sVentes"><label for="termine"> Ventes terminées</label><br>
 	</div>
-
+	</form>
 	<hr>
 
 	<h3> Liste des enchères en cours à afficher</h3>
+
 
 </body>
 </html>

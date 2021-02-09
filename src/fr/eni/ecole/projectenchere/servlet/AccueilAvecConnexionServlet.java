@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class accueilAvecConnexionServlet
  */
 @WebServlet("/accueilAvecConnexion.html")
-public class accueilAvecConnexionServlet extends HttpServlet {
+public class AccueilAvecConnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public accueilAvecConnexionServlet() {
+    public AccueilAvecConnexionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
