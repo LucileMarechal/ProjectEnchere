@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class EnregistrerVenteServlet
  */
-@WebServlet("/EnregistrerVenteServlet")
+@WebServlet("/EnregistrerVente.html")
 public class EnregistrerVenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -21,7 +21,7 @@ public class EnregistrerVenteServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB/INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AnnulerVenteEnCoursSerlvet
  */
-@WebServlet("/AnnulerVenteEnCoursSerlvet")
+@WebServlet("/AnnulerVenteEnCours.html")
 public class AnnulerVenteEnCoursSerlvet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -24,7 +24,7 @@ public class AnnulerVenteEnCoursSerlvet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB/INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 	}
 
 	
