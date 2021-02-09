@@ -10,13 +10,13 @@
 <!-- Test -->
 	<h1>ENI-Encheres</h1>
 	<!-- HREF à FAIRE -->
-	<a href="#">S'inscrire - Se connecter</a>
+	<a href="<%=request.getContextPath()%>/SinsrireSeConnecter.html">S'inscrire - Se connecter</a>
 
 	<h2>Liste des enchères</h2>
 
 	<P>Filtres :</P>
 
-	<form action="" method="post">
+	<form action="" method="get">
 		<input type="search">
 		<button>RECHERCHE</button>
 	</form>
