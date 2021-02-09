@@ -9,21 +9,37 @@
 <body>
 	<div>
 		<div>
-			Pseudo : <input type="text" name="spseudo" value="<%= request.getParameter("spseudo") %>">
+			Pseudo : <!-- request.getParameter("spseudo") -->
 		</div>
+		<br>
 		<div>
-			Heure : <input type="time" name="stime" value="<%= request.getParameter("stime") %>">
+			Nom : <!-- request.getParameter("snom") -->
 		</div>
+		<br>
 		<div>
-			Repas : <textarea rows="5" cols="30" name="srepas">
-				<%= request.getParameter("srepas") != null ? request.getParameter("srepas") : ""%>
-			</textarea>
+			Prénom : <!-- request.getParameter("sprenom") -->
 		</div>
+		<br>
 		<div>
-			<input type="submit" value="Valider">
-			<a href="<%= request.getContextPath()%>">
-			<input type="button" value="Annuler"></a>
+			Email : <!-- request.getParameter("semail") -->
 		</div>
+		<br>
+		<div>
+			Téléphone : <!-- request.getParameter("stel") -->
+		</div>
+		<br>
+		<div>
+			Rue : <!-- request.getParameter("srue") -->
+		</div>
+		<br>
+		<div>
+			Code postal : <!-- request.getParameter("scpo") -->
+		</div>
+		<br>
+		<div>
+			Ville : <!-- request.getParameter("sville") -->
+		</div>
+		<br>
 	</div>
 </body>
 </html>
