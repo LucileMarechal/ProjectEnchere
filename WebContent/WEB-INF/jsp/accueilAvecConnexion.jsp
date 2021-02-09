@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Acceuil</title>
+<title>Accueil</title>
 </head>
 <body>
-
+<!-- Test -->
 	<h1>ENI-Encheres</h1>
 	<!-- HREF à FAIRE -->
 	<a href="#">Enchères</a>

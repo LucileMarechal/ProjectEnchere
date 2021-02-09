@@ -7,7 +7,7 @@
 <title>Vente remportÃ©e</title>
 </head>
 <body>
-	<h1>Vous avez remportÃ© la vente</h1>
+	<h1>Vous avez remportée la vente</h1>
 	<div>
 		<label><a href="Nom de l'article"></a>Titre de l'article</label>
 	</div>
@@ -17,10 +17,10 @@
 	</div>
 	<br>
 	<div>
-		<label><a href="categorie"></a>CatÃ©gorie :</label>
+		<label><a href="categorie"></a>Catégorie :</label>
 	</div>
 	<div>
-		<label>Mise Ã  prix :</label>
+		<label>Mise à prix :</label>
 	</div>
 	<br>
 	<br>
@@ -33,7 +33,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="button" value="back">
+		<input type="button" value="retour">
 	</div>
 </body>
 </html>
