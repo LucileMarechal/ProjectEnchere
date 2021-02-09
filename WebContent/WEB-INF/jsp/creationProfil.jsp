@@ -10,7 +10,7 @@
 	<h1>Mon profil</h1>
 	
 	<div>
-		<form action="<%= request.getContextPath() %>/creationProfil.html" method="get">
+		<form action="<%= request.getContextPath() %>/creationProfil.html" method="post">
 			<div>
 				<div>
 					Pseudo : <input type="text" name="spseudo"><br>
@@ -54,7 +54,7 @@
 				<br>
 				<!-- en appuyant sur créer, on arrive à la page d'accueil connecté (liste enchères -->
 				<div>
-					<a href="<%= request.getContextPath()%>/monProfil.html"><input type="submit" value="Créer"></a>
+					<a href="<%= request.getContextPath()%>/creationProfil.html"><input type="submit" value="Créer"></a>
 				</div>
 				<br>
 				<div>

@@ -10,7 +10,7 @@
 	<h1>Mon profil</h1>
 	
 	<div>
-		<form>
+		<form action="<%= request.getContextPath() %>/monProfil.html" method="post">
 			<div>
 				<div>
 				<!-- choix du pseudo -->

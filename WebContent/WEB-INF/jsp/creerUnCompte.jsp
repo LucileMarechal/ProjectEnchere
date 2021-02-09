@@ -9,7 +9,7 @@
 <body>
 
 	<div>
-		<form action="<%= request.getContextPath() %>/creerUnCompte.html" method="get">
+		<form action="<%= request.getContextPath() %>/creerUnCompte.html" method="post">
 			<div>
 				Identifiant : <input type="text" name="sid">
 			</div>
@@ -24,10 +24,12 @@
 				</a>
 				<input type="checkbox" name="smemo" value="memo">Se souvenir de moi
 				<a href="/motDePasseOublié"><input type="button" value="Mot de passe oublié"></a>
-			</div>		
+				
 			<br>	
-			<div>
-				<a href="/monProfil.html"><input type="submit" value="Créer un compte"></a>
+			
+				<a href="<%= request.getContextPath() %>/creationProfil.html">
+				<input type="submit" value="Créer un compte">
+				</a>
 			</div>
 		</form>
 	</div>

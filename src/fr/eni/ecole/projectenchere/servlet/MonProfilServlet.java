@@ -19,7 +19,6 @@ public class MonProfilServlet extends HttpServlet {
      */
     public MonProfilServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
