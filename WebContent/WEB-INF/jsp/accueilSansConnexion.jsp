@@ -7,7 +7,7 @@
 <title>Accueil</title>
 </head>
 <body>
-
+<!-- Test -->
 	<h1>ENI-Encheres</h1>
 	<!-- HREF à FAIRE -->
 	<a href="#">S'inscrire - Se connecter</a>
