@@ -10,7 +10,6 @@
 <!-- Test -->
 	<h1>ENI-Encheres</h1>
 	<!-- HREF à FAIRE -->
-	<a href="#">Enchères</a>
 	<a href="#">Vendre un article</a>
 	<a href="#">Mon profil</a>
 	<a href="#">Déconnexion</a>
