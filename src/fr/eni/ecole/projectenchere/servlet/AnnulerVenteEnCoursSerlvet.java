@@ -8,14 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AnnulerVenteServlet
+ * Servlet implementation class AnnulerVenteEnCoursSerlvet
  */
-@WebServlet("/AnnulerVenteServlet")
-public class AnnulerVenteServlet extends HttpServlet {
+@WebServlet("/AnnulerVenteEnCoursSerlvet")
+public class AnnulerVenteEnCoursSerlvet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-    public AnnulerVenteServlet() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AnnulerVenteEnCoursSerlvet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -23,11 +25,11 @@ public class AnnulerVenteServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB/INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
-		
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("je suis dans la doPost AnnulerVenteServlet");
+		response.getWriter().append("je suis dans la doPost AnnulerVenteEnCoursServlet");
 	}
 
 }
