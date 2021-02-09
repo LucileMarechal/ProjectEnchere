@@ -7,7 +7,8 @@
 <title>Enchere RemportÃ©e</title>
 </head>
 <body>
-	<h1>PseudoUtilisateur a remportÃ© la vente</h1>
+<!-- Pseudo utilisateur a integrer -->
+	<h1>PseudoUtilisateur a remportée la vente</h1>
 	<div>
 		<label><a href="Nom de l'article"></a>Titre de l'article</label>
 	</div>
@@ -17,11 +18,11 @@
 	</div>
 	<br>
 	<div>
-		<label>Mise Ã  prix :</label>
+		<label>Mise à  prix :</label>
 	</div>
 	<br>
 	<div>
-		<label>Fin de l'enchÃ¨re :</label>
+		<label>Fin de l'enchère :</label>
 	</div>
 	<br>
 
@@ -35,7 +36,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="button" value="back">
+		<input type="button" value="retour">
 	</div>
 </body>
 </html>
