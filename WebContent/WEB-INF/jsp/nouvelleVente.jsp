@@ -55,13 +55,13 @@
         <!-- Date de début et de fin enchere--> 
         <div>
             <label for="debut">Début de l'enchère</label>
-        </div>
+ 
         <input type="date" id="debut" name="date_debut" value="/ /">
         </div>
         <br>
         <div>
             <label for="fin">Fin de l'enchère</label>
-        </div>
+   
         <input type="date" id="debut" name="date_fin" value="/ /">
         </div>
         <br>
