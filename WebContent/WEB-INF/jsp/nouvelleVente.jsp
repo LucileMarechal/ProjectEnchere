@@ -82,12 +82,13 @@
 	
 	<!--  Enregistrer ou Annuler -->
 	<div>
-		<br> <input type="button" value="Enregistrer">
+		<br> <input type="submit" value="Enregistrer">
 	</div>
 	<br>
 	<div>
-		<input type="button" value="Annuler">
+		<input type="submit" value="Annuler">
 	</div>
+	<!--  en fonction de la date de début d'enchere et la tete du jour, bouton "annuler la vente" -->
 
 </body>
 </html>
