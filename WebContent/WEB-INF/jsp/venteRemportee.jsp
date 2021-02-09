@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Vous avez remportée la vente</h1>
-	<form action="<%=request.getContextPath()%>/accueil.html" method="get">
+	<form action="<%=request.getContextPath()%>/accueilAvecConnexion.html" method="get">
 	<div>
 		<label><a href="Nom de l'article"></a>Titre de l'article</label>
 	</div>
