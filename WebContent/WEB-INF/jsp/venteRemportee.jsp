@@ -34,7 +34,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="button" value="retour">
+		<input type="submit" value="retour">
 	</div>
 	</form>
 </body>
