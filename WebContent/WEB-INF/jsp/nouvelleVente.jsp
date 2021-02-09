@@ -10,19 +10,13 @@
 <body>
     <h1>Nouvelle vente</h1>
 
- 
-
     <!-- Création des catégories Article et Description -->
 
- 
-
-    <form action="?" method="post">
+    <form action="<%=request.getContextPath()%>/accueil.html" method="get">
         <div>
             <label>Article</label> <input type="text">
         </div>
-
- 
-
+        
         <br>
         <div>
             <label>Description</label> <input type="text">

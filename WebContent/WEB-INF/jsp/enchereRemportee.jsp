@@ -9,6 +9,7 @@
 <body>
 <!-- Pseudo utilisateur a integrer -->
 	<h1>PseudoUtilisateur a remportée la vente</h1>
+	<form action="<%=request.getContextPath()%>/accueil.html" method="get">
 	<div>
 		<label><a href="Nom de l'article"></a>Titre de l'article</label>
 	</div>
@@ -38,5 +39,6 @@
 	<div>
 		<input type="button" value="retour">
 	</div>
+	</form>
 </body>
 </html>
