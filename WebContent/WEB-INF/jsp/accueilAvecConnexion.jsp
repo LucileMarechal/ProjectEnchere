@@ -10,9 +10,9 @@
 
 	<h1>ENI-Encheres</h1>
 	<!-- HREF à FAIRE -->
-	<a href="#">Vendre un article</a>
+	<a href="<%=request.getContextPath()%>/NouvelleVente.html">Vendre un article</a>
 	<a href="#">  Mon profil</a>
-	<a href="#">  Déconnexion </a>
+	<a href="<%=request.getContextPath()%>/accueil.html">  Déconnexion </a>
 
 	<h2>Liste des enchères</h2>
 
@@ -67,6 +67,10 @@
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
 	<h3> Liste des enchères en cours à afficher</h3>
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
+
+<form action="<%=request.getContextPath()%>/DetailVente.html" method="get">
+<input  type="submit" value="Articles">
+</form>
 
 </body>
 </html>
