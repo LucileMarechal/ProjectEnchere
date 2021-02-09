@@ -48,5 +48,10 @@
 	<div>
 		<input type="submit" value="Enchérir">
 	</div>
+	<!-- Si l'action permettant d'enchérir a bien fonctionnée, 
+	ce sera la page d'accueil qui sera affichée avec un message du type 
+	"votre enchère a bien été prise en compte". 
+	Si l'action permettant d'enchérir échoue, on reste sur la page 
+	en cours et on affiche le message à l'origine de l'erreur -->
 </body>
 </html>
