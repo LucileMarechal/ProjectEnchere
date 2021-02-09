@@ -68,8 +68,6 @@
     </form>
     <br>
 
- 
-
     <!-- Partie retrait -->
     <fieldset>
         <legend>Retrait</legend>
@@ -87,8 +85,6 @@
         <div>
             <label>Ville :</label> <input type="text">
 
- 
-
         </div>
         <br>
     </fieldset>
@@ -101,7 +97,8 @@
     <div>
         <input type="button" value="Annuler">
     </div>
-
+    <!-- BOUTON ANNULER LA VENTE A METTRE EN PLACE 
+    lorsque la date du jour est < à date début enchere -->
  
 
 </body>
