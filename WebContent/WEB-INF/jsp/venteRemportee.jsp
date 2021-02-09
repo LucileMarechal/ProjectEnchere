@@ -33,7 +33,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="button" value="back">
+		<input type="button" value="retour">
 	</div>
 </body>
 </html>
