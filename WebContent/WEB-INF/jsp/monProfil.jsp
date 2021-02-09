@@ -13,6 +13,7 @@
 		<form>
 			<div>
 				<div>
+				<!-- choix du pseudo -->
 					Pseudo : <input type="text" name="spseudo"><br>
 				</div>
 				<br>
