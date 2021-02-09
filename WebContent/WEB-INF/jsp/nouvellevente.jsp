@@ -30,7 +30,8 @@
         <br>
         <!-- Catégorie avec menu déroulant -->
         <div>
-            <label>Catégorie</label> <select>
+            <label>Catégorie</label> 
+            <select>
                 <option>Informatique</option>
                 <option>Ameublement</option>
                 <option>Vêtement</option>

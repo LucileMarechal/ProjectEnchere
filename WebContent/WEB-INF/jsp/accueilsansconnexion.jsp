@@ -28,7 +28,7 @@
 		<option>Informatique</option>
 		<option>Ameublement</option>
 		<option>Vêtement</option>
-		<option>Sport&Loisirs</option>
+		<option>Sport&#38;Loisirs</option>
 	</select>
 	
 	<!-- à compléter avec la liste des enchères en cours-->
