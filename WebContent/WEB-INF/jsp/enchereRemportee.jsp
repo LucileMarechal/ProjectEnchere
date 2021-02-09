@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1 UTF-8">
-<title>Enchere RemportÃ©e</title>
+<title>Enchere Remportée</title>
 </head>
 <body>
 <!-- Pseudo utilisateur a integrer -->
 	<h1>PseudoUtilisateur a remportée la vente</h1>
-	<form action="<%=request.getContextPath()%>/accueil.html" method="get">
+	<form action="<%=request.getContextPath()%>//accueilAvecConnexion.html" method="get">
 	<div>
 		<label><a href="Nom de l'article"></a>Titre de l'article</label>
 	</div>
