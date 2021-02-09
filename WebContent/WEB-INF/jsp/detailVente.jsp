@@ -46,7 +46,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="button" value="Enchérir">
+		<input type="submit" value="Enchérir">
 	</div>
 </body>
 </html>
