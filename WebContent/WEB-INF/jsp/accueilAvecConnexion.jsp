@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,6 +22,7 @@
 		<input type="search">
 		<button>RECHERCHE</button>
 	</form>
+	<br>
 
 	<!-- Catégorie avec liste déroulante -->
 	<label>Catégorie : </label>
@@ -33,29 +34,39 @@
 		<option>Sport&#38;Loisirs</option>
 	</select>
 	<br>
+	<br>
 
-	<!-- RESTE Dévalidation des checkbox à faire selon Achats ou Mes Ventes -->
 	<form>
 	<div class="achat">
-	<input type="radio" id="achats" name="name" value="achats" onclick="selectAchatOuVente(this)" checked>
+	<input type="radio" id="achats" name="name" value="achats" checked onclick="selectAchatOuVente(this)">
 	<label for="achats">Achats</label><br>
-  		<input type="checkbox" id="1" name="sAchats"><label for="enchOuvertes"> Enchères ouvertes</label><br>
-  		<input type="checkbox" id="2" name="sAchats"><label for="mesEncheres"> Mes enchères</label><br>
-  		<input type="checkbox" id="3" name="sAchats"><label for="reporte"> Mes enchères reportées</label><br><br>
+  		<input type="checkbox" id="1" name="sAchats">
+  		<label for="enchOuvertes"> Enchères ouvertes</label><br>
+  		<input type="checkbox" id="2" name="sAchats">
+  		<label for="mesEncheres"> Mes enchères</label><br>
+  		<input type="checkbox" id="3" name="sAchats">
+  		<label for="reporte"> Mes enchères reportées</label><br><br>
 	</div>
 	
 	<div class="vente">
 	<input type="radio" id="ventes" name="name" value="ventes" onclick="selectAchatOuVente(this)">
 	<label for="ventes">Mes ventes</label><br>
-  		<input type="checkbox" id="4" name="sVentes"><label for="encours"> Mes ventes en cours</label><br>
-  		<input type="checkbox" id="5" name="sVentes"><label for="nonDebute"> Ventes non débutées</label><br>
-  		<input type="checkbox" id="6" name="sVentes"><label for="termine"> Ventes terminées</label><br>
+  		<input type="checkbox" id="4" name="sVentes">
+  		<label for="encours"> Mes ventes en cours</label><br>
+  		<input type="checkbox" id="5" name="sVentes">
+  		<label for="nonDebute"> Ventes non débutées</label><br>
+  		<input type="checkbox" id="6" name="sVentes">
+  		<label for="termine"> Ventes terminées</label><br>
 	</div>
 	</form>
+	<br>
+	<br>
+	
 	<hr>
 
+<!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
 	<h3> Liste des enchères en cours à afficher</h3>
-
+<!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
 
 </body>
 </html>

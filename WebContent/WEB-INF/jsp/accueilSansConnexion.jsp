@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Accueil</title>
 </head>
 <body>
@@ -30,11 +29,12 @@
 		<option>Vêtement</option>
 		<option>Sport&#38;Loisirs</option>
 	</select>
-	
-	<!-- à compléter avec la liste des enchères en cours-->
 	<hr>
+	
+	
+<!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->	
 	<h3> Liste des enchères en cours à afficher</h3>
-	<!-- à compléter avec la liste des enchères en cours-->
+<!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
 
 </body>
 </html>
