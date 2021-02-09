@@ -8,24 +8,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CreationProfilServlet
+ * Servlet implementation class MonProfilServlet
  */
-@WebServlet("/creationProfil.html")
-public class CreationProfilServlet extends HttpServlet {
+@WebServlet("/monProfil.html")
+public class MonProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreationProfilServlet() {
+    public MonProfilServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/jsp/creationProfil.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp").forward(request, response);
 	}
 
 	/**
