@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1 UTF-8">
-<title>Vente remportÃ©e</title>
+<title>Vente remportée</title>
 </head>
 <body>
 	<h1>Vous avez remportée la vente</h1>
