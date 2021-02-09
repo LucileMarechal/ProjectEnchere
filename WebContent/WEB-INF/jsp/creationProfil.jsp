@@ -52,6 +52,7 @@
 					Confirmation : <input type="password" name="sconf"><br>
 				</div>
 				<br>
+				<!-- en appuyant sur créer, on arrive à la page d'accueil connecté (liste enchères -->
 				<div>
 					<a href="/accueilCo"><input type="submit" value="Créer"></a>
 				</div>
