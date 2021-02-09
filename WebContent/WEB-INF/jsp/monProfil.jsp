@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mon profil</title>
+<title>Création profil</title>
 </head>
 <body>
 	<h1>Mon profil</h1>
@@ -45,7 +45,11 @@
 				</div>
 				<br>
 				<div>
-					Mot de passe : <input type="password" name="smdp"><br>
+					Mot de passe actuel : <input type="password" name="smdp"><br>
+				</div>
+				<br>
+				<div>
+					Nouveau mot de passe : <input type="password" name="smdp"><br>
 				</div>
 				<br>
 				<div>
@@ -53,11 +57,15 @@
 				</div>
 				<br>
 				<div>
-					<a href="/accueilCo"><input type="submit" value="Créer"></a>
+					Crédit : <input type="text" name="scred"><br>
 				</div>
 				<br>
 				<div>
-					<a href="/accueil"><input type="submit" value="Annuler"></a>
+					<input type="submit" value="Enregistrer">
+				</div>
+				<br>
+				<div>
+					<a href="/accueil"><input type="submit" value="Supprimer mon compte"></a>
 				</div>
 			</div>
 		</form>
