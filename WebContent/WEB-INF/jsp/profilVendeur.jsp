@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Profil vendeur</title>
-</head>
-<body>
+
+<!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
+
 	<div>
 		<div>
 			Pseudo : <!-- request.getParameter("spseudo") -->
@@ -17,7 +12,7 @@
 		</div>
 		<br>
 		<div>
-			PrÃ©nom : <!-- request.getParameter("sprenom") -->
+			Prénom : <!-- request.getParameter("sprenom") -->
 		</div>
 		<br>
 		<div>
@@ -25,7 +20,7 @@
 		</div>
 		<br>
 		<div>
-			TÃ©lÃ©phone : <!-- request.getParameter("stel") -->
+			Téléphone : <!-- request.getParameter("stel") -->
 		</div>
 		<br>
 		<div>

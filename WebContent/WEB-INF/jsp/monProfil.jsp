@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Mon profil</title>
-</head>
-<body>
+
+<!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
+
 	<h1>Mon profil</h1>
 	
 	<div>
@@ -18,11 +13,11 @@
 				</div>
 				<br>
 				<div>
-					PrÃ©nom : <input type="text" name="sprenom"><br>
+					Prénom : <input type="text" name="sprenom"><br>
 				</div>
 				<br>
 				<div>
-					TÃ©lÃ©phone : <input type="text" name="stel"><br>
+					Téléphone : <input type="text" name="stel"><br>
 				</div>
 				<br>
 				<div>
@@ -58,10 +53,10 @@
 				</div>
 				<br>
 				<div>
-					CrÃ©dit : <input type="text" name="scred"><br>
+					Crédit : <input type="text" name="scred"><br>
 				</div>
 				<br>
-				<!-- en cliquant sur supprimer, Ã§a m'amÃ¨ne Ã  l'accueil non connectÃ© -->
+				<!-- en cliquant sur supprimer, ça m'amène à l'accueil non connecté -->
 				<div>
 					<input type="submit" value="Enregistrer">
 				</div>

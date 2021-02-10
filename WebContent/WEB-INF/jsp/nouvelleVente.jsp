@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1 UTF-8">
-<title>Nouvelle vente</title>
-</head>
-<body>
+
+<!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
+
 	<h1>Nouvelle vente</h1>
 
 	<!-- Création des catégories Article et Description -->

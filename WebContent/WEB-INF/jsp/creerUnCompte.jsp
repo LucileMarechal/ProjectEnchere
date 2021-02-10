@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<h1>ENI-Enchères</h1>
+
 	<div>
 		<div>
 			Identifiant : <input type="text" name="sid">

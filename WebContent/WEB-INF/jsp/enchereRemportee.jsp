@@ -1,14 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1 UTF-8">
-<title>Enchere RemportÃ©e</title>
-</head>
-<body>
+
+<!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
+
 <!-- Pseudo utilisateur a integrer -->
-	<h1>PseudoUtilisateur a remportÃ©e la vente</h1>
+	<h1>PseudoUtilisateur a remportée la vente</h1>
 	<form action="<%=request.getContextPath()%>//accueilAvecConnexion.html" method="get">
 	<div>
 		<label><a href="Nom de l'article"></a>Titre de l'article</label>
@@ -19,11 +14,11 @@
 	</div>
 	<br>
 	<div>
-		<label>Mise Ã Â  prix :</label>
+		<label>Mise à  prix :</label>
 	</div>
 	<br>
 	<div>
-		<label>Fin de l'enchÃ¨re :</label>
+		<label>Fin de l'enchère :</label>
 	</div>
 	<br>
 

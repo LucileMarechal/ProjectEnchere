@@ -7,7 +7,7 @@
 </head>
 <body>
 <!-- Test -->
-	<h1>ENI-Encheres</h1>
+	<h1>ENI-Enchères</h1>
 	<!-- HREF à FAIRE -->
 	<a href="<%=request.getContextPath()%>/SinscrireSeConnecter.html">S'inscrire - Se connecter</a>
 

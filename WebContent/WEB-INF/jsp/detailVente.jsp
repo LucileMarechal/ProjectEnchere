@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Détail de la vente</title>
-</head>
-<body>
+
+<!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
+
 	<h1>Détail vente</h1>
 	<div>
 		<label><a href="Nom de l'article"></a>Titre de l'article</label>

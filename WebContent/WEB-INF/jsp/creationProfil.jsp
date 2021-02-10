@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Cr√©ation profil</title>
-</head>
-<body>
+
+<!-- Fragment qui ramËne ‡ la page AccueilASansConnexion -->
+<%@ include file="../fragments/fragmentAccueilSansConnexion.jspf" %>
+
 	<h1>Mon profil</h1>
 	
 	<div>
@@ -16,11 +11,11 @@
 			</div>
 			<br>
 			<div>
-				Pr√©nom : <input type="text" name="sprenom"><br>
+				PrÈnom : <input type="text" name="sprenom"><br>
 			</div>
 			<br>
 			<div>
-				T√©l√©phone : <input type="text" name="stel"><br>
+				TÈlÈphone : <input type="text" name="stel"><br>
 			</div>
 			<br>
 			<div>
@@ -51,9 +46,9 @@
 				Confirmation : <input type="password" name="sconf"><br>
 			</div>
 			<br>
-			<!-- en appuyant sur cr√©er, on arrive √† la page d'accueil connect√© (liste ench√®res -->
+			<!-- en appuyant sur crÈer, on arrive ‡ la page d'accueil connectÈ (liste enchËres -->
 			<div>
-				<a href="<%= request.getContextPath()%>/accueilAvecConnexion.html"><input type="submit" value="Cr√©er"></a>
+				<a href="<%= request.getContextPath()%>/accueilAvecConnexion.html"><input type="submit" value="CrÈer"></a>
 			</div>
 			<br>
 			<div>
