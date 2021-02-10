@@ -17,16 +17,16 @@ public class DBConnexion {
 		try {
 			jndi = new InitialContext();
 		} catch (NamingException e) {
-			throw new DALException("Erreur d'accès au contexte initial JNDI", e);
+			throw new DALException("Erreur d'accÃ¨s au contexte initial JNDI", e);
 		}
 
 		try {
-			dsEnchere = (DataSource) jndi.lookup("java:comp/env/dsRepas");
+			dsEnchere = (DataSource) jndi.lookup("java:comp/env/dsEncheres");
 		} catch (NamingException e) {
 			throw new DALException("Objet est introuvable dans l'arbre JNDI", e);
 		}
 
-		//Obtention de la connexion à la BDD à partir de la dataSource
+		//Obtention de la connexion ï¿½ la BDD ï¿½ partir de la dataSource
 
 		try {
 			connection = dsEnchere.getConnection();
