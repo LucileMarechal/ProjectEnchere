@@ -11,7 +11,6 @@
 
 	<!-- Création des catégories Article et Description -->
 
-	<form action="<%= request.getContextPath() %>/creerUnCompte.html" method="post">
 		<div>
 			<label>Article</label> <input type="text">
 		</div>
@@ -50,15 +49,13 @@
 			<label for="debut">Début de l'enchère</label>
 		</div>
 		<input type="date" id="debut" name="date_debut" value="/ /">
-		</div>
 		<br>
 		<div>
 			<label for="fin">Fin de l'enchère</label>
 		</div>
 		<input type="date" id="debut" name="date_fin" value="/ /">
-		</div>
+
 		<br>
-	</form>
 	<br>
 
 	<!-- Partie retrait -->
@@ -81,12 +78,16 @@
 	</fieldset>
 	
 	<!--  Enregistrer ou Annuler -->
+
 	<div>
-		<br> <input type="submit" value="Enregistrer">
+	<a href="<%= request.getContextPath() %>/accueilAvecConnexion.html">
+		<input type="submit" value="Enregistrer">
+		</a>
 	</div>
 	<br>
 	<div>
-		<input type="submit" value="Annuler">
+	<a href="<%= request.getContextPath() %>/accueilAvecConnexion.html">
+		<input type="submit" value="Annuler"></a>
 	</div>
 	<!--  en fonction de la date de début d'enchere et la tete du jour, bouton "annuler la vente" -->
 
