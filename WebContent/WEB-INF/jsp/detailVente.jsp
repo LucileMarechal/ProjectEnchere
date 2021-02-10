@@ -2,7 +2,7 @@
 <!-- Fragment qui ramÃ¨ne Ã  la page AccueilAvecConnexion -->
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
-	<h1>DÃ©tail vente</h1>
+	<h1>Détail vente</h1>
 	<div>
 		<label><a href="Nom de l'article"></a>Titre de l'article</label>
 	</div>
@@ -12,7 +12,7 @@
 	</div>
 	<br>
 	<div>
-		<label><a href="categorie"></a>CatÃ©gorie :</label>
+		<label><a href="categorie"></a>Catégorie :</label>
 	</div>
 	<br>
 	<div>
@@ -20,11 +20,11 @@
 	</div>
 	<br>
 	<div>
-		<label>Mise Ã  prix :</label>
+		<label>Mise à prix :</label>
 	</div>
 	<br>
 	<div>
-		<label>Fin de l'enchÃ¨re :</label>
+		<label>Fin de l'enchère :</label>
 	</div>
 	<br>
 	<div>
@@ -43,10 +43,10 @@
 	<div>
 		<input type="submit" value="EnchÃ©rir">
 	</div>
-	<!-- Si l'action permettant d'enchÃ©rir a bien fonctionnÃ©e, 
-	ce sera la page d'accueil qui sera affichÃ©e avec un message du type 
-	"votre enchÃ¨re a bien Ã©tÃ© prise en compte". 
-	Si l'action permettant d'enchÃ©rir Ã©choue, on reste sur la page 
-	en cours et on affiche le message Ã  l'origine de l'erreur -->
+	<!-- Si l'action permettant d'enchérir a bien fonctionné, 
+	ce sera la page d'accueil qui sera affichée avec un message du type 
+	"votre enchère a bien été prise en compte". 
+	Si l'action permettant d'enchérir échoue, on reste sur la page 
+	en cours et on affiche le message à l'origine de l'erreur -->
 </body>
 </html>
