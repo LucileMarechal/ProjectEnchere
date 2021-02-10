@@ -41,7 +41,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="submit" value="EnchÃ©rir">
+		<input type="submit" value="Enchérir">
 	</div>
 	<!-- Si l'action permettant d'enchérir a bien fonctionné, 
 	ce sera la page d'accueil qui sera affichée avec un message du type 
