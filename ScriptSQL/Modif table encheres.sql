@@ -1,0 +1,1 @@
+ALTER TABLE ENCHERES ALTER COLUMN date_enchere date;

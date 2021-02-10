@@ -1,0 +1,1 @@
+ALTER TABLE CATEGORIES ALTER COLUMN libelle varchar(50);
