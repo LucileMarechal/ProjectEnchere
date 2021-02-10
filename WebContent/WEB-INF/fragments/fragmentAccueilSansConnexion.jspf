@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,4 +8,4 @@
 </head>
 <body>
 
-<h1> <a href="<%= request.getContextPath() %>/accueilAvecConnexion.html">ENI-Enchères</a></h1>
+<h1> <a href="<%= request.getContextPath() %>/accueil.html">ENI-Enchères</a></h1>

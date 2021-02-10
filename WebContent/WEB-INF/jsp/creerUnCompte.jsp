@@ -24,7 +24,7 @@
 			<input type="submit" value="Connexion">
 			</a>
 			<input type="checkbox" name="smemo" value="memo">Se souvenir de moi
-			<a href="/motDePasseOublié"><input type="button" value="Mot de passe oublié"></a>
+			<a href="<%= request.getContextPath() %>/ReinitialisationMdp.html"><input type="button" value="Mot de passe oublié"></a>
 		</div>	
 		<br>
 		<div>
@@ -33,5 +33,7 @@
 			</a>
 		</div>
 	</div>
+
+
 </body>
 </html>
