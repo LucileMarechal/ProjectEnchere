@@ -12,7 +12,7 @@ public class DBConnexion {
 	public static Connection seConnecter() throws DALException {
 		Connection connection = null;
 		InitialContext jndi = null;
-		DataSource dsEnchere = null;
+		DataSource dsEncheres = null;
 		
 		
 		
@@ -23,7 +23,7 @@ public class DBConnexion {
 		}
 
 		try {
-			dsEnchere = (DataSource) jndi.lookup("java:comp/env/dsEncheres");
+			dsEncheres = (DataSource) jndi.lookup("java:comp/env/dsEncheres");
 		} catch (NamingException e) {
 			throw new DALException("Objet est introuvable dans l'arbre JNDI", e);
 		}
@@ -31,7 +31,7 @@ public class DBConnexion {
 		//Obtention de la connexion � la BDD � partir de la dataSource
 
 		try {
-			connection = dsEnchere.getConnection();
+			connection = dsEncheres.getConnection();
 		} catch (SQLException e) {
 			throw new DALException("Impossible d'obtenir une connexion", e);
 		}
