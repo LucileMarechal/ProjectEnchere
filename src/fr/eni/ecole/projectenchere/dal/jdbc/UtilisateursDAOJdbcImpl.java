@@ -2,7 +2,9 @@ package fr.eni.ecole.projectenchere.dal.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
@@ -37,31 +39,59 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		}
 		
 		Connection connexion = DBConnexion.seConnecter();
+		PreparedStatement pstmt = null;
 		
 		try {
 			// désactivation de l'auto commit
 			connexion.setAutoCommit(false);
 			// insertion des utilisateurs et récupération de l'identity
-			PreparedStatement pstmt = connexion.prepareStatement(INSERT_UTILISATEUR, PreparedStatement.RETURN_GENERATED_KEYS);
+			pstmt = connexion.prepareStatement(INSERT_UTILISATEUR, Statement.RETURN_GENERATED_KEYS);
 			
+			// respecter ordre requête sql pour les paramètres 1, 2, 3...
+			pstmt.setString(1, utilisateur.getPseudo());
+			pstmt.setString(2, utilisateur.getNom());
+			pstmt.setString(3, utilisateur.getPrenom());
+			pstmt.setString(4, utilisateur.getEmail());
+			pstmt.setString(5, utilisateur.getTelephone());
+			pstmt.setString(6, utilisateur.getRue());
+			pstmt.setString(7, utilisateur.getCodePostal());
+			pstmt.setString(8, utilisateur.getVille());
+			pstmt.setString(9, utilisateur.getMotDePasse());
+			pstmt.setInt(10, utilisateur.getCredit());
+			pstmt.setBoolean(11, utilisateur.getAdministrateur());
 			
+			// exécution de la requête
+			pstmt.executeUpdate();
 			
+			// lecture de la clef primaire générée par la BDD
+			ResultSet rs = pstmt.getGeneratedKeys();
+			if (rs.next()) {
+				int no_utilisateur = rs.getInt(1);
+				utilisateur.setNoUtilisateur(no_utilisateur);
+			}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			pstmt.close();
+			// commit
+			connexion.commit();
+
 		} catch (SQLException e) {
-			throw new DALException(e.getMessage());
+			try {
+				connexion.rollback();
+			} catch (SQLException e1) {
+				throw new DALException(e1.getMessage());
+			}
+			throw new DALException(e.getMessage());	
+			
+		} finally {
+			try {
+				connexion.setAutoCommit(true);
+				connexion.close();
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage());
+			}
 		}
-		
-		
 	}
+
 
 
 	@Override
