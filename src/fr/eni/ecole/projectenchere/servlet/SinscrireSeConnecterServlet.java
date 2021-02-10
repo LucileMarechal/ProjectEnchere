@@ -2,7 +2,6 @@ package fr.eni.ecole.projectenchere.servlet;
 
 import java.io.IOException;
 
-import javax.el.ELException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
