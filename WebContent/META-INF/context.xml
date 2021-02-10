@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="ProjectEnchere"
+path="/ProjectEnchere"
+source="org.eclipse.jst.jee.server:ProjectEnchere">
+    <Resource
+        name="dsEnchere"       
+        driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        type="javax.sql.DataSource"
+        url="jdbc:sqlserver://127.0.0.1;databasename=ENCHERES"  
+        username="sa"
+        password="Pa$$w0rd"
+        maxTotal="100"
+        maxIdle="30" 
+        maxWaitMillis="10000"
+    />
+</Context>
+
+<!-- name = nom logique du pool de connexion
+driverClassName = pilote JDBC utilisé
+type = objet DataSource utilisé pour manipuler le pool de connexion
+url, username, password = informations d'accès à la BDD
+maxTotal = nombre maxi de connexions simultanées vers la BDD
+maxIdle = nombre maxi de connexions inactives dans le pool de connexion
+maxActive = nombre maxi de connexions qui peuvent être alouées depuis le pool
+acceptCount = nombre maxi de commandes en attente de connexion
+maxWaitMillis = durée maxi d'attente pour l'obtention d'une connexion (en millisecondes)
+removeAbandoned = activer la gestion des fuites de connexion
+removeAbandonedTimeOut = nombre de secondes pour passer d'une connexion inactive à abandonnée
+-->
+
