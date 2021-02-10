@@ -11,7 +11,7 @@
 	<h1>ENI-Encheres</h1>
 	<!-- HREF à FAIRE -->
 	<a href="<%=request.getContextPath()%>/NouvelleVente.html">Vendre un article</a>
-	<a href="#">  Mon profil</a>
+	<a href="<%=request.getContextPath()%>/profilUtilisateur.html">  Mon profil</a>
 	<a href="<%=request.getContextPath()%>/accueil.html">  Déconnexion </a>
 
 	<h2>Liste des enchères</h2>

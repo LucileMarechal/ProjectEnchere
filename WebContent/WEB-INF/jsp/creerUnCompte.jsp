@@ -23,7 +23,9 @@
 			</a>
 			<input type="checkbox" name="smemo" value="memo">Se souvenir de moi
 			<a href="/motDePasseOublié"><input type="button" value="Mot de passe oublié"></a>
-		<br>	
+		</div>	
+		<br>
+		<div>
 			<a href="<%= request.getContextPath() %>/creationProfil.html">
 			<input type="submit" value="Créer un compte">
 			</a>

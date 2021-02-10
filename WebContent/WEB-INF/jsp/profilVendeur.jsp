@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Profil utilisateur</title>
+<title>Profil vendeur</title>
 </head>
 <body>
 	<div>
@@ -40,11 +40,6 @@
 			Ville : <!-- request.getParameter("sville") -->
 		</div>
 		<br>
-		<div>
-			<a href="<%= request.getContextPath() %>/monProfil.html">
-			<input type="submit" value="Modifier">
-			</a>
-		</div>
 	</div>
 </body>
 </html>
