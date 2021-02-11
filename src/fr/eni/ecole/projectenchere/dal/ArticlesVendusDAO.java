@@ -4,8 +4,6 @@ import java.util.List;
 
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
 
-
-
 public interface ArticlesVendusDAO {
 	
 	public void insert(ArticleVendu articleVendu) throws DALException;

@@ -63,7 +63,6 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 				cnx.rollback();
 				throw new DALException("ROLLBACK");//je ne sais pas ce qui se passe dans ce cas
 			}
-
 		} catch (SQLException e) {
 			throw new DALException("Probleme sur la méthode ajouter INSERT_ARTICLES_VENDUS - "+e);
 		}finally {

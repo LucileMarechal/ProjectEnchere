@@ -15,8 +15,7 @@ public class DBConnexion {
 		InitialContext jndi = null;
 		DataSource dsEncheres = null;
 		
-		
-		
+
 		try {
 			jndi = new InitialContext();
 		} catch (NamingException e) {

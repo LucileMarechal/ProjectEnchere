@@ -13,6 +13,7 @@ public class ArticleVendu {
 	private Integer prixVente;
 	private Boolean etatVente;//j'ai un doute sur le Boolean
 
+	
 	//Constructeur 
 	public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
 			Date dateFinEncheres, Integer miseAprix, Integer prixVente, Boolean etatVente) {
