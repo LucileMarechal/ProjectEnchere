@@ -21,7 +21,10 @@
 		</div>
 		<br>
 		<div>
+			<form action="<%= request.getContextPath() %>/accueilAvecConnexion.html">
 			<button type="submit" class="btn btn-primary">Connexion</button><br>
+			</form>
+			
 			<input type="checkbox" name="smemo" value="memo">Se souvenir de moi
 			<a href="<%= request.getContextPath() %>/ReinitialisationMdp.html"><input type="button" value="Mot de passe oublié"></a>
 		</div>	
