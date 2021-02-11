@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
@@ -120,19 +121,22 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			
 			pstmt.executeUpdate();
 			
-			
+			pstmt.close();
+			// commit
+			connexion.commit();
+
 		} catch (SQLException e) {
-			throw new DALException("Erreur lors de l'update de l'utilisateur : " + utilisateur, e);
+			try {
+				connexion.rollback();
+			} catch (SQLException e1) {
+				throw new DALException("Erreur lors de l'update de l'utilisateur : " + utilisateur, e1);
+			}
+			throw new DALException("Erreur lors de l'update de l'utilisateur : " + utilisateur, e);	
+			
 		} finally {
-			try {	
-				if(pstmt != null) {
-					pstmt.close();
-				}
-				
-				if(connexion != null) {
-					connexion.close();
-				}
-				
+			try {
+				connexion.setAutoCommit(true);
+				connexion.close();
 			} catch (SQLException e) {
 				throw new DALException("Erreur lors de l'update de l'utilisateur : " + utilisateur, e);
 			}
@@ -199,19 +203,22 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			pstmt.executeUpdate();
 			
 			
+			pstmt.close();
+			// commit
+			connexion.commit();
+
 		} catch (SQLException e) {
-			throw new DALException("Erreur lors de la suppression de l'utilisateur : " + no_utilisateur, e);
+			try {
+				connexion.rollback();
+			} catch (SQLException e1) {
+				throw new DALException("Erreur lors de la suppression de l'utilisateur : " + no_utilisateur, e1);
+			}
+			throw new DALException("Erreur lors de la suppression de l'utilisateur : " + no_utilisateur, e);	
 			
 		} finally {
-			try {	
-				if(pstmt != null) {
-					pstmt.close();
-				}
-				
-				if(connexion != null) {
-					connexion.close();
-				}
-				
+			try {
+				connexion.setAutoCommit(true);
+				connexion.close();
 			} catch (SQLException e) {
 				throw new DALException("Erreur lors de la suppression de l'utilisateur : " + no_utilisateur, e);
 			}
@@ -228,7 +235,31 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		
 		Connection connexion = DBConnexion.seConnecter();
 		
-		
+		try {
+			pstmt = connexion.prepareStatement(SELECT_ALL_UTILISATEUR);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				Utilisateur utilisateur = null;
+				
+				utilisateur = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), 
+						rs.getString("prenom"),rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), 
+						rs.getString("code_postal"), rs.getString("ville"));
+				
+				if (listeUtilisateurs == null) {
+				listeUtilisateurs = new ArrayList<Utilisateur>();
+				}
+				
+				listeUtilisateurs.add(utilisateur);
+				
+			}
+
+			
+		} catch (SQLException e) {
+			throw new DALException("Erreur lors de la sélection de tous les utilisateurs : " +e);
+		} finally {
+			DBConnexion.seDeconnecter(connexion, pstmt);
+		}
 		
 		
 		
