@@ -10,7 +10,7 @@ public interface UtilisateursDAO {
 	
 	public void update(Utilisateur utilisateur) throws DALException;
 	
-	public void selectById(Integer no_utilisateur) throws DALException;
+	public Utilisateur selectById(Integer no_utilisateur) throws DALException;
 	
 	public void delete(Integer no_utilisateur) throws DALException;
 	

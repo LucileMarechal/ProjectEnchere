@@ -146,7 +146,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 
 
 	@Override
-	public void selectById(Integer no_utilisateur) throws DALException {
+	public Utilisateur selectById(Integer no_utilisateur) throws DALException {
 		Connection connexion = DBConnexion.seConnecter();
 		PreparedStatement pstmt = null;
 		Utilisateur utilisateur = null;
@@ -183,19 +183,25 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 				throw new DALException("Erreur lors de la sélection de l'utilisateur par son numéro : " + no_utilisateur, e);
 			}
 		}
-	
 		
-		
-		
-		
-//		"SELECT pseudo, nom, prenom, email, telephone, rue,"
-//		 		+ "code_postal, ville FROM Utilisateurs WHERE no_utilisateur = ?"
-		
+		return utilisateur;
+
 	}
 
 
 	@Override
 	public void delete(Integer no_utilisateur) throws DALException {
+		Connection connexion = DBConnexion.seConnecter();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}
