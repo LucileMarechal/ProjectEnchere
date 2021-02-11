@@ -17,9 +17,9 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 
 	public static final String PSEUDO = "pseudo" ;
 	public static final String NOM = "nom" ;
-	public static final String PRENOM = "prÈnom";
+	public static final String PRENOM = "pr√©nom";
 	public static final String EMAIL = "email";
-	public static final String TELEPHONE = "tÈlÈphone";
+	public static final String TELEPHONE = "t√©l√©phone";
 	public static final String RUE = "rue";
 	public static final String CODE_POSTAL = "code postal";
 	public static final String VILLE = "ville";
@@ -39,10 +39,10 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/jsp/creerUnCompte.jsp").forward(request, response);
 	} 
 
-	//Tratiement des donnÈes du formulaire
+	//Traitement des donn√©es du formulaire
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//rÈcupÈration des champs du formulaire
-		//Appel ‡ la mÈthode getParameter
+		//r√©cup√©ration des champs du formulaire
+		//Appel √† la m√©thode getParameter
 		String pseudo = request.getParameter(PSEUDO);
 		String nom = request.getParameter(NOM);
 		String prenom = request.getParameter(PRENOM);
@@ -71,6 +71,9 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 	private void validationPseudo(String pseudo) throws Exception {
 		if (pseudo == null) {
 			throw new Exception("Veuillez saisir un pseudo");
+			//le pseudo n'accepte que des caract√®res alphanum√©rique
+		}else if (pseudo != null && !pseudo.matches("[A-Za-z0-9_]+")){
+			throw new Exception("Le pseudo saisi n'est pas valide");
 		}
 	}
 
@@ -79,9 +82,9 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 	if (motDePasse != null && motDePasse.trim().length()!=0 
 			&& confirmation != null && confirmation.trim().length() != 0) {
 		if (!motDePasse.equals(confirmation)) {
-			throw new Exception("Les mots de passe entrÈs sont diffÈrents, merci de les saisir ‡ nouveau.");
+			throw new Exception("Les mots de passe entr√©s sont diff√©rents, merci de les saisir √† nouveau.");
 		}else if (motDePasse.trim().length() < 6) {
-			throw new Exception("Les mots de passe doivent contenir au moins 6 caractËres.");
+			throw new Exception("Les mots de passe doivent contenir au moins 6 caract√®res.");
 		}
 	}else {
 		throw new Exception("Merci de saisir et confirmer votre mot de passe.");
@@ -90,15 +93,16 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 
 	//valider adresse 
 	private void validationAdresse(String rue, String codePostal, String ville) {
-	//rue, ville et codePostal pas de caractere autreque lettre et nombre
+	//rue, ville et codePostal pas de caractere autre que lettre et nombre
 		//codePostale ne doit pas contenir plus de 5 chiffres et ne doit pas contenir autre chose que des chiffres
 	}
 
 	private void validationTelephone(String telephone) throws Exception {
 		if (telephone != null && telephone.trim().length()!= 0) {
-			if (telephone.trim().length()<10 && telephone.trim().length()<10) {
-				throw new Exception("Le numÈro de tÈlÈphone doit comporter au moins 10 nombre");
-			} // le tÈlÈphone ne doit pas comporter de lettre
+			if (telephone.trim().length()>10) {
+				throw new Exception("Le num√©ro de t√©l√©phone doit comporter au moins 10 chiffres");
+			} // le t√©l√©phone ne doit pas comporter de lettre ou de caract√®res
+			// le premier chiffre est toujours un 0
 			
 		}
 	
@@ -112,11 +116,14 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		}else {
 			throw new Exception("Merci de saisir une adresse mail.");
 		}
+		//si l'email existe d√©j√† le sp√©cifier
+		//v√©rifier si l'email existe deja dans la base de donn√©e
+		
 	}
-	//validation du prÈnom de l'utilisateur
+	//validation du pr√©nom de l'utilisateur
 	private void validationPrenom(String prenom) throws Exception {
 		if (prenom == null) {
-			throw new Exception("Veuillez saisir un prÈnom");
+			throw new Exception("Veuillez saisir un pr√©nom");
 		}
 
 	}
