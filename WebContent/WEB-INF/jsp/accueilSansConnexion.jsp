@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/theme/css/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/theme/css/bootstrap.css">
 <title>Accueil</title>
 </head>
 <body>
