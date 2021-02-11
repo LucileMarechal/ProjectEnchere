@@ -27,6 +27,9 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	
 	private static final String DELETE_ARTICLES_VENDUS ="DELETE FROM articles_vendus WHERE no_article=?";
 
+	/**
+	 * Cette méthode permet
+	 */
 	@Override
 	public void insert(ArticleVendu articleVendu) throws DALException {
 		Utilisateur utilisateur = new Utilisateur();

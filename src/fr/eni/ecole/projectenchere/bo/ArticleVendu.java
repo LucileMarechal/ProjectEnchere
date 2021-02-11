@@ -18,6 +18,22 @@ public class ArticleVendu {
 	public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
 			Date dateFinEncheres, Integer miseAprix, Integer prixVente, Boolean etatVente) {
 	}
+	
+	
+
+	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
+			Integer prixInitial, Integer prixVente) {
+
+		setNomArticle(nomArticle);
+		setDescription(description);
+		setDateDebutEncheres(dateDebutEncheres);
+		setDateFinEncheres(dateFinEncheres);
+		setPrixInitial(prixInitial);
+		setPrixVente(prixVente);
+		
+	}
+
+
 
 	//Getter et Setter
 
