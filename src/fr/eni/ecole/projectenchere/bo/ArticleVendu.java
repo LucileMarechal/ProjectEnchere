@@ -101,19 +101,31 @@ public class ArticleVendu {
 		this.etatVente = etatVente;
 	}
 
-	//Méthode toString
+
+
+	//Mï¿½thode toString
 	@Override
 	public String toString() {
-		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
-				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAprix="
-				+ prixInitial + ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("ArticleVendu [noArticle=");
+		builder.append(getNoArticle());
+		builder.append(", nomArticle=");
+		builder.append(getNomArticle());
+		builder.append(", description=");
+		builder.append(getDescription());
+		builder.append(", dateDebutEncheres=");
+		builder.append(getDateDebutEncheres());
+		builder.append(", dateFinEncheres=");
+		builder.append(getDateFinEncheres());
+		builder.append(", prixInitial=");
+		builder.append(getPrixInitial());
+		builder.append(", prixVente=");
+		builder.append(getPrixVente());
+		builder.append(", etatVente=");
+		builder.append(getEtatVente());
+		builder.append("]");
+		return builder.toString();
 	}
-
-
-
-
-
-
 
 
 }

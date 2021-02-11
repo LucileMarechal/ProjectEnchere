@@ -31,17 +31,19 @@ public class Enchere  {
 		this.montant_enchere = montant_enchere;
 	}
 
-	//Méthode toString
+	
+	//Mï¿½thode toString
 	@Override
 	public String toString() {
-		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Enchere [dateEnchere=");
+		builder.append(getDateEnchere());
+		builder.append(", montant_enchere=");
+		builder.append(getMontant_enchere());
+		builder.append("]");
+		return builder.toString();
 	}
-	
-	
-	
-	
-	
-	
+
 }
 
 

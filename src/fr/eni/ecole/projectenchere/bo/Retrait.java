@@ -36,15 +36,19 @@ public class Retrait {
 		this.ville = ville;
 	}
 
-	//Méthode public
 	@Override
 	public String toString() {
-		return "Retrait [rue=" + rue + ", code_postal=" + code_postal + ", ville=" + ville + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Retrait [rue=");
+		builder.append(getRue());
+		builder.append(", code_postal=");
+		builder.append(getCode_postal());
+		builder.append(", ville=");
+		builder.append(getVille());
+		builder.append("]");
+		return builder.toString();
 	}
-	
-	
-	
-	
-	
+
+
 	
 }

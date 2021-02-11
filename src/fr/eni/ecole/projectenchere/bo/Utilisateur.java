@@ -149,24 +149,37 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 
-	//M�thode ToString
 
 	@Override
 	public String toString() {
-		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
-				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
-				+ ", administrateur=" + administrateur + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Utilisateur [noUtilisateur=");
+		builder.append(getNoUtilisateur());
+		builder.append(", pseudo=");
+		builder.append(getPseudo());
+		builder.append(", nom=");
+		builder.append(getNom());
+		builder.append(", prenom=");
+		builder.append(getPrenom());
+		builder.append(", email=");
+		builder.append(getEmail());
+		builder.append(", telephone=");
+		builder.append(getTelephone());
+		builder.append(", rue=");
+		builder.append(getRue());
+		builder.append(", codePostal=");
+		builder.append(getCodePostal());
+		builder.append(", ville=");
+		builder.append(getVille());
+		builder.append(", motDePasse=");
+		builder.append(getMotDePasse());
+		builder.append(", credit=");
+		builder.append(getCredit());
+		builder.append(", administrateur=");
+		builder.append(getAdministrateur());
+		builder.append("]");
+		return builder.toString();
 	}
-
-
-
-
-
-
-
-
-
 
 
 

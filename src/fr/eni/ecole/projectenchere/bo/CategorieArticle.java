@@ -29,15 +29,18 @@ public class CategorieArticle {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-
-	//Méthode toString
+	
+	//Mï¿½thode toString
 	@Override
 	public String toString() {
-		return "CategorieArticle [noArticle=" + noCategorie + ", libelle=" + libelle + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("CategorieArticle [noCategorie=");
+		builder.append(getNoCategorie());
+		builder.append(", libelle=");
+		builder.append(getLibelle());
+		builder.append("]");
+		return builder.toString();
 	}
-	
-	
-
 
 
 }
