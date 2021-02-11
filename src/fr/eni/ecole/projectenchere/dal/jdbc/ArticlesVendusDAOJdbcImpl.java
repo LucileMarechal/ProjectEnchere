@@ -2,6 +2,7 @@ package fr.eni.ecole.projectenchere.dal.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -16,10 +17,14 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	
 	// constantes
 	// INSERT ARTICLES VENDUS : no_article auto incrÃ©mentÃ© : PK
-	private static final String INSERT_ARTICLES_VENDUS = "INSERT INTO articles_vendus(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
+	private static final String INSERT_ARTICLES_VENDUS = "INSERT INTO articles_vendus(nom_article, description, "
+			+ "date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 	
 	private static final String SELECT_ARTICLES_VENDUS = "SELECT no_article, nom_article, date_debut_encheres, date_fin_encheres, "
 			+ "prix_initial, prix_vente,no_utilisateur, no_categorie, no_retrait FROM ARTICLES_VENDUS";
+	
+	private static final String SELECT_BY_ID = "select no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, "
+			+ "prix_vente,no_utilisateur, no_categorie, no_retrait FROM articles_vendus where no_article = ?";
 	
 	private static final String UPDATE_ARTICLES_VENDUS ="UPDATE articles_vendus SET no_article=?, nom_article=?, date_debut_encheres=?, "
 			+ "date_fin_encheres=?, prix_initial=?, prix_vente,no_utilisateur=?, no_categorie=?, no_retrait=? WHERE no_article=?";
@@ -27,7 +32,8 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	private static final String DELETE_ARTICLES_VENDUS ="DELETE FROM articles_vendus WHERE no_article=?";
 
 	/**
-	 * Cette méthode permet
+	 * Cette méthode permet d'inserer un nouvel article en vente<br>
+	 * Avec l'id de l'utilisateur qui le met en vente et la catégorie de l'article
 	 */
 	@Override
 	public void insert(ArticleVendu articleVendu) throws DALException {
@@ -77,13 +83,48 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 
 	@Override
 	public void update(ArticleVendu articleVendu) throws DALException {
-		// TODO Auto-generated method stub
+
+		
 		
 	}
 
 	@Override
-	public void selectById(Integer no_article) throws DALException {
-		// TODO Auto-generated method stub
+	public ArticleVendu selectById(Integer no_article) throws DALException {
+		ResultSet rs=null;
+		ArticleVendu artVendu=null;
+		Connection cnx=null;
+		PreparedStatement pstmt=null;
+		
+		cnx = DBConnexion.seConnecter();
+		
+		try {
+			pstmt=cnx.prepareStatement(SELECT_BY_ID);
+			pstmt.setInt(1, no_article);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				artVendu = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), rs.getString("description"), rs.getDate("date_debut_encheres"), 
+						rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), 
+						rs.getInt("no_categorie"), rs.getInt("no_retrait"));
+			}
+
+		} catch (SQLException e) {
+			throw new DALException("Problème pendant le selectionById : "+e);
+		}finally {
+			try {	
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				
+				if(cnx != null) {
+					cnx.close();
+				}
+				
+			} catch (SQLException e) {
+				throw new DALException("Erreur lors de la sÃ©lection de l'utilisateur par son numÃ©ro : " + no_article, e);
+			}
+		}
+		
+		return artVendu;
 		
 	}
 

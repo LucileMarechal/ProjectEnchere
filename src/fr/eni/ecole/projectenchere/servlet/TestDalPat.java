@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
-import fr.eni.ecole.projectenchere.bo.Utilisateur;
+import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DALException;
+import fr.eni.ecole.projectenchere.dal.DAOFactory;
+import fr.eni.ecole.projectenchere.dal.UtilisateursDAO;
 import fr.eni.ecole.projectenchere.dal.jdbc.ArticlesVendusDAOJdbcImpl;
 
 /**
@@ -33,7 +35,25 @@ public class TestDalPat extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		ArticleVendu artVendu = new ArticleVendu();
+		ArticlesVendusDAO artVenduDAO = null;
+		
+		
+		try {
+			artVenduDAO = DAOFactory.getArticlesVendusDAO();
+			artVendu=artVenduDAO.selectById(10);
+			System.out.println(artVendu);
+			response.getWriter().append(artVendu.toString());
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		}
+		
+		
+		
 
+		/**
+		//Test insert
 		ArticlesVendusDAOJdbcImpl articleVenduDAO = new ArticlesVendusDAOJdbcImpl();
 		Utilisateur utilisateur = new Utilisateur();
 		
@@ -47,7 +67,7 @@ public class TestDalPat extends HttpServlet {
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	/**

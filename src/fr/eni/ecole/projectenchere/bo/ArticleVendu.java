@@ -11,14 +11,20 @@ public class ArticleVendu {
 	private Date dateFinEncheres;
 	private Integer prixInitial;
 	private Integer prixVente;
-	Utilisateur noUtilisateur;
-	CategorieArticle noCategorie;
-	Retrait retrait;
+	private Integer noUtilisateur;
+	private Integer noCategorie;
+	private Integer retrait;
 	
 	//Constructeur
+	
+	public ArticleVendu() {
+		super();
+	}
+	
+	
 	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
-			Integer prixInitial, Integer prixVente, Utilisateur noUtilisateur, CategorieArticle noCategorie,
-			Retrait retrait) {
+			Integer prixInitial, Integer prixVente, Integer noUtilisateur, Integer noCategorie,
+			Integer retrait) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -30,10 +36,45 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 		this.retrait = retrait;
 	}
+	
 
 
-
+		public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
+			Date dateFinEncheres, Integer prixInitial, Integer prixVente, Integer noUtilisateur,
+			Integer noCategorie, Integer retrait) {
+		super();
+		this.noArticle = noArticle;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
+		this.noUtilisateur = noUtilisateur;
+		this.noCategorie = noCategorie;
+		this.retrait = retrait;
+	}
+		
+		
+		public ArticleVendu(int int1, String string, String string2, Date date, Date date2, int int2, int int3,
+				int int4, int int5, int int6) {
+			this.noArticle = int1;
+			this.nomArticle = string;
+			this.description = string2;
+			this.dateDebutEncheres = date;
+			this.dateFinEncheres = date2;
+			this.prixInitial = int2;
+			this.prixVente = int3;
+			this.noUtilisateur = int4;
+			this.noCategorie = int5;
+			this.retrait = int6;
+			
+		}
+	
 	//Getter et Setter
+
+
+
 
 	public Integer getNoArticle() {
 		return noArticle;
@@ -94,37 +135,37 @@ public class ArticleVendu {
 	}
 
 
-	public Utilisateur getNoUtilisateur() {
+	public Integer getNoUtilisateur() {
 		return noUtilisateur;
 	}
 
 
 
-	public void setNoUtilisateur(Utilisateur noUtilisateur) {
+	public void setNoUtilisateur(Integer noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 
 
 
-	public CategorieArticle getNoCategorie() {
+	public Integer getNoCategorie() {
 		return noCategorie;
 	}
 
 
 
-	public void setNoCategorie(CategorieArticle noCategorie) {
+	public void setNoCategorie(Integer noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
 
 
-	public Retrait getRetrait() {
+	public Integer getRetrait() {
 		return retrait;
 	}
 
 
 
-	public void setRetrait(Retrait retrait) {
+	public void setRetrait(Integer retrait) {
 		this.retrait = retrait;
 	}
 
