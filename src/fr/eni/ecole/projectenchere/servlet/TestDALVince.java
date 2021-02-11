@@ -34,25 +34,39 @@ public class TestDALVince extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// tester de la méthode selectAll()
-		List<Utilisateur> utilisateurs = new ArrayList<>();
-		UtilisateursDAO utilisateursDAO = null;
-		String message = "";
+//		List<Utilisateur> utilisateurs = new ArrayList<>();
+//		UtilisateursDAO utilisateursDAO = null;
+//		String message = "";
+//		
+//		try {
+//			utilisateursDAO = DAOFactory.getUtilisateursDAO();
+//			utilisateurs = utilisateursDAO.selectAll();
+//			if (utilisateurs.isEmpty()) {
+//				message = "aucun utilisateur";
+//				response.getWriter().append(message);
+//			} else {
+//				response.getWriter().append(utilisateurs.toString());
+//			}
+//			
+//			
+//		} catch (DALException e) {
+//			response.getWriter().append(e.getMessage());
+//		}
+		
+		
+		// tester la méthode selectById()
+		Utilisateur utilisateur = new Utilisateur();
+		UtilisateursDAO utilisateurDAO2 = null;
 		
 		try {
-			utilisateursDAO = DAOFactory.getUtilisateursDAO();
-			utilisateurs = utilisateursDAO.selectAll();
-			if (utilisateurs.isEmpty()) {
-				message = "aucun utilisateur";
-				response.getWriter().append(message);
-			} else {
-				response.getWriter().append(utilisateurs.toString());
-			}
+			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
+			utilisateur = utilisateurDAO2.selectById(utilisateur.getNoUtilisateur());
 			
+			response.getWriter().append(utilisateur.toString());
 			
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
 		}
-		
 		
 		
 		
