@@ -7,18 +7,25 @@
 <title>Accueil</title>
 </head>
 <body>
-<!-- Test -->
-	<h1>ENI-Enchères</h1>
-	<!-- HREF à FAIRE -->
-	<a class="connexion" href="<%=request.getContextPath()%>/SinscrireSeConnecter.html">S'inscrire - Se connecter</a>
 
-	<h2 class="ListesEncheres">Liste des enchères</h2>
+<div class="row">
+  <div class="col-md-1 col-lg-8" class="text-left"><h1>ENI-Enchères</h1></div>
+  <div class="col-xs-6 col-lg-4"><a href="<%=request.getContextPath()%>/SinscrireSeConnecter.html">S'inscrire - Se connecter</a></div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 col-lg-4"></div>
+  <div class="col-lg-6 col-lg-4"><h2>Liste des enchères</h2></div>
+  <div class="col-lg-6 col-lg-4"></div>
+</div>
+
+	
 
 	<P>Filtres :</P>
 
 	<form action="" method="get">
 		<input type="search">
-		<button>RECHERCHE</button>
+		<button class="btn btn-success">RECHERCHE</button>
 	</form>
 
 	<!-- Catégorie avec liste déroulante -->
