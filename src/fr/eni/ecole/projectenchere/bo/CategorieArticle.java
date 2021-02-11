@@ -1,21 +1,25 @@
 package fr.eni.ecole.projectenchere.bo;
 
 public class CategorieArticle {
-	private Integer noArticle;
+	private Integer noCategorie;
 	private String libelle;
 
 	//Constructeur
 	public CategorieArticle(Integer noArticle, String libelle) {
 	}
-
+	public CategorieArticle() {
+		// TODO Auto-generated constructor stub
+	}
 	//Getter et Setter
 	
-	public Integer getNoArticle() {
-		return noArticle;
+
+
+	public Integer getNoCategorie() {
+		return noCategorie;
 	}
 
-	public void setNoArticle(Integer noArticle) {
-		this.noArticle = noArticle;
+	public void setNoCategorie(Integer noArticle) {
+		this.noCategorie = noArticle;
 	}
 
 	public String getLibelle() {
@@ -29,7 +33,7 @@ public class CategorieArticle {
 	//Méthode toString
 	@Override
 	public String toString() {
-		return "CategorieArticle [noArticle=" + noArticle + ", libelle=" + libelle + "]";
+		return "CategorieArticle [noArticle=" + noCategorie + ", libelle=" + libelle + "]";
 	}
 	
 	

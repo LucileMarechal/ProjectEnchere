@@ -9,7 +9,7 @@ public class ArticleVendu {
 	private String description;
 	private Date dateDebutEncheres;
 	private Date dateFinEncheres;
-	private Integer miseAprix;
+	private Integer prixInitial;
 	private Integer prixVente;
 	private Boolean etatVente;//j'ai un doute sur le Boolean
 
@@ -60,12 +60,12 @@ public class ArticleVendu {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 
-	public Integer getMiseAprix() {
-		return miseAprix;
+	public Integer getPrixInitial() {
+		return prixInitial;
 	}
 
-	public void setMiseAprix(Integer miseAprix) {
-		this.miseAprix = miseAprix;
+	public void setPrixInitial(Integer miseAprix) {
+		this.prixInitial = miseAprix;
 	}
 
 	public Integer getPrixVente() {
@@ -89,7 +89,7 @@ public class ArticleVendu {
 	public String toString() {
 		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
 				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAprix="
-				+ miseAprix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
+				+ prixInitial + ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
 	}
 
 

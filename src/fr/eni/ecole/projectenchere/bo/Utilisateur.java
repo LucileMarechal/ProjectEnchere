@@ -29,8 +29,14 @@ public class Utilisateur {
 			List<ArticleVendu> article) {
 
 	}
+	
+		public Utilisateur() {
+		// TODO Auto-generated constructor stub
+	}
 
 	//Getter et Setter
+
+
 
 	public Integer getNoUtilisateur() {
 		return noUtilisateur;
