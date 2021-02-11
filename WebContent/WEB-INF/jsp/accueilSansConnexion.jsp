@@ -3,15 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/theme/css/style.css">
 <title>Accueil</title>
 </head>
 <body>
 <!-- Test -->
 	<h1>ENI-Enchères</h1>
 	<!-- HREF à FAIRE -->
-	<a href="<%=request.getContextPath()%>/SinscrireSeConnecter.html">S'inscrire - Se connecter</a>
+	<a class="connexion" href="<%=request.getContextPath()%>/SinscrireSeConnecter.html">S'inscrire - Se connecter</a>
 
-	<h2>Liste des enchères</h2>
+	<h2 class="ListesEncheres">Liste des enchères</h2>
 
 	<P>Filtres :</P>
 
