@@ -58,13 +58,16 @@ public class TestDALVince extends HttpServlet {
 		
 		// tester la méthode selectById()
 		Utilisateur utilisateur = new Utilisateur();
+		Utilisateur utilisateur2 = new Utilisateur();
 		UtilisateursDAO utilisateurDAO2 = null;
 		
 		try {
 			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
 			utilisateur = utilisateurDAO2.selectById(18);
+			utilisateur2 = utilisateurDAO2.selectById(24);
 			
 			response.getWriter().append(utilisateur.toString());
+			response.getWriter().append(utilisateur2.toString());
 			
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
