@@ -1,7 +1,8 @@
 package fr.eni.ecole.projectenchere.bo;
 
 public class Retrait {
-
+	
+	private Integer noRetrait;
 	private String rue;
 	private String code_postal;
 	private String ville;
@@ -9,9 +10,12 @@ public class Retrait {
 	//Constructeur
 	public Retrait(String rue, String code_postal, String ville) {
 	}
+	
+	
 
 	//Getter et Setter
 	
+
 	public String getRue() {
 		return rue;
 	}
@@ -35,7 +39,16 @@ public class Retrait {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+	
+	public Integer getNoRetrait() {
+		return noRetrait;
+	}
 
+	public void setNoRetrait(Integer noRetrait) {
+		this.noRetrait = noRetrait;
+	}
+	
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

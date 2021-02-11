@@ -15,13 +15,10 @@ public class ArticleVendu {
 	CategorieArticle noCategorie;
 	Retrait retrait;
 	
-
-	
-	//Constructeur 
-
-	
+	//Constructeur
 	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
-			Integer prixInitial, Integer prixVente, Utilisateur noUtilisateur, CategorieArticle noCategorie) {
+			Integer prixInitial, Integer prixVente, Utilisateur noUtilisateur, CategorieArticle noCategorie,
+			Retrait retrait) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -31,6 +28,7 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
+		this.retrait = retrait;
 	}
 
 
@@ -93,6 +91,41 @@ public class ArticleVendu {
 
 	public void setPrixVente(Integer prixVente) {
 		this.prixVente = prixVente;
+	}
+
+
+	public Utilisateur getNoUtilisateur() {
+		return noUtilisateur;
+	}
+
+
+
+	public void setNoUtilisateur(Utilisateur noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
+	}
+
+
+
+	public CategorieArticle getNoCategorie() {
+		return noCategorie;
+	}
+
+
+
+	public void setNoCategorie(CategorieArticle noCategorie) {
+		this.noCategorie = noCategorie;
+	}
+
+
+
+	public Retrait getRetrait() {
+		return retrait;
+	}
+
+
+
+	public void setRetrait(Retrait retrait) {
+		this.retrait = retrait;
 	}
 
 

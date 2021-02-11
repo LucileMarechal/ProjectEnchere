@@ -37,8 +37,8 @@ public class TestDalPat extends HttpServlet {
 		ArticlesVendusDAOJdbcImpl articleVenduDAO = new ArticlesVendusDAOJdbcImpl();
 		Utilisateur utilisateur = new Utilisateur();
 		
-		
-		ArticleVendu aV1 = new ArticleVendu("Pat", "PatTest", Date.valueOf("2022-05-06"), Date.valueOf("2022-07-06") , 10, 50, utilisateur.getNoUtilisateur(), null);
+		//test à modifier avec une utilisateur et une catégorie
+		ArticleVendu aV1 = new ArticleVendu("Pat", "PatTest", Date.valueOf("2022-05-06"), Date.valueOf("2022-07-06") , 10, 50, utilisateur, null, null);
 		System.out.println("Visualisation article avant insertion : "+aV1);
 		
 		try {

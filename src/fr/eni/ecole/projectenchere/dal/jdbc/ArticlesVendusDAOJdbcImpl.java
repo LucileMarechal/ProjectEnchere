@@ -16,8 +16,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	
 	// constantes
 	// INSERT ARTICLES VENDUS : no_article auto incrémenté : PK
-	private static final String INSERT_ARTICLES_VENDUS = "INSERT INTO articles_vendus(nom_article, description, date_debut_enchere,"
-			+ "prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
+	private static final String INSERT_ARTICLES_VENDUS = "INSERT INTO articles_vendus(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 	
 	private static final String SELECT_ARTICLES_VENDUS = "SELECT no_article, nom_article, date_debut_encheres, date_fin_encheres, "
 			+ "prix_initial, prix_vente,no_utilisateur, no_categorie, no_retrait FROM ARTICLES_VENDUS";
@@ -32,8 +31,6 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	 */
 	@Override
 	public void insert(ArticleVendu articleVendu) throws DALException {
-		Utilisateur utilisateur = new Utilisateur();
-		CategorieArticle categorie = new CategorieArticle();
 		Connection cnx=null;
 		PreparedStatement pstmt=null;
 		int nbLigne=0;
@@ -56,8 +53,8 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 				pstmt.setInt(6, articleVendu.getPrixVente());
 			}
 			//*****************************************************
-			pstmt.setInt(7, utilisateur.getNoUtilisateur());
-			pstmt.setInt(8, categorie.getNoCategorie());
+			pstmt.setObject(7, articleVendu.getNoUtilisateur());
+			pstmt.setObject(8, articleVendu.getNoCategorie());
 			
 			nbLigne=pstmt.executeUpdate();
 			if (nbLigne==1) {
