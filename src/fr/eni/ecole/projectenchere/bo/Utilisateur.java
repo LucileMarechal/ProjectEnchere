@@ -30,8 +30,23 @@ public class Utilisateur {
 
 	}
 	
+
+		public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, String codePostal, String ville) {
+		setNoUtilisateur(noUtilisateur);
+		setPseudo(pseudo);
+		setNom(nom);
+		setPrenom(prenom);
+		setEmail(email);
+		setTelephone(telephone);
+		setRue(rue);
+		setCodePostal(codePostal);
+		setVille(ville);
+	}
+
+
 		public Utilisateur() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	//Getter et Setter
@@ -134,7 +149,7 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 
-	//Méthode ToString
+	//Mï¿½thode ToString
 
 	@Override
 	public String toString() {

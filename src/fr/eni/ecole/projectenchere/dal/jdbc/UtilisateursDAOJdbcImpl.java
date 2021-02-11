@@ -149,6 +149,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	public void selectById(Integer no_utilisateur) throws DALException {
 		Connection connexion = DBConnexion.seConnecter();
 		PreparedStatement pstmt = null;
+		Utilisateur utilisateur = null;
 		
 		
 		try {
@@ -159,9 +160,12 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			
 			ResultSet rs = pstmt.executeQuery();
 			
-			
-			
-			
+			if (rs.next()) {
+				utilisateur = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), 
+						rs.getString("prenom"),rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), 
+						rs.getString("code_postal"), rs.getString("ville"));
+			}
+
 			
 		} catch (SQLException e) {
 			throw new DALException("Erreur lors de la sélection de l'utilisateur par son numéro : " + no_utilisateur, e);
