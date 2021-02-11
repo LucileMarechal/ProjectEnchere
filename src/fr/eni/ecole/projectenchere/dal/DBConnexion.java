@@ -60,7 +60,5 @@ public class DBConnexion {
 		} catch (SQLException e1) {
 			throw new DALException("Impossible d'obtenir le PreparedStatement : "+e1.getMessage());
 		}
-		seDeconnecter(cnx);
-		
 	}
 }
