@@ -53,7 +53,10 @@ public class DBConnexion {
 
 	public static void seDeconnecter(Connection cnx, PreparedStatement pstmt) throws DALException {
 		try {
-			pstmt.close();
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			
 		} catch (SQLException e1) {
 			throw new DALException("Impossible d'obtenir le PreparedStatement : "+e1.getMessage());
 		}
