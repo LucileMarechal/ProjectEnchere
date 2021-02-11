@@ -85,7 +85,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 			throw new Exception("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
 		}else if (motDePasse.trim().length() < 6) {
 			throw new Exception("Les mots de passe doivent contenir au moins 6 caractères.");
-		}
+		} //doit-on définir la taille des champs
 	}else {
 		throw new Exception("Merci de saisir et confirmer votre mot de passe.");
 	}

@@ -47,8 +47,8 @@ public class DBConnexion {
 			}
 		} catch (SQLException e) {
 			throw new DALException("Impossible de fermer la connexion", e);
-		}
-		seDeconnecter(connection);
+		}		
+		
 	}
 
 	public static void seDeconnecter(Connection cnx, PreparedStatement pstmt) throws DALException {
