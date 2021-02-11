@@ -12,9 +12,9 @@ public interface ArticlesVendusDAO {
 	
 	public void update(ArticleVendu articleVendu) throws DALException;
 	
-	public void selectById(ArticleVendu articleVendu) throws DALException;
+	public void selectById(Integer no_article) throws DALException;
 	
-	public void delete(ArticleVendu articleVendu) throws DALException;
+	public void delete(Integer articleVendu) throws DALException;
 	
 	List<ArticleVendu> selectAll() throws DALException;
 

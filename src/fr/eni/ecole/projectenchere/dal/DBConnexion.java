@@ -1,6 +1,7 @@
 package fr.eni.ecole.projectenchere.dal;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.naming.InitialContext;
@@ -49,5 +50,15 @@ public class DBConnexion {
 			throw new DALException("Impossible de fermer la connexion", e);
 		}
 		seDeconnecter(connection);
+	}
+
+	public static void seDeconnecter(Connection cnx, PreparedStatement pstmt) throws DALException {
+		try {
+			pstmt.close();
+		} catch (SQLException e1) {
+			throw new DALException("Impossible d'obtenir le PreparedStatement : "+e1.getMessage());
+		}
+		seDeconnecter(cnx);
+		
 	}
 }
