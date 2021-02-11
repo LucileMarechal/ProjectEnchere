@@ -11,26 +11,26 @@ public class ArticleVendu {
 	private Date dateFinEncheres;
 	private Integer prixInitial;
 	private Integer prixVente;
-	private Boolean etatVente;//j'ai un doute sur le Boolean
+	Utilisateur noUtilisateur;
+	CategorieArticle noCategorie;
+	Retrait retrait;
+	
 
 	
 	//Constructeur 
-	public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
-			Date dateFinEncheres, Integer miseAprix, Integer prixVente, Boolean etatVente) {
-	}
-	
-	
 
+	
 	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
-			Integer prixInitial, Integer prixVente) {
-
-		setNomArticle(nomArticle);
-		setDescription(description);
-		setDateDebutEncheres(dateDebutEncheres);
-		setDateFinEncheres(dateFinEncheres);
-		setPrixInitial(prixInitial);
-		setPrixVente(prixVente);
-		
+			Integer prixInitial, Integer prixVente, Utilisateur noUtilisateur, CategorieArticle noCategorie) {
+		super();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
+		this.noUtilisateur = noUtilisateur;
+		this.noCategorie = noCategorie;
 	}
 
 
@@ -40,6 +40,8 @@ public class ArticleVendu {
 	public Integer getNoArticle() {
 		return noArticle;
 	}
+
+
 
 	public void setNoArticle(Integer noArticle) {
 		this.noArticle = noArticle;
@@ -93,14 +95,6 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 	}
 
-	public Boolean getEtatVente() {
-		return etatVente;
-	}
-
-	public void setEtatVente(Boolean etatVente) {
-		this.etatVente = etatVente;
-	}
-
 
 
 	//M�thode toString
@@ -121,8 +115,6 @@ public class ArticleVendu {
 		builder.append(getPrixInitial());
 		builder.append(", prixVente=");
 		builder.append(getPrixVente());
-		builder.append(", etatVente=");
-		builder.append(getEtatVente());
 		builder.append("]");
 		return builder.toString();
 	}
