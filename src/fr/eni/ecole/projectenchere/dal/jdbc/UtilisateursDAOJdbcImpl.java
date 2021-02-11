@@ -24,7 +24,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 		+ "email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?)"
 	 		+ "WHERE no_utilisateur = ?";
 	 
-	 private static final String SELECT_BY_ID_UTILISATEUR = "SELECT pseudo, nom, prenom, email, telephone, rue,"
+	 private static final String SELECT_BY_ID_UTILISATEUR = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue,"
 	 		+ "code_postal, ville FROM Utilisateurs WHERE no_utilisateur = ?";
 	
 	 private static final String DELETE_BY_ID_UTILISATEUR = "DELETE FROM Utilisateurs WHERE no_utilisateur = ?";
@@ -147,28 +147,24 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 
 	@Override
 	public Utilisateur selectById(Integer no_utilisateur) throws DALException {
+		ResultSet rs = null;
 		Connection connexion = DBConnexion.seConnecter();
 		PreparedStatement pstmt = null;
 		Utilisateur utilisateur = new Utilisateur();
 		
+		connexion = DBConnexion.seConnecter();
 		
 		try {
 		
 			pstmt = connexion.prepareStatement(SELECT_BY_ID_UTILISATEUR);
 			pstmt.setInt(1, no_utilisateur);
 			
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				if (no_utilisateur == utilisateur.getNoUtilisateur()) {
 					utilisateur = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), 
 						rs.getString("prenom"),rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), 
 						rs.getString("code_postal"), rs.getString("ville"));
-	
-				}
-					
-					
-				
 			}
 		
 			

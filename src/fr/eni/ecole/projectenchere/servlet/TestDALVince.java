@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ecole.projectenchere.bo.ArticleVendu;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
+import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DALException;
 import fr.eni.ecole.projectenchere.dal.DAOFactory;
 import fr.eni.ecole.projectenchere.dal.UtilisateursDAO;
@@ -60,17 +62,13 @@ public class TestDALVince extends HttpServlet {
 		
 		try {
 			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
-			utilisateur = utilisateurDAO2.selectById(utilisateur.getNoUtilisateur());
+			utilisateur = utilisateurDAO2.selectById(18);
 			
 			response.getWriter().append(utilisateur.toString());
 			
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
 		}
-		
-		
-		
-		
 	}
 
 	/**
