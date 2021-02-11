@@ -15,5 +15,7 @@ public interface ArticlesVendusDAO {
 	public void delete(Integer articleVendu) throws DALException;
 	
 	List<ArticleVendu> selectAll() throws DALException;
-
+	
+	List<ArticleVendu> selectByName();
+	
 }

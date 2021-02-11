@@ -32,6 +32,7 @@ public class TestDalPat extends HttpServlet {
     }
 
 	/**
+	 * Methode de test du CRUD sur les articles vendus
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,7 +58,7 @@ public class TestDalPat extends HttpServlet {
 		ArticlesVendusDAOJdbcImpl articleVenduDAO = new ArticlesVendusDAOJdbcImpl();
 		Utilisateur utilisateur = new Utilisateur();
 		
-		//test à modifier avec une utilisateur et une catégorie
+		//test ï¿½ modifier avec une utilisateur et une catï¿½gorie
 		ArticleVendu aV1 = new ArticleVendu("Pat", "PatTest", Date.valueOf("2022-05-06"), Date.valueOf("2022-07-06") , 10, 50, utilisateur, null, null);
 		System.out.println("Visualisation article avant insertion : "+aV1);
 		

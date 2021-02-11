@@ -32,8 +32,8 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	private static final String DELETE_ARTICLES_VENDUS ="DELETE FROM articles_vendus WHERE no_article=?";
 
 	/**
-	 * Cette méthode permet d'inserer un nouvel article en vente<br>
-	 * Avec l'id de l'utilisateur qui le met en vente et la catégorie de l'article
+	 * Cette methode permet d'inserer un nouvel article en vente<br>
+	 * avec l'id de l'utilisateur qui le met en vente et la categorie de l'article
 	 */
 	@Override
 	public void insert(ArticleVendu articleVendu) throws DALException {
@@ -51,7 +51,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			pstmt.setDate(3, articleVendu.getDateDebutEncheres());
 			pstmt.setDate(4, articleVendu.getDateFinEncheres());
 			
-			//Le prix pouvant être null je test s'il n'est pas null
+			//Le prix pouvant ï¿½tre null je test s'il n'est pas null
 			if (articleVendu.getPrixInitial()!=null) {
 				pstmt.setInt(5, articleVendu.getPrixInitial());
 			}
@@ -70,13 +70,13 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 				throw new DALException("ROLLBACK");//je ne sais pas ce qui se passe dans ce cas
 			}
 		} catch (SQLException e) {
-			throw new DALException("Probleme sur la méthode ajouter INSERT_ARTICLES_VENDUS - "+e);
+			throw new DALException("Probleme sur la mï¿½thode ajouter INSERT_ARTICLES_VENDUS - "+e);
 		}finally {
 			try {
 				cnx.setAutoCommit(true);
 				DBConnexion.seDeconnecter(cnx, pstmt);
 			} catch (SQLException e) {
-				throw new DALException("Probleme sur la déconnexion");
+				throw new DALException("Probleme sur la dï¿½connexion");
 			}
 		}
 	}
@@ -88,6 +88,9 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 		
 	}
 
+	/**
+	 * Cette methode permet de selectionner un article via sa PK no_article en BDD
+	 */
 	@Override
 	public ArticleVendu selectById(Integer no_article) throws DALException {
 		ResultSet rs=null;
@@ -108,7 +111,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			}
 
 		} catch (SQLException e) {
-			throw new DALException("Problème pendant le selectionById : "+e);
+			throw new DALException("Problï¿½me pendant le selectionById : "+e);
 		}finally {
 			try {	
 				if(pstmt != null) {
@@ -140,10 +143,9 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 		return null;
 	}
 
-
-	
-	
-	
-	
-
+	@Override
+	public List<ArticleVendu> selectByName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

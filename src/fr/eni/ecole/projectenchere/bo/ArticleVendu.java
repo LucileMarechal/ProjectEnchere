@@ -18,9 +18,8 @@ public class ArticleVendu {
 	//Constructeur
 	
 	public ArticleVendu() {
-		super();
+		
 	}
-	
 	
 	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
 			Integer prixInitial, Integer prixVente, Integer noUtilisateur, Integer noCategorie,
@@ -36,8 +35,6 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 		this.retrait = retrait;
 	}
-	
-
 
 		public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
 			Date dateFinEncheres, Integer prixInitial, Integer prixVente, Integer noUtilisateur,
@@ -54,8 +51,7 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 		this.retrait = retrait;
 	}
-		
-		
+
 		public ArticleVendu(int int1, String string, String string2, Date date, Date date2, int int2, int int3,
 				int int4, int int5, int int6) {
 			this.noArticle = int1;
@@ -73,14 +69,9 @@ public class ArticleVendu {
 	
 	//Getter et Setter
 
-
-
-
 	public Integer getNoArticle() {
 		return noArticle;
 	}
-
-
 
 	public void setNoArticle(Integer noArticle) {
 		this.noArticle = noArticle;
@@ -134,44 +125,31 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 	}
 
-
 	public Integer getNoUtilisateur() {
 		return noUtilisateur;
 	}
-
-
 
 	public void setNoUtilisateur(Integer noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 
-
-
 	public Integer getNoCategorie() {
 		return noCategorie;
 	}
-
-
 
 	public void setNoCategorie(Integer noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
-
-
 	public Integer getRetrait() {
 		return retrait;
 	}
-
-
 
 	public void setRetrait(Integer retrait) {
 		this.retrait = retrait;
 	}
 
-
-
-	//M�thode toString
+	//Methode toString
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
