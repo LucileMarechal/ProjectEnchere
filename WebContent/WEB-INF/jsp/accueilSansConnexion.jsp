@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="fr.eni.ecole.projectenchere.bo.ArticleVendu"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,6 +22,9 @@
   <div class="col-lg-6 col-lg-4"></div>
 </div>
 
+<%!
+
+%>
 	
 
 	<P>Filtres :</P>
@@ -42,6 +48,27 @@
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->	
 	<h3> Liste des enchères en cours à afficher</h3>
+	
+	<table>
+	<tr><th>Nom Article</th><th>Prix</th><th>Fin de lenchère</th><th>Vendeur</th></tr>
+	
+	<%
+	List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
+	for(ArticleVendu articleVendu : liste){
+%>
+	<tr>
+		<td><%=articleVendu.getNomArticle() %></td>
+		<td><%=articleVendu.getPrixInitial() %></td>
+		<td><%=articleVendu.getDateFinEncheres() %></td>
+		<td><%=articleVendu.getNoUtilisateur() %></td>
+	</tr>
+<%
+	}
+
+	%>
+	
+
+
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
 
 </body>

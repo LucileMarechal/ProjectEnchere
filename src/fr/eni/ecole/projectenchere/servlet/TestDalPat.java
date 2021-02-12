@@ -2,6 +2,8 @@ package fr.eni.ecole.projectenchere.servlet;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +39,30 @@ public class TestDalPat extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//test pour afficher tous les articles
+		List<ArticleVendu> artVendu = new ArrayList<>();
+		ArticlesVendusDAO artVenduDAO = null;
+		String message="";
+		
+		try {
+			artVenduDAO = DAOFactory.getArticlesVendusDAO();
+			artVendu = artVenduDAO.selectAll();
+			if (artVendu.isEmpty()) {
+				message = "aucun utilisateur";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(artVendu.toString());
+				
+			}
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		} 
+		
+
+		
+		
+		/*
+		//Test selection d'article par le numéro de l'article
 		ArticleVendu artVendu = new ArticleVendu();
 		ArticlesVendusDAO artVenduDAO = null;
 		
@@ -48,7 +74,7 @@ public class TestDalPat extends HttpServlet {
 			response.getWriter().append(artVendu.toString());
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
-		}
+		}*/
 		
 		
 		
@@ -76,6 +102,16 @@ public class TestDalPat extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	}
+	
+	private static void afficherArticles(List<ArticleVendu> art){
+		StringBuffer sb = new StringBuffer();
+		for (ArticleVendu a : art) {
+			sb.append(art.toString());
+			sb.append("\n");
+		}
+		System.out.println(sb.toString());
+		
 	}
 
 }

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
@@ -20,10 +22,10 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	private static final String INSERT_ARTICLES_VENDUS = "INSERT INTO articles_vendus(nom_article, description, "
 			+ "date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 	
-	private static final String SELECT_ARTICLES_VENDUS = "SELECT no_article, nom_article, date_debut_encheres, date_fin_encheres, "
-			+ "prix_initial, prix_vente,no_utilisateur, no_categorie, no_retrait FROM ARTICLES_VENDUS";
+	private static final String SELECT_ARTICLES_VENDUS = "SELECT no_article, nom_article,description, date_debut_encheres, date_fin_encheres, "
+			+ "prix_initial, prix_vente, no_utilisateur, no_categorie, no_retrait FROM articles_vendus";
 	
-	private static final String SELECT_BY_ID = "select no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, "
+	private static final String SELECT_BY_ID = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, "
 			+ "prix_vente,no_utilisateur, no_categorie, no_retrait FROM articles_vendus where no_article = ?";
 	
 	private static final String UPDATE_ARTICLES_VENDUS ="UPDATE articles_vendus SET no_article=?, nom_article=?, date_debut_encheres=?, "
@@ -111,7 +113,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			}
 
 		} catch (SQLException e) {
-			throw new DALException("Probl�me pendant le selectionById : "+e);
+			throw new DALException("Probleme pendant le selectionById : "+e);
 		}finally {
 			try {	
 				if(pstmt != null) {
@@ -123,7 +125,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 				}
 				
 			} catch (SQLException e) {
-				throw new DALException("Erreur lors de la sélection de l'utilisateur par son numéro : " + no_article, e);
+				throw new DALException("Erreur lors de la sélection de l'article par son numéro : " + no_article, e);
 			}
 		}
 		
@@ -137,10 +139,41 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 		
 	}
 
+	/**
+	 * Cette méthode permet de lister tous les articles de la table "articlesVendus" en vente
+	 */
 	@Override
 	public List<ArticleVendu> selectAll() throws DALException {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs=null;
+		Connection cnx=null;
+		PreparedStatement pstmt=null;
+		List<ArticleVendu> liste = null;
+		ArticleVendu artVendu = null;
+
+		try {
+			cnx = DBConnexion.seConnecter();
+			pstmt = cnx.prepareStatement(SELECT_ARTICLES_VENDUS);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				artVendu = new ArticleVendu(rs.getString("nom_article"), rs.getString("description"), rs.getDate("date_debut_encheres"), 
+						rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), 
+						rs.getInt("no_categorie"), rs.getInt("no_retrait"));
+				
+				if (liste == null) {
+					liste = new ArrayList<ArticleVendu>();
+				}
+				liste.add(artVendu);
+			}
+		 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBConnexion.seDeconnecter(cnx, pstmt);
+		}
+
+		return liste;
 	}
 
 	@Override

@@ -153,7 +153,7 @@ public class ArticleVendu {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ArticleVendu [noArticle=");
+		builder.append("ArticleVendu noArticle=");
 		builder.append(getNoArticle());
 		builder.append(", nomArticle=");
 		builder.append(getNomArticle());
