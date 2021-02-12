@@ -43,26 +43,25 @@
 	
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->	
-	<h3> Liste des enchères en cours à afficher</h3>
+	<h3> Liste des enchères en cours</h3>
 	
-	<table>
-	<tr><th>Nom Article</th><th>Prix</th><th>Fin de lenchère</th><th>Vendeur</th></tr>
+
 	
 	<%
 	List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
 	for(ArticleVendu articleVendu : liste){
 %>
-	
-	<tr >
-		<td><%=articleVendu.getNomArticle() %></td>
-		<td><%=articleVendu.getPrixInitial() %></td>
-		<td><%=articleVendu.getDateFinEncheres() %></td>
-		<td><%=articleVendu.getNoUtilisateur() %></td>
-	</tr>
-	
+	<div class="card">
+	<div class="card-body">
+	<h5 class="card-title"><%=articleVendu.getNomArticle()%></h5>
+	<p class="card-text">Prix : <%=articleVendu.getPrixInitial()%><br>
+						Date de fin d'enchère : <%=articleVendu.getDateFinEncheres()%><br>
+						Vendeur : <%=articleVendu.getNoUtilisateur()%></p>
+		
+	</div>
+	</div>
 <%}%>
-	</table>
-	
+
 	
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
