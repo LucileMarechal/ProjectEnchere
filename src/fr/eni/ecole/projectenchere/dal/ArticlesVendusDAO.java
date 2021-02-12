@@ -16,6 +16,8 @@ public interface ArticlesVendusDAO {
 	
 	List<ArticleVendu> selectAll() throws DALException;
 	
+	List<ArticleVendu> selectArticlePlusUtilisateur() throws DALException;
+	
 	List<ArticleVendu> selectByName();
 	
 }

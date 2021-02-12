@@ -39,14 +39,14 @@ public class TestDalPat extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//test pour afficher tous les articles
+		//test pour afficher tous les articles + utilisateurs
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticlesVendusDAO artVenduDAO = null;
 		String message="";
 		
 		try {
 			artVenduDAO = DAOFactory.getArticlesVendusDAO();
-			artVendu = artVenduDAO.selectAll();
+			artVendu = artVenduDAO.selectArticlePlusUtilisateur();
 			if (artVendu.isEmpty()) {
 				message = "aucun utilisateur";
 				response.getWriter().append(message);

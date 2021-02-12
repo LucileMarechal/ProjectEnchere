@@ -11,12 +11,15 @@ public class ArticleVendu {
 	private Date dateFinEncheres;
 	private Integer prixInitial;
 	private Integer prixVente;
+	private String pseudo;
 	private Integer noUtilisateur;
 	private Integer noCategorie;
 	private Integer retrait;
 	
 	//Constructeur
-	
+	/**
+	 * Constructeur de base #vide
+	 */
 	public ArticleVendu() {
 		
 	}
@@ -36,7 +39,7 @@ public class ArticleVendu {
 		this.retrait = retrait;
 	}
 
-		public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
+	public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
 			Date dateFinEncheres, Integer prixInitial, Integer prixVente, Integer noUtilisateur,
 			Integer noCategorie, Integer retrait) {
 		super();
@@ -52,7 +55,7 @@ public class ArticleVendu {
 		this.retrait = retrait;
 	}
 
-		public ArticleVendu(int int1, String string, String string2, Date date, Date date2, int int2, int int3,
+	public ArticleVendu(int int1, String string, String string2, Date date, Date date2, int int2, int int3,
 				int int4, int int5, int int6) {
 			this.noArticle = int1;
 			this.nomArticle = string;
@@ -64,10 +67,28 @@ public class ArticleVendu {
 			this.noUtilisateur = int4;
 			this.noCategorie = int5;
 			this.retrait = int6;
-			
 		}
+
+	
+	
 	
 	//Getter et Setter
+
+	public ArticleVendu(String nomArticle, Integer prixInitial, Date dateDebutEncheres,  String pseudo) {
+		super();
+		this.nomArticle = nomArticle;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.prixInitial = prixInitial;
+		this.pseudo = pseudo;
+	}
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
 
 	public Integer getNoArticle() {
 		return noArticle;

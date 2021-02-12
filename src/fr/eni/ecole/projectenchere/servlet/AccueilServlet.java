@@ -42,7 +42,7 @@ public class AccueilServlet extends HttpServlet {
 		
 		try {
 			artVenduDAO = DAOFactory.getArticlesVendusDAO();
-			artVendu = artVenduDAO.selectAll();
+			artVendu = artVenduDAO.selectArticlePlusUtilisateur();
 			if (artVendu.isEmpty()) {
 				message = "aucun utilisateur";
 				response.getWriter().append(message);

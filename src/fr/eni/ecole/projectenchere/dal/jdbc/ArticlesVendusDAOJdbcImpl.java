@@ -25,6 +25,10 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	private static final String SELECT_ARTICLES_VENDUS = "SELECT no_article, nom_article,description, date_debut_encheres, date_fin_encheres, "
 			+ "prix_initial, prix_vente, no_utilisateur, no_categorie, no_retrait FROM articles_vendus";
 	
+	private static final String SELECT_ARTICLE_PLUS_UTILISATEUR = "SELECT nom_article, prix_initial, date_debut_encheres, pseudo\r\n" + 
+			"FROM ARTICLES_VENDUS\r\n" + 
+			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur";
+	
 	private static final String SELECT_BY_ID = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, "
 			+ "prix_vente,no_utilisateur, no_categorie, no_retrait FROM articles_vendus where no_article = ?";
 	
@@ -175,10 +179,51 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 
 		return liste;
 	}
+	
+	/**
+	 * Inner join entre article et utilisateurs
+	 */
+	@Override
+	public List<ArticleVendu> selectArticlePlusUtilisateur() throws DALException {
+		
+		ResultSet rs=null;
+		Connection cnx=null;
+		PreparedStatement pstmt=null;
+		List<ArticleVendu> liste = null;
+		ArticleVendu artVendu = null;
+
+		try {
+			cnx = DBConnexion.seConnecter();
+			pstmt = cnx.prepareStatement(SELECT_ARTICLE_PLUS_UTILISATEUR);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				artVendu = new ArticleVendu(rs.getString("nom_article"), rs.getInt("prix_initial"), rs.getDate("date_debut_encheres"), rs.getString("pseudo"));
+				
+				
+				if (liste == null) {
+					liste = new ArrayList<ArticleVendu>();
+				}
+				liste.add(artVendu);
+			}
+		 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBConnexion.seDeconnecter(cnx, pstmt);
+		}
+
+		return liste;
+
+	}
+	
 
 	@Override
 	public List<ArticleVendu> selectByName() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 }
