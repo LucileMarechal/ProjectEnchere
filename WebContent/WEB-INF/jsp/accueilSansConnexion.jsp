@@ -7,6 +7,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/theme/css/bootstrap.css">
+<script src="<%= request.getContextPath() %>/javascript/js.js"></script>
 <title>Accueil</title>
 </head>
 <body>
