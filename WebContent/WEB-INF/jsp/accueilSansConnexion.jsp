@@ -22,11 +22,6 @@
   <div class="col-lg-6 col-lg-4"></div>
 </div>
 
-<%!
-
-%>
-	
-
 	<P>Filtres :</P>
 
 	<form action="" method="get">
@@ -56,19 +51,19 @@
 	List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
 	for(ArticleVendu articleVendu : liste){
 %>
-	<tr>
+	
+	<tr >
 		<td><%=articleVendu.getNomArticle() %></td>
 		<td><%=articleVendu.getPrixInitial() %></td>
 		<td><%=articleVendu.getDateFinEncheres() %></td>
 		<td><%=articleVendu.getNoUtilisateur() %></td>
 	</tr>
-<%
-	}
-
-	%>
 	
-
-
+<%}%>
+	</table>
+	
+	
+	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
 
 </body>
