@@ -3,32 +3,32 @@ package fr.eni.ecole.projectenchere.bo;
 import java.util.List;
 
 public class Utilisateur {
-	//Attributs d'instance
-	private Integer noUtilisateur;
-	private String pseudo;
-	private String nom;
-	private String prenom;
-	private String email;
-	private String telephone;
-	private String rue;
-	private String codePostal;
-	private String ville;
-	private String motDePasse;
-	private Integer credit;
-	private Boolean administrateur;
+		//Attributs d'instance
+		private Integer noUtilisateur;
+		private String pseudo;
+		private String nom;
+		private String prenom;
+		private String email;
+		private String telephone;
+		private String rue;
+		private String codePostal;
+		private String ville;
+		private String motDePasse;
+		private Integer credit;
+		private Boolean administrateur;
+	
+		//Un article aura un utilisateur
+		//Un utilisateur peut avoir plusieurs articles
+		//Liste d'article dans cette classe du coup ?
+		//List<ArticleVendu> article=null;
 
-	//Un article aura un utilisateur
-	//Un utilisateur peut avoir plusieurs articles
-	//Liste d'article dans cette classe du coup ?
-	//List<ArticleVendu> article=null;
 
-
-	//Constructeurs
-	public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, String codePostal, String ville, String motDePasse, Integer credit, Boolean administrateur,
-			List<ArticleVendu> article) {
-
-	}
+		//Constructeurs
+		public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+				String rue, String codePostal, String ville, String motDePasse, Integer credit, Boolean administrateur,
+				List<ArticleVendu> article) {
+	
+		}
 	
 
 		public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
@@ -42,12 +42,25 @@ public class Utilisateur {
 		setRue(rue);
 		setCodePostal(codePostal);
 		setVille(ville);
-	}
+		}
+		
+		public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone,
+				String rue, String codePostal, String ville) {
+		setPseudo(pseudo);
+		setNom(nom);
+		setPrenom(prenom);
+		setEmail(email);
+		setTelephone(telephone);
+		setRue(rue);
+		setCodePostal(codePostal);
+		setVille(ville);
+		}
+			
 
 
 		public Utilisateur() {
 		
-	}
+		}
 
 	//Getter et Setter
 

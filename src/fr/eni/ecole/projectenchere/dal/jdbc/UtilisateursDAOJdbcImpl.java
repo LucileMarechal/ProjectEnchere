@@ -31,6 +31,9 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 
 	 private static final String SELECT_ALL_UTILISATEUR = "SELECT no_utilisateur, pseudo, prenom, nom, email, telephone,"
 	 		+ "rue, code_postal, ville FROM Utilisateurs";
+	 
+//	 private static final String SELECT_BY_PSEUDO_UTILISATEUR = "SELECT pseudo, nom , prenom, email, telephone, rue, code_postal"
+//	 		+ "ville FROM Utilisateurs WHERE pseudo LIKE ?";
 
 	 
 	@Override
@@ -267,6 +270,50 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		
 		return listeUtilisateurs;
 	}
+
+
+
+//	@Override
+//	public Utilisateur selectByPseudo(String pseudo) throws DALException {
+//		ResultSet rs = null;
+//		Connection connexion = DBConnexion.seConnecter();
+//		PreparedStatement pstmt = null;
+//		Utilisateur utilisateur = new Utilisateur();
+//		
+//		connexion = DBConnexion.seConnecter();
+//		
+//		try {
+//			pstmt = connexion.prepareStatement(SELECT_BY_PSEUDO_UTILISATEUR);
+//			pstmt.setString(1, pseudo);
+//			
+//			rs = pstmt.executeQuery();
+//
+//			if (rs.next()) {
+//				utilisateur = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), rs.getString("prenom"), 
+//						rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), rs.getString("code_postal"), 
+//						rs.getString("ville"));
+//			}
+//
+//		} catch (SQLException e) {
+//			throw new DALException("Erreur lors de la sélection de l'utilisateur par son pseudo : " + pseudo, e);
+//			
+//		} finally {
+//			try {	
+//				if(pstmt != null) {
+//					pstmt.close();
+//				}
+//				
+//				if(connexion != null) {
+//					connexion.close();
+//				}
+//				
+//			} catch (SQLException e) {
+//				throw new DALException("Erreur lors de la sélection de l'utilisateur par son pseudo : " + pseudo, e);
+//			}
+//		}
+//		
+//		return utilisateur;
+//	}
 
 	 
 	 

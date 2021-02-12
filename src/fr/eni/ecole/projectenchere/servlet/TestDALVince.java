@@ -72,6 +72,19 @@ public class TestDALVince extends HttpServlet {
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
 		}
+		
+//		try {
+//			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
+//			utilisateur = utilisateurDAO2.selectByPseudo("Simba");
+//			utilisateur2 = utilisateurDAO2.selectByPseudo("Bob");
+//			
+//			response.getWriter().append(utilisateur.toString());
+//			response.getWriter().append(utilisateur2.toString());
+//			
+//		} catch (DALException e) {
+//			response.getWriter().append(e.getMessage());
+//		}
+//		
 	}
 
 	/**
