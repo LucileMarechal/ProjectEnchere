@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="java.util.List"%>
 <%@page import="fr.eni.ecole.projectenchere.bo.ArticleVendu"%>
 <%@page import="java.util.ArrayList"%>
@@ -44,24 +45,27 @@
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->	
 	<h3> Liste des enchères en cours</h3>
-	
-
-	
+		<div class="d-flex flex-wrap">
 	<%
-	List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
-	for(ArticleVendu articleVendu : liste){
-%>
-	<div class="card">
-	<div class="card-body">
-	<h5 class="card-title"><%=articleVendu.getNomArticle()%></h5>
-	<p class="card-text">Prix : <%=articleVendu.getPrixInitial()%><br>
-						Date de fin d'enchère : <%=articleVendu.getDateFinEncheres()%><br>
-						Vendeur : <%=articleVendu.getNoUtilisateur()%></p>
-		
-	</div>
-	</div>
+		List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
+		for(ArticleVendu articleVendu : liste){
+			String nom = articleVendu.getNomArticle();
+			int prix =articleVendu.getPrixInitial();
+			Date date = articleVendu.getDateFinEncheres();
+			int vendeur = articleVendu.getNoUtilisateur();
+			
+			%>
+			<div class="card border-primary m-1 p-1" style="max-width: 18rem;">
+			<div class="card-header"><%=nom %></div>
+			<img alt="#image" src="">
+			<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
+			<p class="card-text">Date de fin d'enchère : <%=date %> Vendeur : <%=vendeur %></p>
+			
+			</div>
+	
 <%}%>
-
+	
+		</div>
 	
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
