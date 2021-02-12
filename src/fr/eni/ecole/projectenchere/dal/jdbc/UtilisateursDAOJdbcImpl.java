@@ -13,6 +13,7 @@ import fr.eni.ecole.projectenchere.dal.DALException;
 import fr.eni.ecole.projectenchere.dal.DBConnexion;
 import fr.eni.ecole.projectenchere.dal.UtilisateursDAO;
 
+
 public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	
 	//Constantes
@@ -36,6 +37,9 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 //	 		+ "ville FROM Utilisateurs WHERE pseudo LIKE ?";
 
 	 
+	/**
+	 * Méthode permettant d'insérer un utilisateur
+	 */
 	@Override
 	public void insert(Utilisateur utilisateur) throws DALException {
 		// quand un utilisateur s'inscrit, un crédit de 100 lui est alloué -> à faire dans méthode
@@ -99,6 +103,9 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 
 
 
+	/**
+	 * Méthode permettant de mettre à jour le profil utilisateur
+	 */
 	@Override
 	public void update(Utilisateur utilisateur) throws DALException {
 		Connection connexion = DBConnexion.seConnecter();
@@ -148,6 +155,9 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	}
 
 
+	/**
+	 * Méthode permettant d'afficher le profil d'un utilisateur grace à son numéro d'utilisateur
+	 */
 	@Override
 	public Utilisateur selectById(Integer no_utilisateur) throws DALException {
 		ResultSet rs = null;
@@ -194,6 +204,9 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	}
 
 
+	/**
+	 * Méthode permettant de supprimer un utilisateur par rapport à son numéro d'utilisateur
+	 */
 	@Override
 	public void delete(Integer no_utilisateur) throws DALException {
 		Connection connexion = DBConnexion.seConnecter();
@@ -232,6 +245,9 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	}
 
 
+	/**
+	 * Méthode permettant d'afficher une liste d'utilisateurs
+	 */
 	@Override
 	public List<Utilisateur> selectAll() throws DALException {
 		List<Utilisateur> listeUtilisateurs = null;
