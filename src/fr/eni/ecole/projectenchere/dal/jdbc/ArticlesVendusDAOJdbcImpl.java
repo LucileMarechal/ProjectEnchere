@@ -186,7 +186,6 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	 */
 	@Override
 	public List<ArticleVendu> selectArticlePlusUtilisateur() throws DALException {
-		
 		ResultSet rs=null;
 		Connection cnx=null;
 		PreparedStatement pstmt=null;
@@ -209,14 +208,11 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			}
 		 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DALException("Pb"+e);
 		}finally {
 			DBConnexion.seDeconnecter(cnx, pstmt);
 		}
-
 		return liste;
-
 	}
 	
 

@@ -69,18 +69,18 @@ public class ArticleVendu {
 			this.retrait = int6;
 		}
 
-	
+	public ArticleVendu(String nomArticle, Integer prixInitial, Date dateFinEncheres,  String pseudo) {
+		super();
+		this.nomArticle = nomArticle;
+		this.dateFinEncheres = dateDebutEncheres;
+		this.prixInitial = prixInitial;
+		this.pseudo = pseudo;
+	}
 	
 	
 	//Getter et Setter
 
-	public ArticleVendu(String nomArticle, Integer prixInitial, Date dateDebutEncheres,  String pseudo) {
-		super();
-		this.nomArticle = nomArticle;
-		this.dateDebutEncheres = dateDebutEncheres;
-		this.prixInitial = prixInitial;
-		this.pseudo = pseudo;
-	}
+
 
 	public String getPseudo() {
 		return pseudo;
