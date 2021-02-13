@@ -27,8 +27,8 @@
 	<P>Filtres :</P>
 
 	<form action="" method="get">
-		<input type="search">
-		<button class="btn btn-success">RECHERCHE</button>
+		<input type="search" placeholder="Search" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
 	</form>
 
 	<!-- Catégorie avec liste déroulante -->
@@ -44,7 +44,6 @@
 	
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->	
-	<h3> Liste des enchères en cours</h3>
 		<div class="d-flex flex-wrap">
 	<%
 		List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
@@ -53,7 +52,6 @@
 			int prix =articleVendu.getPrixInitial();
 			Date date = articleVendu.getDateFinEncheres();
 			String vendeur = articleVendu.getPseudo();
-			
 			%>
 			<div class="card border-primary m-1 p-1" style="max-width: 18rem;">
 			<div class="card-header"><%=nom %></div>
@@ -61,9 +59,7 @@
 			<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
 			<p class="card-text">Date de fin d'enchère : <%=date %><br>
 			 Vendeur : <%=vendeur %></p>
-			
 			</div>
-	
 <%}%>
 	
 		</div>
