@@ -72,7 +72,7 @@ public class ArticleVendu {
 	public ArticleVendu(String nomArticle, Integer prixInitial, Date dateFinEncheres,  String pseudo) {
 		super();
 		this.nomArticle = nomArticle;
-		this.dateFinEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
 		this.prixInitial = prixInitial;
 		this.pseudo = pseudo;
 	}
