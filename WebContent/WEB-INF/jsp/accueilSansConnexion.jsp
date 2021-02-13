@@ -53,7 +53,7 @@
 			Date date = articleVendu.getDateFinEncheres();
 			String vendeur = articleVendu.getPseudo();
 			%>
-			<div class="card border-primary m-1 p-1" style="max-width: 18rem;">
+			<div class="card border-primary m-1 p-2" style="max-width: 18rem;">
 			<div class="card-header"><%=nom %></div>
 			<img alt="#image" src="">
 			<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
@@ -61,7 +61,6 @@
 			 Vendeur : <%=vendeur %></p>
 			</div>
 <%}%>
-	
 		</div>
 	
 	
