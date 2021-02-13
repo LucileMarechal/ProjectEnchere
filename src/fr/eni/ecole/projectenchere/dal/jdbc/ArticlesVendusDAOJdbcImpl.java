@@ -198,8 +198,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				artVendu = new ArticleVendu(rs.getString("nom_article"), rs.getInt("prix_initial"), 
-						rs.getDate("date_fin_encheres"), rs.getString("pseudo"));
+				artVendu = new ArticleVendu(rs.getString("nom_article"), rs.getInt("prix_initial"), rs.getDate("date_fin_encheres") , rs.getString("pseudo"));
 			
 				if (liste == null) {
 					liste = new ArrayList<ArticleVendu>();
