@@ -45,22 +45,22 @@
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->	
 		<div class="d-flex flex-wrap">
-	<%
-		List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
-		for(ArticleVendu articleVendu : liste){
-			String nom = articleVendu.getNomArticle();
-			int prix =articleVendu.getPrixInitial();
-			Date date = articleVendu.getDateFinEncheres();
-			String vendeur = articleVendu.getPseudo();
-			%>
-			<div class="card border-primary m-1 p-2" style="max-width: 18rem;">
-			<div class="card-header"><%=nom %></div>
-			<img alt="#image" src="">
-			<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
-			<p class="card-text">Date de fin d'enchère : <%=date %><br></p>
-			<a href="#"><%=vendeur %></a>
-			</div>
-<%}%>
+			<%
+			List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
+			for(ArticleVendu articleVendu : liste){
+				String nom = articleVendu.getNomArticle();
+				int prix =articleVendu.getPrixInitial();
+				Date date = articleVendu.getDateFinEncheres();
+				String vendeur = articleVendu.getPseudo();
+				%>
+				<div class="card border-primary m-1 p-2" style="max-width: 18rem;">
+				<div class="card-header"><%=nom %></div>
+				<img alt="#image" src="">
+				<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
+				<p class="card-text">Date de fin d'enchère : <%=date %><br></p>
+				<a href="#"><%=vendeur %></a>
+				</div>
+			<%}%>
 		</div>
 	
 	
