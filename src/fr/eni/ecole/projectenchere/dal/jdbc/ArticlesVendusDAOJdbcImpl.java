@@ -181,8 +181,11 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	}
 	
 	/**
-	 * Inner join entre article et utilisateurs<br>
-	 * Permettant le nom, prix initial, date de fin d'enchère et le pseudo associé
+	 *Méthode permettant de faire un Inner join entre article et utilisateurs et d'obtenir : <br>
+	 * le nom,<br>
+	 * prix initial,<br>
+	 * date de fin d'enchère<br>
+	 * et le pseudo associé
 	 */
 	@Override
 	public List<ArticleVendu> selectArticlePlusUtilisateur() throws DALException {
