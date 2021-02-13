@@ -170,27 +170,36 @@ public class ArticleVendu {
 		this.retrait = retrait;
 	}
 
-	//Methode toString
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ArticleVendu noArticle=");
-		builder.append(getNoArticle());
+		builder.append("noArticle=");
+		builder.append(noArticle);
 		builder.append(", nomArticle=");
-		builder.append(getNomArticle());
+		builder.append(nomArticle);
 		builder.append(", description=");
-		builder.append(getDescription());
+		builder.append(description);
 		builder.append(", dateDebutEncheres=");
-		builder.append(getDateDebutEncheres());
+		builder.append(dateDebutEncheres);
 		builder.append(", dateFinEncheres=");
-		builder.append(getDateFinEncheres());
+		builder.append(dateFinEncheres);
 		builder.append(", prixInitial=");
-		builder.append(getPrixInitial());
+		builder.append(prixInitial);
 		builder.append(", prixVente=");
-		builder.append(getPrixVente());
-		builder.append("]");
+		builder.append(prixVente);
+		builder.append(", pseudo=");
+		builder.append(pseudo);
+		builder.append(", noUtilisateur=");
+		builder.append(noUtilisateur);
+		builder.append(", noCategorie=");
+		builder.append(noCategorie);
+		builder.append(", retrait=");
+		builder.append(retrait);
+		builder.append("/n");
 		return builder.toString();
 	}
+
+
 
 
 }

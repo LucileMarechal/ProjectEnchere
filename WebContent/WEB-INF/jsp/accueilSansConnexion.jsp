@@ -52,7 +52,7 @@
 			String nom = articleVendu.getNomArticle();
 			int prix =articleVendu.getPrixInitial();
 			Date date = articleVendu.getDateFinEncheres();
-			int vendeur = articleVendu.getNoUtilisateur();
+			String vendeur = articleVendu.getPseudo();
 			
 			%>
 			<div class="card border-primary m-1 p-1" style="max-width: 18rem;">
