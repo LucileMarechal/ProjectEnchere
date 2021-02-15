@@ -39,6 +39,31 @@ public class TestDalPat extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		List<ArticleVendu> artVendu = new ArrayList<>();
+		ArticlesVendusDAO artVenduDAO = null;
+		String message="";
+		String motCle = "pat";
+		
+		try {
+			artVenduDAO = DAOFactory.getArticlesVendusDAO();
+			artVendu = artVenduDAO.selectByName(motCle);
+			if (artVendu.isEmpty()) {
+				message = "aucun utilisateur";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(artVendu.toString());
+				
+			}
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		
+		/*
 		//test pour afficher tous les articles + utilisateurs
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticlesVendusDAO artVenduDAO = null;
@@ -56,7 +81,7 @@ public class TestDalPat extends HttpServlet {
 			}
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
-		} 
+		} */
 		
 
 		

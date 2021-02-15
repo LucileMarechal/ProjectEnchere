@@ -26,8 +26,8 @@
 
 	<P>Filtres :</P>
 
-	<form action="" method="get">
-		<input type="search" placeholder="Search" aria-label="Search">
+	<form action="" method="post">
+		<input type="search" name="sRechercher" placeholder="Search" aria-label="Search">
 		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
 	</form>
 

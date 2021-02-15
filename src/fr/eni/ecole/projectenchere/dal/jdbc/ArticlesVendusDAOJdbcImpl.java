@@ -22,12 +22,18 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	private static final String INSERT_ARTICLES_VENDUS = "INSERT INTO articles_vendus(nom_article, description, "
 			+ "date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 	
-	private static final String SELECT_ARTICLES_VENDUS = "SELECT no_article, nom_article,description, date_debut_encheres, date_fin_encheres, "
+	private static final String SELECT_ARTICLES_VENDUS = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, "
 			+ "prix_initial, prix_vente, no_utilisateur, no_categorie, no_retrait FROM articles_vendus";
 	
 	private static final String SELECT_ARTICLE_PLUS_UTILISATEUR = "SELECT nom_article, prix_initial, date_fin_encheres, pseudo\r\n" + 
 			"FROM ARTICLES_VENDUS\r\n" + 
 			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur";
+	
+	private static final String SELECT_BY_MOT_CLE = "SELECT nom_article, prix_initial, date_fin_encheres, pseudo\r\n" + 
+			"FROM ARTICLES_VENDUS\r\n" + 
+			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur\r\n" + 
+			"where nom_article like ?";
+	
 	
 	private static final String SELECT_BY_ID = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, "
 			+ "prix_vente,no_utilisateur, no_categorie, no_retrait FROM articles_vendus where no_article = ?";
@@ -219,9 +225,35 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	
 
 	@Override
-	public List<ArticleVendu> selectByName() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ArticleVendu> selectByName(String motCle) throws DALException {
+		ResultSet rs=null;
+		Connection cnx=null;
+		PreparedStatement pstmt=null;
+		List<ArticleVendu> liste = new ArrayList<ArticleVendu>();
+		ArticleVendu artVendu = null;
+		
+		try {
+			cnx = DBConnexion.seConnecter();
+			pstmt = cnx.prepareStatement(SELECT_BY_MOT_CLE);
+			pstmt.setString(1, motCle);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+					artVendu = new ArticleVendu(rs.getString("nom_article"), rs.getInt("prix_initial"), 
+							rs.getDate("date_fin_encheres") , rs.getString("pseudo"));
+					if (liste == null) {
+						liste = new ArrayList<ArticleVendu>();
+					}
+					liste.add(artVendu);
+			}
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			throw new DALException("Erreur pendant le selectByName : " + e);
+		}
+		
+		return liste;
 	}
 
 

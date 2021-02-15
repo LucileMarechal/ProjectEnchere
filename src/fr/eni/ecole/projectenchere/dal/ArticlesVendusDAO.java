@@ -18,6 +18,6 @@ public interface ArticlesVendusDAO {
 	
 	List<ArticleVendu> selectArticlePlusUtilisateur() throws DALException;
 	
-	List<ArticleVendu> selectByName();
+	List<ArticleVendu> selectByName(String motCle) throws DALException;
 	
 }

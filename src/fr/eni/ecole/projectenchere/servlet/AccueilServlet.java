@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.jdt.internal.compiler.env.IModule.IService;
+
+import fr.eni.ecole.projectenchere.bll.ArticleVendusManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
 import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DALException;
@@ -37,13 +40,13 @@ public class AccueilServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<ArticleVendu> artVendu = new ArrayList<>();
-		ArticlesVendusDAO artVenduDAO = null;
+		ArticleVendusManager artVendu1 = new ArticleVendusManager();
 		String message="";
 		RequestDispatcher disp = null;
 		
 		try {
-			artVenduDAO = DAOFactory.getArticlesVendusDAO();
-			artVendu = artVenduDAO.selectArticlePlusUtilisateur();
+			
+			artVendu = artVendu1.ArticlesVendusManager().selectArticlePlusUtilisateur();
 			if (artVendu.isEmpty()) {
 				message = "aucun utilisateur";
 				response.getWriter().append(message);
@@ -64,6 +67,34 @@ public class AccueilServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		List<ArticleVendu> artVendu = new ArrayList<>();
+		ArticlesVendusDAO artVenduDAO = null;
+		String message="";
+		String motCle = "";
+		
+		if (request.getParameter("sRechercher").isEmpty() || request.getParameter("sRechercher")==null) {
+			
+		}
+		
+		
+		try {
+			artVenduDAO = DAOFactory.getArticlesVendusDAO();
+			artVendu = artVenduDAO.selectByName(motCle);
+			if (artVendu.isEmpty()) {
+				message = "aucun utilisateur";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(artVendu.toString());
+				
+			}
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		
 	}
 
