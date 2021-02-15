@@ -57,6 +57,9 @@ public class TestBLL extends HttpServlet {
 	Utilisateur newUser = new Utilisateur ("RACHOUCHOU", " ", "Green", "rachoupouetpouet@centralperk.com ", "03 45 85 25 62", 
  "26 boulevard des bicyles", "35000", "Rennes","tagadatsouin-tsouin", 100, false);
 	
+	
+	//fonctionne meme lorsqu'aucune donnée n'est rentrée
+	
 	try {
 		test.addUtilisateur(newUser);
 		newUser.toString();
