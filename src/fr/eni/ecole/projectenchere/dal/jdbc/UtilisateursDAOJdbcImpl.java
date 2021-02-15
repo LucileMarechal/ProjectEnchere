@@ -18,7 +18,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	
 	//Constantes
 	 private static final String INSERT_UTILISATEUR = "INSERT INTO Utilisateurs (pseudo, nom, prenom, email, "
-	 		+ "telephone, rue, code_postal, ville, mot_de_passe, credit)"
+	 		+ "telephone, rue, code_postal, ville, mot_de_passe)"
 	 		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	 private static final String UPDATE_UTILISATEUR = "UPDATE Utilisateurs SET (pseudo = ?, nom = ?, prenom = ?,"
