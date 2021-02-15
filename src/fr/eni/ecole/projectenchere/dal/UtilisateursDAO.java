@@ -14,6 +14,8 @@ public interface UtilisateursDAO {
 	
 	public void delete(Integer no_utilisateur) throws DALException;
 	
+	public Utilisateur getUserByEmail (String email) throws DALException;
+	
 	List<Utilisateur> selectAll() throws DALException;
 	
 	// public Utilisateur selectByPseudo(String pseudo) throws DALException;

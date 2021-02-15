@@ -286,6 +286,27 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		
 		return listeUtilisateurs;
 	}
+	
+	public Utilisateur getUserByEmail (String email) throws DALException {
+		
+		Utilisateur user = null;
+		Statement stmt = null;
+		Connection cnx = null;
+		ResultSet rs = null;
+		
+		cnx = DBConnexion.seConnecter();
+		try {
+			stmt = cnx.createStatement();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if (user == null) {
+			throw new DALException("Pas d'utilisateur creer en paramtre de methode selectByEmail");
+		}
+		
+		return null;//a modifier
+		
+	}
 
 
 
