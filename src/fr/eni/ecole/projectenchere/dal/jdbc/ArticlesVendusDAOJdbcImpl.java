@@ -29,7 +29,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			"FROM ARTICLES_VENDUS\r\n" + 
 			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur";
 	
-	private static final String SELECT_BY_MOT_CLE = "SELECT nom_article, prix_initial, date_fin_encheres, pseudo\r\n" + 
+	private static final String SELECT_BY_NAME = "SELECT nom_article, prix_initial, date_fin_encheres, pseudo\r\n" + 
 			"FROM ARTICLES_VENDUS\r\n" + 
 			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur\r\n" + 
 			"where nom_article like ?";
@@ -224,6 +224,9 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	}
 	
 
+	/**
+	 * Cette méthode permet de filtrer par mot clé sur nom de l'article
+	 */
 	@Override
 	public List<ArticleVendu> selectByName(String motCle) throws DALException {
 		ResultSet rs=null;
@@ -234,8 +237,8 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 		
 		try {
 			cnx = DBConnexion.seConnecter();
-			pstmt = cnx.prepareStatement(SELECT_BY_MOT_CLE);
-			pstmt.setString(1, motCle);
+			pstmt = cnx.prepareStatement(SELECT_BY_NAME);
+			pstmt.setString(1, "%"+motCle+"%");
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {

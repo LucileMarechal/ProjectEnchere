@@ -42,12 +42,12 @@ public class AccueilServlet extends HttpServlet {
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
 		String message="";
-		RequestDispatcher disp = null;
+		
 		
 		try {
 			artVendu = artVendu1.ArticlesVendusManager().selectArticlePlusUtilisateur();
 			if (artVendu.isEmpty()) {
-				message = "aucun utilisateur";
+				message = "Aucun Article";
 				response.getWriter().append(message);
 			}else {
 				response.getWriter().append(artVendu.toString());
@@ -69,11 +69,12 @@ public class AccueilServlet extends HttpServlet {
 		
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		RequestDispatcher disp = null;
 		String message="";
 		String motCle = "";
 		
 		if (request.getParameter("sRechercher").isEmpty() || request.getParameter("sRechercher")==null) {
-			doGet(request, response);
+			disp = request.getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp");
 		}else {
 			motCle = request.getParameter("sRechercher").trim().toUpperCase();
 		}
@@ -81,16 +82,13 @@ public class AccueilServlet extends HttpServlet {
 		try {
 			artVendu = artVendu1.ArticlesVendusManager().selectByName(motCle);
 			if (artVendu.isEmpty()) {
-				message = "aucun utilisateur";
+				message = "Aucun Article";
 				response.getWriter().append(message);
 			}else {
 				response.getWriter().append(artVendu.toString());
 				
 			}
 		} catch (DALException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 

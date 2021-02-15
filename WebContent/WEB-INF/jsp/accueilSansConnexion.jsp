@@ -33,13 +33,15 @@
 
 	<!-- Catégorie avec liste déroulante -->
 	<label>Catégorie : </label>
-	<select>
-		<option>Toutes</option>
-		<option>Informatique</option>
-		<option>Ameublement</option>
-		<option>Vêtement</option>
-		<option>Sport&#38;Loisirs</option>
-	</select>
+	<form method="post">
+		<select name="Catégorie">
+			<option>Toutes</option>
+			<option>Informatique</option>
+			<option>Ameublement</option>
+			<option>Vêtement</option>
+			<option>Sport&#38;Loisirs</option>
+		</select>
+	</form>
 	<hr>
 	
 	
