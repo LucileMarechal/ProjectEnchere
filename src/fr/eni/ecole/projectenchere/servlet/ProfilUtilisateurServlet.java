@@ -47,7 +47,7 @@ public class ProfilUtilisateurServlet extends HttpServlet {
 			
 			request.setAttribute("utilisateur", utilisateur);
 			
-			//response.getWriter().append("Utilisateur : " +utilisateur);
+			response.getWriter().append("Utilisateur : " +utilisateur);
 			
 			request.getRequestDispatcher("/WEB-INF/jsp/profilUtilisateur.jsp").forward(request, response);
 		} catch (DALException e) {
