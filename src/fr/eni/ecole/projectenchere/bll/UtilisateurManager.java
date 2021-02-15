@@ -81,24 +81,24 @@ public class UtilisateurManager {
 		boolean valide =  true;
 		StringBuffer sb = new StringBuffer();
 
-		if (u.getPseudo() == null) {
+		if (u.getPseudo().isEmpty() && u.getPseudo().trim().length()< 30) {
 			sb.append("Veuillez saisir un pseudo. \n");
 			valide = false;		
 		} else if (!u.getPseudo().matches("[A-Za-z0-9_]+")) {
 			sb.append("Le pseudo saisi n'est pas valide. \n");
 			valide = false;
 		}
-		if (u.getNom() == null) {
+		if (u.getNom().isEmpty()) {
 			sb.append("Veuillez saisir un nom \n");
 			valide = false;
-		}else if (u != null && u.getNom().trim().length()>30) {
+		}else if (u.getNom() != null && u.getNom().trim().length()>30) {
 			sb.append("Le nom ne doit pas dépasser 30 caractères \n");
 			valide = false;
 		}
-		if (u.getPrenom() == null) {
+		if (u.getPrenom().isEmpty()) {
 			sb.append("Veuillez saisir un prenom");
 			valide = false;
-		}else if (u != null && u.getPrenom().trim().length()>30) {
+		}else if (u.getPrenom() != null && u.getPrenom().trim().length()>30) {
 			sb.append("Le prenom ne doit pas dépasser 30 caractères");
 			valide = false;
 		}
@@ -107,7 +107,7 @@ public class UtilisateurManager {
 			sb.append("L'adresse mail ne doit pas dépasser 100 caractères\n");
 			valide = false;
 
-		}else if (u.getEmail() == null) {
+		}else if (u.getEmail().isEmpty()) {
 			sb.append("L'adresse mail doit être renseignée \n");
 			valide = false;
 			
@@ -121,7 +121,7 @@ public class UtilisateurManager {
 			}else if (!u.getTelephone().matches("\\+?[0-9][0-9][0-9]([0-9][0-9])+")) {
 				sb.append("Le numéro de téléphone saisi n'est pas valide \n");
 				valide = false;
-			}else if (u.getTelephone() == null) {
+			}else if (u.getTelephone().isEmpty()) {
 				sb.append("Le numéro de téléphone doit être renseigné \n");
 				valide = false;
 			}
@@ -135,14 +135,14 @@ public class UtilisateurManager {
 			if (u.getCodePostal() != null && u.getCodePostal().trim().length()>5) {
 				sb.append("Le code postal doit comporter 5 chiffres \n");
 				valide = false;
-			}else if (u.getCodePostal() == null) {
+			}else if (u.getCodePostal().isEmpty()) {
 				sb.append("Veuillez saisir un code postal \n");
 				valide = false;
 			}
 			if (u.getVille() != null && u.getVille().length()>30) {
 				sb.append("Merci de saisir un nom de ville valide \n");
 				valide = false;
-			}else if (u.getVille() == null) {
+			}else if (u.getVille().isEmpty()) {
 				sb.append("Merci de saisir un nom de ville \n ");
 				valide = false;
 			}

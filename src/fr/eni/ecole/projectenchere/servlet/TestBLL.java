@@ -40,17 +40,32 @@ public class TestBLL extends HttpServlet {
 		e.printStackTrace();
 	}*/
 	
-	Utilisateur utilisateur = new Utilisateur("Bambi", "Bambi", "Bambo", "bambi@gmail.com", "0123456789", "4 rue des coquelicots",
-			 "14200", "Foret", "bonjour", 100, false);
+	//Nouvel utilisateur : fonctionne
+//	Utilisateur utilisateur = new Utilisateur("Bambi", "Bambi", "Bambo", "bambi@gmail.com", "0123456789", "4 rue des coquelicots",
+//			 "14200", "Foret", "bonjour", 100, false);
+//	try {
+//		test.addUtilisateur(utilisateur);
+//		utilisateur.toString();
+//	} catch (BLLException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 	
+	
+	
+	//Test utilisateur déjà existant
+	Utilisateur newUser = new Utilisateur ("RACHOUCHOU", " ", "Green", "rachoupouetpouet@centralperk.com ", "03 45 85 25 62", 
+ "26 boulevard des bicyles", "35000", "Rennes","tagadatsouin-tsouin", 100, false);
 	
 	try {
-		test.addUtilisateur(utilisateur);
-		utilisateur.toString();
+		test.addUtilisateur(newUser);
+		newUser.toString();
 	} catch (BLLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	
+	
 	
 	
 	
