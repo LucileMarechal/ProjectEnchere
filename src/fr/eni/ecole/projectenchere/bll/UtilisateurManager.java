@@ -28,20 +28,20 @@ public class UtilisateurManager {
 	 * @throws DALException 
 	 * @throws BLLException
 	 */
-	public void addUtilisateur(Utilisateur newUtilisateur) throws BLLException {
+//	public void addUtilisateur(Utilisateur newUtilisateur) throws BLLException {
 		//Vérifier que le mail n'hésite pas déjà
 	//faire appel à la methode getEmail de la UtilisateurDAOjdbcImpl
 	
-		if(newUtilisateur.getEmail()!=null) {
-			throw new BLLException("Cet email existe déjà");
-		}
-		try {
-			validerUtilisateur(newUtilisateur);
-			daoUtilisateur.insert(newUtilisateur);
-		} catch (DALException e) {
-			throw new BLLException("Echec addUtilisateur", e);
-		}
-	}
+//		if(newUtilisateur.getEmail()!=null) {
+//			throw new BLLException("Cet email existe déjà");
+//		}
+//		try {
+//			validerUtilisateur(newUtilisateur);
+//			daoUtilisateur.insert(newUtilisateur);
+//		} catch (DALException e) {
+//			throw new BLLException("Echec addUtilisateur", e);
+//		}
+//	}
 	
 	//vérification email 
 	public Utilisateur validerEmail(String email) {

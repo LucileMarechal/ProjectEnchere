@@ -33,6 +33,9 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 private static final String SELECT_ALL_UTILISATEUR = "SELECT no_utilisateur, pseudo, prenom, nom, email, telephone,"
 	 		+ "rue, code_postal, ville FROM Utilisateurs";
 	 
+	 private static final String GET_USER_BY_EMAIL ="SELECT pseudo, nom , prenom, email, telephone, rue, code_postal"
+			 	+ "ville FROM Utilisateurs WHERE email LIKE ?";
+	 
 //	 private static final String SELECT_BY_PSEUDO_UTILISATEUR = "SELECT pseudo, nom , prenom, email, telephone, rue, code_postal"
 //	 		+ "ville FROM Utilisateurs WHERE pseudo LIKE ?";
 
@@ -288,23 +291,44 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	}
 	
 	public Utilisateur getUserByEmail (String email) throws DALException {
-		
-		Utilisateur user = null;
 		Statement stmt = null;
 		Connection cnx = null;
 		ResultSet rs = null;
 		
-		cnx = DBConnexion.seConnecter();
 		try {
-			stmt = cnx.createStatement();
-		}catch (SQLException e) {
-			e.printStackTrace();
+			cnx = DBConnexion.seConnecter();
+			stmt = cnx.prepareStatement(GET_USER_BY_EMAIL);
+			rs = stmt.executeQuery(email);
+			Utilisateur user = null;
+			
+			if (rs.next()) {
+				user = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), 
+					rs.getString("prenom"),rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), 
+					rs.getString("code_postal"), rs.getString("ville"));
 		}
-		if (user == null) {
-			throw new DALException("Pas d'utilisateur creer en paramtre de methode selectByEmail");
+	
+	} catch (SQLException e) {
+		throw new DALException("Erreur lors de la sélection de l'utilisateur par son email : " + email, e);
+		
+	} finally {
+		try {	
+			if(stmt != null) {
+				stmt.close();
+			}
+			
+			if(cnx != null) {
+				cnx.close();
+			}
+			
+		} catch (SQLException e) {
+			throw new DALException("Erreur lors de la sélection de l'utilisateur par son email : " + email, e);
 		}
 		
-		return null;//a modifier
+	}
+		return null;// a modifier...
+		
+	
+	
 		
 	}
 
