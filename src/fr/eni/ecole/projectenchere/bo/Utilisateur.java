@@ -24,10 +24,19 @@ public class Utilisateur {
 
 
 		//Constructeurs
-		public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-				String rue, String codePostal, String ville, String motDePasse, Integer credit, Boolean administrateur,
-				List<ArticleVendu> article) {
-	
+		public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone,
+				String rue, String codePostal, String ville, String motDePasse, Integer credit, Boolean administrateur) {
+			setPseudo(pseudo);
+			setNom(nom);
+			setPrenom(prenom);
+			setEmail(email);
+			setTelephone(telephone);
+			setRue(rue);
+			setCodePostal(codePostal);
+			setVille(ville);
+			setMotDePasse(motDePasse);
+			setCredit(credit);
+			setAdministrateur(administrateur);
 		}
 	
 

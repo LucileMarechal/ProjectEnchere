@@ -60,11 +60,11 @@ public class TestDALVince extends HttpServlet {
 //		Utilisateur utilisateur = new Utilisateur();
 //		Utilisateur utilisateur2 = new Utilisateur();
 		UtilisateursDAO utilisateurDAO2 = null;
-		
+//		
 //		try {
 //			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
 //			utilisateur = utilisateurDAO2.selectById(18);
-//			utilisateur2 = utilisateurDAO2.selectById(24);
+//			// utilisateur2 = utilisateurDAO2.getUserByEmail("harry_cover@gmail.com");
 //			
 //			response.getWriter().append(utilisateur.toString());
 //			response.getWriter().append(utilisateur2.toString());
@@ -75,7 +75,7 @@ public class TestDALVince extends HttpServlet {
 		
 	
 		Utilisateur u1 = new Utilisateur("Bambi", "Bambi", "Bambo", "bambi@gmail.com", "0123456789", "4 rue des coquelicots", 
-				"14200", "Foret", "bonjour");
+				"14200", "Foret", "bonjour", 100, false);
 		try {
 			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
 			utilisateurDAO2.insert(u1);

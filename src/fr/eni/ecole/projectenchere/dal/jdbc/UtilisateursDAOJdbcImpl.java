@@ -18,8 +18,8 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	
 	//Constantes
 	 private static final String INSERT_UTILISATEUR = "INSERT INTO Utilisateurs (pseudo, nom, prenom, email, "
-	 		+ "telephone, rue, code_postal, ville, mot_de_passe)"
-	 		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	 		+ "telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur)"
+	 		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	 private static final String UPDATE_UTILISATEUR = "UPDATE Utilisateurs SET (pseudo = ?, nom = ?, prenom = ?,"
 	 		+ "email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?)"
@@ -34,7 +34,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 		+ "rue, code_postal, ville FROM Utilisateurs";
 	 
 	 private static final String GET_USER_BY_EMAIL ="SELECT pseudo, nom , prenom, email, telephone, rue, code_postal"
-			 	+ "ville FROM Utilisateurs WHERE email LIKE ?";
+			 	+ "ville FROM Utilisateurs WHERE email = ?";
 	 
 //	 private static final String SELECT_BY_PSEUDO_UTILISATEUR = "SELECT pseudo, nom , prenom, email, telephone, rue, code_postal"
 //	 		+ "ville FROM Utilisateurs WHERE pseudo LIKE ?";
@@ -71,6 +71,8 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			pstmt.setString(7, utilisateur.getCodePostal());
 			pstmt.setString(8, utilisateur.getVille());
 			pstmt.setString(9, utilisateur.getMotDePasse());
+			pstmt.setInt(10, utilisateur.getCredit());
+			pstmt.setBoolean(11, utilisateur.getAdministrateur());
 			
 			// exécution de la requête
 			pstmt.executeUpdate();
@@ -87,6 +89,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			connexion.commit();
 
 		} catch (SQLException e) {
+			e.printStackTrace();
 			try {
 				connexion.rollback();
 			} catch (SQLException e1) {
@@ -229,6 +232,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			connexion.commit();
 
 		} catch (SQLException e) {
+			e.printStackTrace();
 			try {
 				connexion.rollback();
 			} catch (SQLException e1) {
