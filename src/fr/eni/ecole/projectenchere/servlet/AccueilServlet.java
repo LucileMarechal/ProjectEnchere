@@ -74,7 +74,12 @@ public class AccueilServlet extends HttpServlet {
 		String motCle = "";
 		
 		if (request.getParameter("sRechercher").isEmpty() || request.getParameter("sRechercher")==null) {
-			disp = request.getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp");
+			try {
+				artVendu = artVendu1.ArticlesVendusManager().selectArticlePlusUtilisateur();
+			} catch (DALException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}else {
 			motCle = request.getParameter("sRechercher").trim().toUpperCase();
 		}
@@ -92,6 +97,8 @@ public class AccueilServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		
+		
 		
 		request.setAttribute("listeArticles", artVendu);
 

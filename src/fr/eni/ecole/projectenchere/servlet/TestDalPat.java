@@ -42,24 +42,19 @@ public class TestDalPat extends HttpServlet {
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticlesVendusDAO artVenduDAO = null;
 		String message="";
-		String motCle = "PAT";
+		int noCategorie = 2;
 		
-		try {
+		
 			artVenduDAO = DAOFactory.getArticlesVendusDAO();
-			artVendu = artVenduDAO.selectByName(motCle);
+			artVendu = artVenduDAO.selectByCategorie(noCategorie);
 			if (artVendu.isEmpty()) {
-				message = "aucun utilisateur";
+				message = "aucune Ctégorie";
 				response.getWriter().append(message);
 			}else {
 				response.getWriter().append(artVendu.toString());
 				
-			}
-		} catch (DALException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+		
 		} 
 		
 		

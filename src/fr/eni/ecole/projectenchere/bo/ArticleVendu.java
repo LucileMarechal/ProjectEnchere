@@ -16,6 +16,7 @@ public class ArticleVendu {
 	private Integer noCategorie;
 	private Integer retrait;
 	
+	
 	//Constructeur
 	/**
 	 * Constructeur de base #vide
@@ -70,7 +71,6 @@ public class ArticleVendu {
 		}
 
 	public ArticleVendu(String nomArticle, Integer prixInitial, Date dateFinEncheres,  String pseudo) {
-		super();
 		this.nomArticle = nomArticle;
 		this.dateFinEncheres = dateFinEncheres;
 		this.prixInitial = prixInitial;
@@ -78,7 +78,27 @@ public class ArticleVendu {
 	}
 	
 	
+	/**
+	 * Ce constructeur sert pour la selection par catégorie via le libelle
+	 * @param nomArticle
+	 * @param prixInitial
+	 * @param dateFinEncheres
+	 * @param pseudo
+	 * @param noCategorie
+	 */
+		public ArticleVendu(String nomArticle, int prixInitial, Date dateFinEncheres, String pseudo, int noCategorie) {
+		
+			this.nomArticle = nomArticle;
+			this.dateFinEncheres = dateFinEncheres;
+			this.prixInitial = prixInitial;
+			this.pseudo = pseudo;
+			this.noCategorie = noCategorie;
+	}
+	
+	
 	//Getter et Setter
+
+
 
 
 
@@ -169,11 +189,23 @@ public class ArticleVendu {
 	public void setRetrait(Integer retrait) {
 		this.retrait = retrait;
 	}
+	
+	
+	
+	
+
+	public Integer getLibelle() {
+		return noCategorie;
+	}
+
+	public void setLibelle(Integer noCategorie) {
+		this.noCategorie = noCategorie;
+	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("noArticle=");
+		builder.append("ArticleVendu [noArticle=");
 		builder.append(noArticle);
 		builder.append(", nomArticle=");
 		builder.append(nomArticle);
@@ -195,9 +227,14 @@ public class ArticleVendu {
 		builder.append(noCategorie);
 		builder.append(", retrait=");
 		builder.append(retrait);
-		builder.append("/n");
+		builder.append(", libelle=");
+		builder.append(noCategorie);
+		builder.append("]");
 		return builder.toString();
 	}
+
+
+	
 
 
 
