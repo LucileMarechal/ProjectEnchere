@@ -62,41 +62,52 @@ public class UtilisateurManager {
 		return null;
 
 
-	}  
+	} 
+	public void addUtilisateur(Utilisateur newUser) throws BLLException {
+		if (newUser.getNoUtilisateur()!=null) {
+			throw new BLLException("utilisateur déjà existant");
+		}
+		try {
+			validerUtilisateur(newUser);
+		daoUtilisateur.insert(newUser);
+		} catch (DALException e) {
+		throw new BLLException("Echec addUtilisateur", e);
+		}
+	}
+
+	private void validerUtilisateur(Utilisateur u) throws BLLException {
 	//vérifier les différents champs du formulaire 
-	private void validerUtilisateur(String pseudo, String nom, String prenom, 
-			String email, String telephone, String rue, String codePostal, 
-			String ville, String motDePasse, String confirmationMDP) throws BLLException
-	{
+	
+	
 		boolean valide =  true;
 		StringBuffer sb = new StringBuffer();
 
-		if (pseudo == null) {
+		if (u.getPseudo() == null) {
 			sb.append("Veuillez saisir un pseudo. \n");
 			valide = false;		
-		} else if (!pseudo.matches("[A-Za-z0-9_]+")) {
+		} else if (!u.getPseudo().matches("[A-Za-z0-9_]+")) {
 			sb.append("Le pseudo saisi n'est pas valide. \n");
 			valide = false;
 		}
-		if (nom == null) {
+		if (u.getNom() == null) {
 			sb.append("Veuillez saisir un nom \n");
 			valide = false;
-		}else if (nom != null && nom.trim().length()>30) {
+		}else if (u != null && u.getNom().trim().length()>30) {
 			sb.append("Le nom ne doit pas dépasser 30 caractères \n");
 			valide = false;
 		}
-		if (prenom == null) {
+		if (u.getPrenom() == null) {
 			sb.append("Veuillez saisir un prenom");
 			valide = false;
-		}else if (prenom != null && prenom.trim().length()>30) {
+		}else if (u != null && u.getPrenom().trim().length()>30) {
 			sb.append("Le prenom ne doit pas dépasser 30 caractères");
 			valide = false;
 		}
-		if (email != null && email.trim().length()>100)  {
-			if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")){
+		if (u.getEmail() != null && u.getEmail().trim().length()>100)  {
+			if (!u.getEmail().matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")){
 				sb.append("Merci de saisir une adresse mail valide.\n");
 				valide = false;
-			}else if (email == null) {
+			}else if (u.getEmail() == null) {
 				sb.append("L'adresse mail doit être renseignée \n");
 				valide = false;
 			}
@@ -104,37 +115,48 @@ public class UtilisateurManager {
 			sb.append("L'adresse mail ne doit pas dépasser 100 caractères\n");
 			valide = false;
 		}
-		if (telephone != null && telephone.trim().length()>10) {
+		if (u.getTelephone() != null && u.getTelephone().trim().length()>10) {
 			sb.append("Le numéro de téléphone doit comporter au moins 10 chiffres \n");
 			valide = false;
-		}else if (!telephone.matches("\\+?[0-9][0-9][0-9]([0-9][0-9])+")) {
+		}else if (!u.getTelephone().matches("\\+?[0-9][0-9][0-9]([0-9][0-9])+")) {
 			sb.append("Le numéro de téléphone saisi n'est pas valide \n");
 			valide = false;
-		}else if (telephone == null) {
+		}else if (u.getTelephone() == null) {
 			sb.append("Le numéro de téléphone doit être renseigné \n");
 			valide = false;
 		}
-		if (rue != null && rue.trim().length()>50) {
+		if (u.getRue() != null && u.getRue().trim().length()>50) {
 			sb.append("Merci de saisir un nom de rue valide \n");
 			valide = false;
-		}else if (rue == null) {
+		}else if (u.getRue() == null) {
 			sb.append("Merci de saisir un nom de rue \n ");
 			valide = false;
 		}
-		if (codePostal != null && codePostal.trim().length()>5) {
+		if (u.getCodePostal() != null && u.getCodePostal().trim().length()>5) {
 			sb.append("Le code postal doit comporter 5 chiffres \n");
 			valide = false;
-		}else if (codePostal == null) {
+		}else if (u.getCodePostal() == null) {
 			sb.append("Veuillez saisir un code postal \n");
 			valide = false;
 		}
-		if (ville != null && ville.trim().length()>30) {
+		if (u.getVille() != null && u.getVille().length()>30) {
 			sb.append("Merci de saisir un nom de ville valide \n");
 			valide = false;
-		}else if (ville == null) {
+		}else if (u.getVille() == null) {
 			sb.append("Merci de saisir un nom de ville \n ");
 			valide = false;
 		}
+		
+		if (!valide) {
+			throw new BLLException(sb.toString());
+		}
+	}
+	
+	public void motDePasse (String motDePasse, String confirmationMDP) throws BLLException {
+		
+		boolean valide =  true;
+		StringBuffer sb = new StringBuffer();
+		
 		if (motDePasse != null && motDePasse.trim().length()!=0 
 				&& confirmationMDP != null && confirmationMDP.trim().length() != 0) {
 			if (!motDePasse.equals(confirmationMDP)) {
@@ -153,6 +175,7 @@ public class UtilisateurManager {
 		}
 	}
 
+	
 }
 
 

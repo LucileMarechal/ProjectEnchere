@@ -28,24 +28,20 @@ public class TestBLL extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+	
+		UtilisateurManager usermgr = new UtilisateurManager();
+		UtilisateursDAO userDAO = null;
+		
+		//UtilisateurManager.add new utilisateur pseudo avec @
+		//utilisateur correct aussi 
+		
+		//tester exception si un mail existe déjà
+		
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Utilisateur user = new Utilisateur();
-		UtilisateursDAO userDAO = null;
 		
-		//tester exception si un mail existe déjà
-		userDAO = DAOFactory.getUtilisateursDAO();
-		try {
-			user = userDAO.getUserByEmail("fibiBouffait@gmail.com");
-				System.out.println(user);
-		} catch (DALException e) {
-			response.getWriter().append(e.getMessage());
-		}
-	
 		
 		
 		
