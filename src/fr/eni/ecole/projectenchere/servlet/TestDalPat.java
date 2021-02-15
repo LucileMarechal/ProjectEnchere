@@ -5,12 +5,14 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ecole.projectenchere.bll.ArticleVendusManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
 import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DALException;
@@ -121,6 +123,24 @@ public class TestDalPat extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<ArticleVendu> artVendu = new ArrayList<>();
+		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		RequestDispatcher disp = null;
+		String message="";
+		String motCle = "";
+		String test;
+		int noCategorie = 0;
+		
+		test = request.getParameter("Categorie") ;
+			noCategorie = Integer.parseInt(test) ;
+			
+			
+			artVendu = artVendu1.ArticlesVendusManager().selectByCategorie(noCategorie);
+			
+		
+		request.setAttribute("listeArticles", artVendu);
+
+		request.getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
 
 	}
 	

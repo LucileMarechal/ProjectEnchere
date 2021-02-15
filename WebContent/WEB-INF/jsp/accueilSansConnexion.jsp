@@ -26,22 +26,22 @@
 
 	<P>Filtres :</P>
 
-	<form action="" method="post">
+	<form action="<%=request.getContextPath()%>/accueil.html" method="post">
 		<input type="search" name="sRechercher" placeholder="Search" aria-label="Search">
 		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
 	</form>
 
 	<!-- Catégorie avec liste déroulante -->
 	<label>Catégorie : </label>
-	<form method="post">
-		<select name="Categorie">
+	<form action="<%=request.getContextPath()%>/Categorie.html" method="post">
+		<select name="Categorie" onchange="submit()">
 			<option value="0">Toutes</option>
 			<option value="1">Informatique</option>
 			<option value="2">Ameublement</option>
 			<option value="3">Vêtement</option>
 			<option value="4">Sport&#38;Loisirs</option>
 		</select>
-		
+		<!-- <button type="submit">valider</button> -->
 	</form>
 	<hr>
 	
