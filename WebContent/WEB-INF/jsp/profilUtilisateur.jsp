@@ -8,23 +8,15 @@
 <!-- mettre variable pseudo dans les <> -->
 <%!
 	Utilisateur utilisateur;
-	String pseudo = "";
 %>
 
 	<div>
 		<div>
-			Pseudo : 
-			
-			<%	if (request.getAttribute("monPseudo") != null) {
-					pseudo = (String) request.getAttribute("monPseudo");
-				} else {
-					pseudo = "non renseigné";
-				}
-			 %>
+			Pseudo : <%=request.getAttribute("pseudo") %>
 		</div>
 		<br>
 		<div>
-			Nom : <%=request.getAttribute("nom") %> 
+			Nom : <%=request.getAttribute("nom") %>
 		</div>
 		<br>
 		<div>

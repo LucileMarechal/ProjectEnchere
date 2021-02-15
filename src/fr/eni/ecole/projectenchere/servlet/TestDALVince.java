@@ -57,21 +57,37 @@ public class TestDALVince extends HttpServlet {
 		
 		
 		// tester la méthode selectById()
-		Utilisateur utilisateur = new Utilisateur();
-		Utilisateur utilisateur2 = new Utilisateur();
+//		Utilisateur utilisateur = new Utilisateur();
+//		Utilisateur utilisateur2 = new Utilisateur();
 		UtilisateursDAO utilisateurDAO2 = null;
 		
+//		try {
+//			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
+//			utilisateur = utilisateurDAO2.selectById(18);
+//			utilisateur2 = utilisateurDAO2.selectById(24);
+//			
+//			response.getWriter().append(utilisateur.toString());
+//			response.getWriter().append(utilisateur2.toString());
+//			
+//		} catch (DALException e) {
+//			response.getWriter().append(e.getMessage());
+//		}
+		
+	
+		Utilisateur u1 = new Utilisateur("Bambi", "Bambi", "Bambo", "bambi@gmail.com", "0123456789", "4 rue des coquelicots", 
+				"14200", "Foret", "bonjour");
 		try {
 			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
-			utilisateur = utilisateurDAO2.selectById(18);
-			utilisateur2 = utilisateurDAO2.selectById(24);
-			
-			response.getWriter().append(utilisateur.toString());
-			response.getWriter().append(utilisateur2.toString());
-			
+			utilisateurDAO2.insert(u1);
+			response.getWriter().append(u1.toString());
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
+		
 		}
+		
+		
+		
+		
 		
 //		try {
 //			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
@@ -85,6 +101,11 @@ public class TestDALVince extends HttpServlet {
 //			response.getWriter().append(e.getMessage());
 //		}
 //		
+		
+		
+		
+		
+		
 	}
 
 	/**
