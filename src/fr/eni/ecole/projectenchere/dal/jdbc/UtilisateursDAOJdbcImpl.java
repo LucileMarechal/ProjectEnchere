@@ -334,7 +334,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		}
 		
 	}
-		return user;
+		return user;// a modifier
 		
 	
 	
