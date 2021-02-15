@@ -42,7 +42,7 @@ public class TestDalPat extends HttpServlet {
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticlesVendusDAO artVenduDAO = null;
 		String message="";
-		String motCle = "pat";
+		String motCle = "PAT";
 		
 		try {
 			artVenduDAO = DAOFactory.getArticlesVendusDAO();

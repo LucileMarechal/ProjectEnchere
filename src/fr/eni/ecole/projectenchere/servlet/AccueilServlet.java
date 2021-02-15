@@ -45,7 +45,6 @@ public class AccueilServlet extends HttpServlet {
 		RequestDispatcher disp = null;
 		
 		try {
-			
 			artVendu = artVendu1.ArticlesVendusManager().selectArticlePlusUtilisateur();
 			if (artVendu.isEmpty()) {
 				message = "aucun utilisateur";
@@ -69,18 +68,18 @@ public class AccueilServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<ArticleVendu> artVendu = new ArrayList<>();
-		ArticlesVendusDAO artVenduDAO = null;
+		ArticleVendusManager artVendu1 = new ArticleVendusManager();
 		String message="";
 		String motCle = "";
 		
 		if (request.getParameter("sRechercher").isEmpty() || request.getParameter("sRechercher")==null) {
-			
+			doGet(request, response);
+		}else {
+			motCle = request.getParameter("sRechercher").trim().toUpperCase();
 		}
-		
-		
+				
 		try {
-			artVenduDAO = DAOFactory.getArticlesVendusDAO();
-			artVendu = artVenduDAO.selectByName(motCle);
+			artVendu = artVendu1.ArticlesVendusManager().selectByName(motCle);
 			if (artVendu.isEmpty()) {
 				message = "aucun utilisateur";
 				response.getWriter().append(message);
@@ -95,6 +94,10 @@ public class AccueilServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		
+		request.setAttribute("listeArticles", artVendu);
+
+		request.getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
 		
 	}
 
