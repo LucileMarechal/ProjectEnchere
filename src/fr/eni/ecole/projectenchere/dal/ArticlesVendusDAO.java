@@ -20,4 +20,8 @@ public interface ArticlesVendusDAO {
 	
 	List<ArticleVendu> selectByName(String motCle) throws DALException;
 	
-}
+	List<ArticleVendu> selectByCategorie(int noCategorie);
+	
+	}
+	
+
