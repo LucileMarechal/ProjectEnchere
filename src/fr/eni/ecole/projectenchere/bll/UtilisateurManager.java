@@ -103,78 +103,80 @@ public class UtilisateurManager {
 			valide = false;
 		}
 		if (u.getEmail() != null && u.getEmail().trim().length()>100)  {
-			if (!u.getEmail().matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")){
-				sb.append("Merci de saisir une adresse mail valide.\n");
-				valide = false;
-			}else if (u.getEmail() == null) {
-				sb.append("L'adresse mail doit être renseignée \n");
-				valide = false;
-			}
-		}else {
+			sb.append("Merci de saisir une adresse mail valide.\n");
 			sb.append("L'adresse mail ne doit pas dépasser 100 caractères\n");
 			valide = false;
-		}
-		if (u.getTelephone() != null && u.getTelephone().trim().length()>10) {
-			sb.append("Le numéro de téléphone doit comporter au moins 10 chiffres \n");
-			valide = false;
-		}else if (!u.getTelephone().matches("\\+?[0-9][0-9][0-9]([0-9][0-9])+")) {
-			sb.append("Le numéro de téléphone saisi n'est pas valide \n");
-			valide = false;
-		}else if (u.getTelephone() == null) {
-			sb.append("Le numéro de téléphone doit être renseigné \n");
-			valide = false;
-		}
-		if (u.getRue() != null && u.getRue().trim().length()>50) {
-			sb.append("Merci de saisir un nom de rue valide \n");
-			valide = false;
-		}else if (u.getRue() == null) {
-			sb.append("Merci de saisir un nom de rue \n ");
-			valide = false;
-		}
-		if (u.getCodePostal() != null && u.getCodePostal().trim().length()>5) {
-			sb.append("Le code postal doit comporter 5 chiffres \n");
-			valide = false;
-		}else if (u.getCodePostal() == null) {
-			sb.append("Veuillez saisir un code postal \n");
-			valide = false;
-		}
-		if (u.getVille() != null && u.getVille().length()>30) {
-			sb.append("Merci de saisir un nom de ville valide \n");
-			valide = false;
-		}else if (u.getVille() == null) {
-			sb.append("Merci de saisir un nom de ville \n ");
-			valide = false;
-		}
 
-		if (!valide) {
-			throw new BLLException(sb.toString());
-		}
-	}
+		}else if (u.getEmail() == null) {
+			sb.append("L'adresse mail doit être renseignée \n");
+			valide = false;
+			
+		}else if (!u.getEmail().matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")){
+			sb.append("Merci de saisir une adresse mail valide.\n");
+			valide = false;
 
-	public void motDePasse (String motDePasse, String confirmationMDP) throws BLLException {
-
-		boolean valide =  true;
-		StringBuffer sb = new StringBuffer();
-
-		if (motDePasse != null && motDePasse.trim().length()!=0 
-				&& confirmationMDP != null && confirmationMDP.trim().length() != 0) {
-			if (!motDePasse.equals(confirmationMDP)) {
-				sb.append("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
+			if (u.getTelephone() != null && u.getTelephone().trim().length()>10) {
+				sb.append("Le numéro de téléphone doit comporter au moins 10 chiffres \n");
 				valide = false;
-			}else if (motDePasse.trim().length() < 6) {
-				sb.append("Les mots de passe doivent contenir au moins 6 caractères.");
+			}else if (!u.getTelephone().matches("\\+?[0-9][0-9][0-9]([0-9][0-9])+")) {
+				sb.append("Le numéro de téléphone saisi n'est pas valide \n");
 				valide = false;
-			} //doit-on définir la taille des champs
-		}else {
-			sb.append("Merci de saisir et confirmer votre mot de passe.");
-			valide = false;
+			}else if (u.getTelephone() == null) {
+				sb.append("Le numéro de téléphone doit être renseigné \n");
+				valide = false;
+			}
+			if (u.getRue() != null && u.getRue().trim().length()>50) {
+				sb.append("Merci de saisir un nom de rue valide \n");
+				valide = false;
+			}else if (u.getRue() == null) {
+				sb.append("Merci de saisir un nom de rue \n ");
+				valide = false;
+			}
+			if (u.getCodePostal() != null && u.getCodePostal().trim().length()>5) {
+				sb.append("Le code postal doit comporter 5 chiffres \n");
+				valide = false;
+			}else if (u.getCodePostal() == null) {
+				sb.append("Veuillez saisir un code postal \n");
+				valide = false;
+			}
+			if (u.getVille() != null && u.getVille().length()>30) {
+				sb.append("Merci de saisir un nom de ville valide \n");
+				valide = false;
+			}else if (u.getVille() == null) {
+				sb.append("Merci de saisir un nom de ville \n ");
+				valide = false;
+			}
+
+			if (!valide) {
+				throw new BLLException(sb.toString());
+			}
 		}
-		if (!valide) {
-			throw new BLLException(sb.toString());
 		}
+
+		public void motDePasse (String motDePasse, String confirmationMDP) throws BLLException {
+
+			boolean valide =  true;
+			StringBuffer sb = new StringBuffer();
+
+			if (motDePasse != null && motDePasse.trim().length()!=0 
+					&& confirmationMDP != null && confirmationMDP.trim().length() != 0) {
+				if (!motDePasse.equals(confirmationMDP)) {
+					sb.append("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
+					valide = false;
+				}else if (motDePasse.trim().length() < 6) {
+					sb.append("Les mots de passe doivent contenir au moins 6 caractères.");
+					valide = false;
+				} //doit-on définir la taille des champs
+			}else {
+				sb.append("Merci de saisir et confirmer votre mot de passe.");
+				valide = false;
+			}
+			if (!valide) {
+				throw new BLLException(sb.toString());
+			}
+		}
+
+
 	}
-
-
-}
 
 
