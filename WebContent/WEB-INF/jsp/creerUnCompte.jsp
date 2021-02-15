@@ -21,14 +21,13 @@
 		</div>
 		<br>
 		<div>
-			<form action="<%= request.getContextPath() %>/accueilAvecConnexion.html">
-			<button type="submit" class="btn btn-primary">Connexion</button><br>
+			<form  action="<%= request.getContextPath() %>/accueilAvecConnexion.html">
+			<button type="submit" class="btn btn-primary">Connexion</button>
 			</form>
-			
-			<input type="checkbox" name="smemo" value="memo">Se souvenir de moi
+			<input class="form-check-input" type="checkbox" name="smemo" value="memo">Se souvenir de moi
 			<a href="<%= request.getContextPath() %>/ReinitialisationMdp.html"><input type="button" value="Mot de passe oublié"></a>
-		</div>	
-		<br>
+		</div>
+
 		<div>
 			<a href="<%= request.getContextPath() %>/creationProfil.html">
 			<input type="submit" value="Créer un compte">
