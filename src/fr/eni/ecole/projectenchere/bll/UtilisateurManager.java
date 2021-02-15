@@ -69,16 +69,15 @@ public class UtilisateurManager {
 		}
 		try {
 			validerUtilisateur(newUser);
-		daoUtilisateur.insert(newUser);
+			daoUtilisateur.insert(newUser);
 		} catch (DALException e) {
-		throw new BLLException("Echec addUtilisateur", e);
+			throw new BLLException("Echec addUtilisateur", e);
 		}
 	}
 
 	private void validerUtilisateur(Utilisateur u) throws BLLException {
-	//vérifier les différents champs du formulaire 
-	
-	
+		//vérifier les différents champs du formulaire 
+
 		boolean valide =  true;
 		StringBuffer sb = new StringBuffer();
 
@@ -146,23 +145,23 @@ public class UtilisateurManager {
 			sb.append("Merci de saisir un nom de ville \n ");
 			valide = false;
 		}
-		
+
 		if (!valide) {
 			throw new BLLException(sb.toString());
 		}
 	}
-	
+
 	public void motDePasse (String motDePasse, String confirmationMDP) throws BLLException {
-		
+
 		boolean valide =  true;
 		StringBuffer sb = new StringBuffer();
-		
+
 		if (motDePasse != null && motDePasse.trim().length()!=0 
 				&& confirmationMDP != null && confirmationMDP.trim().length() != 0) {
 			if (!motDePasse.equals(confirmationMDP)) {
 				sb.append("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
 				valide = false;
-			}else if (motDePasse.trim().length() > 6) {
+			}else if (motDePasse.trim().length() < 6) {
 				sb.append("Les mots de passe doivent contenir au moins 6 caractères.");
 				valide = false;
 			} //doit-on définir la taille des champs
@@ -175,7 +174,7 @@ public class UtilisateurManager {
 		}
 	}
 
-	
+
 }
 
 

@@ -27,16 +27,18 @@ public class TestBLL extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	
-		UtilisateurManager usermgr = new UtilisateurManager();
-		UtilisateursDAO userDAO = null;
 		
+	
+	
+		
+	
 		//UtilisateurManager.add new utilisateur pseudo avec @
 		//utilisateur correct aussi 
 		
-		//tester exception si un mail existe déjà
 		
+		
+		
+	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,7 +47,7 @@ public class TestBLL extends HttpServlet {
 		
 		
 		
-		//tester exception si mot de passe et confirmation différents
+		
 		
 		
 	}
