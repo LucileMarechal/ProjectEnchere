@@ -72,6 +72,12 @@ public class AccueilServlet extends HttpServlet {
 		RequestDispatcher disp = null;
 		String message="";
 		String motCle = "";
+		int noCategorie = 0;
+		
+		
+		
+		
+		
 		
 		if (request.getParameter("sRechercher").isEmpty() || request.getParameter("sRechercher")==null) {
 			try {
@@ -98,6 +104,33 @@ public class AccueilServlet extends HttpServlet {
 			e.printStackTrace();
 		} 
 		
+		if (request.getParameter("Categorie")!=null) {
+
+		switch (noCategorie) {
+		case 0: try {
+				artVendu = 
+						artVendu1.ArticlesVendusManager().selectArticlePlusUtilisateur();
+			} catch (DALException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} break;
+		case 1: 
+			noCategorie = Integer.parseInt(request.getParameter("Categorie"));
+			artVendu = artVendu1.ArticlesVendusManager().selectByCategorie(noCategorie); break;
+		case 2: 
+			noCategorie = Integer.parseInt(request.getParameter("Categorie"));
+			artVendu = artVendu1.ArticlesVendusManager().selectByCategorie(noCategorie); break;
+			
+		case 3: 
+			noCategorie = Integer.parseInt(request.getParameter("Categorie"));
+			artVendu = artVendu1.ArticlesVendusManager().selectByCategorie(noCategorie); break;
+		case 4: 
+			noCategorie = Integer.parseInt(request.getParameter("Categorie"));
+			artVendu = artVendu1.ArticlesVendusManager().selectByCategorie(noCategorie); break;	
+			
+		}
+		System.out.println(noCategorie);
+		}
 		
 		
 		request.setAttribute("listeArticles", artVendu);

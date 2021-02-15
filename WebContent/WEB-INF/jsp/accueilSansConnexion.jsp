@@ -34,13 +34,14 @@
 	<!-- Catégorie avec liste déroulante -->
 	<label>Catégorie : </label>
 	<form method="post">
-		<select name="Catégorie">
-			<option>Toutes</option>
-			<option>Informatique</option>
-			<option>Ameublement</option>
-			<option>Vêtement</option>
-			<option>Sport&#38;Loisirs</option>
+		<select name="Categorie">
+			<option value="0">Toutes</option>
+			<option value="1">Informatique</option>
+			<option value="2">Ameublement</option>
+			<option value="3">Vêtement</option>
+			<option value="4">Sport&#38;Loisirs</option>
 		</select>
+		
 	</form>
 	<hr>
 	
