@@ -21,8 +21,8 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 		+ "telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur)"
 	 		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
-	 private static final String UPDATE_UTILISATEUR = "UPDATE Utilisateurs SET (pseudo = ?, nom = ?, prenom = ?,"
-	 		+ "email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?)"
+	 private static final String UPDATE_UTILISATEUR = "UPDATE Utilisateurs SET pseudo = ?, nom = ?, prenom = ?,"
+	 		+ "email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?"
 	 		+ "WHERE no_utilisateur = ?";
 	 
 	 private static final String SELECT_BY_ID_UTILISATEUR = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue,"
@@ -33,7 +33,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 private static final String SELECT_ALL_UTILISATEUR = "SELECT no_utilisateur, pseudo, prenom, nom, email, telephone,"
 	 		+ "rue, code_postal, ville FROM Utilisateurs";
 	 
-	 private static final String GET_USER_BY_EMAIL ="SELECT pseudo, nom , prenom, email, telephone, rue, code_postal"
+	 private static final String GET_USER_BY_EMAIL ="SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal,"
 			 	+ "ville FROM Utilisateurs WHERE email = ?";
 	 
 //	 private static final String SELECT_BY_PSEUDO_UTILISATEUR = "SELECT pseudo, nom , prenom, email, telephone, rue, code_postal"
@@ -134,6 +134,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			pstmt.setString(9, utilisateur.getMotDePasse());
 			
 			pstmt.setInt(10, utilisateur.getNoUtilisateur());
+
 			
 			pstmt.executeUpdate();
 			
@@ -142,6 +143,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			connexion.commit();
 
 		} catch (SQLException e) {
+			e.printStackTrace();
 			try {
 				connexion.rollback();
 			} catch (SQLException e1) {
@@ -295,7 +297,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	}
 	
 	public Utilisateur getUserByEmail (String email) throws DALException {
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 		Connection cnx = null;
 		ResultSet rs = null;
 		Utilisateur user = null;
@@ -303,7 +305,8 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		try {
 			cnx = DBConnexion.seConnecter();
 			stmt = cnx.prepareStatement(GET_USER_BY_EMAIL);
-			rs = stmt.executeQuery(email);
+			stmt.setString(1, email);
+			rs = stmt.executeQuery();
 			
 			
 			if (rs.next()) {
@@ -313,6 +316,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		}
 	
 	} catch (SQLException e) {
+		e.printStackTrace();
 		throw new DALException("Erreur lors de la sélection de l'utilisateur par son email : " + email, e);
 		
 	} finally {
@@ -330,7 +334,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		}
 		
 	}
-		return user;// a modifier...
+		return user;
 		
 	
 	
