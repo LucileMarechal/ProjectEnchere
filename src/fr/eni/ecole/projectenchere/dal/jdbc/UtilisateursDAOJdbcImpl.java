@@ -294,12 +294,13 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		Statement stmt = null;
 		Connection cnx = null;
 		ResultSet rs = null;
+		Utilisateur user = null;
 		
 		try {
 			cnx = DBConnexion.seConnecter();
 			stmt = cnx.prepareStatement(GET_USER_BY_EMAIL);
 			rs = stmt.executeQuery(email);
-			Utilisateur user = null;
+			
 			
 			if (rs.next()) {
 				user = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), 
@@ -325,7 +326,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		}
 		
 	}
-		return null;// a modifier...
+		return user;// a modifier...
 		
 	
 	

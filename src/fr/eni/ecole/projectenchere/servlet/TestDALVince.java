@@ -87,8 +87,6 @@ public class TestDALVince extends HttpServlet {
 		
 		
 		
-		
-		
 //		try {
 //			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
 //			utilisateur = utilisateurDAO2.selectByPseudo("Simba");
