@@ -5,23 +5,24 @@
 	<h1>Nouvelle vente</h1>
 
 	<!-- Création des catégories Article et Description -->
-
+<form method="post" action="<%=request.getContextPath()%>/NouvelleVente.html">
 		<div>
-			<label>Article</label> <input type="text">
+			<label>Article</label> <input type="text" name="sarticle">
 		</div>
 
 		<br>
 		<div>
-			<label>Description</label> <input type="text">
+			<label>Description</label> <input type="text" name="sdescription">
 		</div>
 		<br>
 		<!-- Catégorie avec menu déroulant -->
 		<div>
-			<label>Catégorie</label> <select>
-				<option>Informatique</option>
-				<option>Ameublement</option>
-				<option>Vêtement</option>
-				<option>Sport&Loisirs</option>
+			<label>Catégorie</label>
+			<select name="Categorie">
+				<option value="1">Informatique</option>
+				<option value="2">Ameublement</option>
+				<option value="3">Vêtement</option>
+				<option value="4">Sport&#38;Loisirs</option>
 			</select>
 		</div>
 		<br>
@@ -36,19 +37,19 @@
 		<!--  Menu déroulant pour le prix -->
 		<div>
 			<label for="prix">Mise à prix</label> <input type="number" id="prix"
-				name="prix" min="1" max="1000">
+				name="sprix" min="1" max="1000">
 		</div>
 		
 		<!-- Date de début et de fin enchere--> 
 		<div>
 			<label for="debut">Début de l'enchère</label>
 		</div>
-		<input type="date" id="debut" name="date_debut" value="/ /">
+		<input type="date" id="debut" name="sdate_debut" value="/ /">
 		<br>
 		<div>
 			<label for="fin">Fin de l'enchère</label>
 		</div>
-		<input type="date" id="debut" name="date_fin" value="/ /">
+		<input type="date" id="debut" name="sdate_fin" value="/ /">
 
 		<br>
 	<br>
@@ -57,16 +58,16 @@
 	<fieldset>
 		<legend>Retrait</legend>
 		<div>
-			<label>Rue :</label> <input type="text">
+			<label>Rue :</label> <input type="text" name="srue">
 		</div>
 		<br>
 		<div>
-			<label>Code Postal :</label> <input type="text">
+			<label>Code Postal :</label> <input type="text" name="scodepostal">
 
 		</div>
 		<br>
 		<div>
-			<label>Ville :</label> <input type="text">
+			<label>Ville :</label> <input type="text" name="sville">
 
 		</div>
 		<br>
@@ -75,16 +76,18 @@
 	<!--  Enregistrer ou Annuler -->
 
 	<div>
-	<a href="<%= request.getContextPath() %>/accueilAvecConnexion.html">
 		<input type="submit" value="Enregistrer">
-		</a>
 	</div>
-	<br>
+</form>
+<br>
+
+<form method="get" action="<%=request.getContextPath()%>/accueilAvecConnexion.html">
 	<div>
-	<a href="<%= request.getContextPath() %>/accueilAvecConnexion.html">
-		<input type="submit" value="Annuler"></a>
+		<input type="submit" value="Annuler">
 	</div>
-	<!--  en fonction de la date de début d'enchere et la tete du jour, bouton "annuler la vente" -->
+</form>
+
+<!--  en fonction de la date de début d'enchere et la tete du jour, bouton "annuler la vente" -->
 
 </body>
 </html>
