@@ -2,59 +2,64 @@
 <!-- Fragment qui ramène à la page AccueilASansConnexion -->
 <%@ include file="../fragments/fragmentAccueilSansConnexion.jspf" %>
 
-	<h1>Mon profil</h1>
-	
-	<div>
-		<div>
-			<div>
-				Pseudo : <input type="text" name="spseudo"><br>
-			</div>
-			<br>
-			<div>
-				Prénom : <input type="text" name="sprenom"><br>
-			</div>
-			<br>
-			<div>
-				Téléphone : <input type="text" name="stel"><br>
-			</div>
-			<br>
-			<div>
-				Code postal : <input type="text" name="scpo"><br>
-			</div>
-			<br>
-			<div>
-				Nom : <input type="text" name="snom"><br>
-			</div>
-			<br>
-			<div>
-				Email : <input type="text" name="smail"><br>
-			</div>
-			<br>
-			<div>
-				Rue : <input type="text" name="srue"><br>
-			</div>
-			<br>
-			<div>
-				Ville : <input type="text" name="sville">
-			</div>
-			<br>
-			<div>
-				Mot de passe : <input type="password" name="smdp"><br>
-			</div>
-			<br>
-			<div>
-				Confirmation : <input type="password" name="sconf"><br>
-			</div>
-			<br>
+<form method="post" action="inscription">
+	<fieldset>
+		<legend>Mon profil
+
+<label for="pseudo">Pseudo :<span class="requis">*</span></label>
+<input type="text" id="pseudo" name="pseudo" value="" size="20" maxlength="60">
+
+<br />
+
+<label for="name">Nom :<span class="requis">*</span></label>
+<input type="text" id="name" name="name" value="" size="20" maxlength="60">
+
+<br />
+
+<label for="firstname">Prénom :<span class="requis">*</span></label>
+<input type="text" id="firstname" name="firstname" value="" size="20" maxlength="60">
+
+<br />
+
+<label for="email">Email :<span class="requis">*</span></label>
+<input type="text" id="email" name="email" value="" size="20" maxlength="60">
+
+<br />
+
+<label for=phone>Téléphone :<span class="requis">*</span></label>
+<input type="text" id="phone" name="phone" value="" size="20" maxlength="60">
+
+<br />
+
+<label for="street">Rue :<span class="requis">*</span></label>
+<input type="text" id="street" name="street" value="" size="20" maxlength="60">
+
+<br />
+
+<label for="postalCode">Code Postal :<span class="requis">*</span></label>
+<input type="text" id="postalCode" name="postalCode" value="" size="20" maxlength="60">
+
+<br />
+
+<label for="city">Ville :<span class="requis">*</span></label>
+<input type="text" id="city" name="city" value="" size="20" maxlength="60">
+
+<br />
+
+<label for="passWord">Mot de passe :<span class="requis">*</span></label>
+<input type="text" id="passWord" name="passWord" value="" size="20" maxlength="60">
+
+<br />
+
+<label for="confirmation">Confirmation :<span class="requis">*</span></label>
+<input type="text" id="confirmation" name="confirmation" value="" size="20" maxlength="60">
+
+<br />
 			<!-- en appuyant sur créer, on arrive à la page d'accueil connecté (liste enchères -->
-			<div>
 				<a href="<%= request.getContextPath()%>/accueilAvecConnexion.html"><input type="submit" value="Créer"></a>
-			</div>
+		
 			<br>
-			<div>
+			
 				<a href="<%= request.getContextPath() %>/accueil.html"><input type="submit" value="Annuler"></a>
-			</div>
-		</div>
-	</div>
+			</legend></fieldset></form>
 </body>
-</html>

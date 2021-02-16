@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import fr.eni.ecole.projectenchere.bll.BLLException;
 import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
@@ -41,39 +42,37 @@ public class TestBLL extends HttpServlet {
 	}*/
 	
 	//Nouvel utilisateur : fonctionne
-//	Utilisateur utilisateur = new Utilisateur("Bambi", "Bambi", "Bambo", "bambi@gmail.com", "0123456789", "4 rue des coquelicots",
-//			 "14200", "Foret", "bonjour", 100, false);
-//	try {
-//		test.addUtilisateur(utilisateur);
-//		utilisateur.toString();
-//	} catch (BLLException e) {
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//	}
-	
-	
-	
-	//Test utilisateur déjà existant
-	Utilisateur newUser = new Utilisateur ("RACHOUCHOU", " ", "Green", "rachoupouetpouet@centralperk.com ", "03 45 85 25 62", 
- "26 boulevard des bicyles", "35000", "Rennes","tagadatsouin-tsouin", 100, false);
-	
-	
-	//fonctionne meme lorsqu'aucune donnée n'est rentrée
-	
+	Utilisateur utilisateur = new Utilisateur
+			("Tagada", "Tsouin", "Tsouin", "taga&datsouin@gmail.com", "0767058277", "4 rue des coquelicots",
+			 "14200", "Foret", "bonjour", 100, false);
 	try {
-		test.addUtilisateur(newUser);
-		newUser.toString();
+		test.addUtilisateur(utilisateur);
+		utilisateur.toString();
 	} catch (BLLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	
+	//ValiderUtilisateur
+	
+//	Utilisateur newUser = new Utilisateur();
 	
 	
+	//Test utilisateur déjà existant // fonctionne pas
+//	Utilisateur newUser = new Utilisateur ("LeePandaa", "Cover", "Harry", "harryCocover@gmail.com", "é@-(éè-_àç", 
+// "3 rue des coquelicots", "14200", "Granville","bonjour", 100, false);
+//	
+//	try {
+//		test.addUtilisateur(newUser);
+//		newUser.toString();
+//	} catch (BLLException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
+//	
+//	JOptionPane.showMessageDialog(null, " ");
 	
-	
-	
-		
+
 	
 		//UtilisateurManager.add new utilisateur pseudo avec @
 		//utilisateur correct aussi 

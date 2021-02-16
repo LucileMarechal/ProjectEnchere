@@ -22,27 +22,6 @@ public class UtilisateurManager {
 	//"" recherche pseudo
 	//
 
-	/**
-	 * parcourir tous les emails SELECTALL
-	 * @param newUtilisateur
-	 * @throws DALException 
-	 * @throws BLLException
-	 */
-	//	public void addUtilisateur(Utilisateur newUtilisateur) throws BLLException {
-	//Vérifier que le mail n'hésite pas déjà
-	//faire appel à la methode getEmail de la UtilisateurDAOjdbcImpl
-
-	//		if(newUtilisateur.getEmail()!=null) {
-	//			throw new BLLException("Cet email existe déjà");
-	//		}
-	//		try {
-	//			validerUtilisateur(newUtilisateur);
-	//			daoUtilisateur.insert(newUtilisateur);
-	//		} catch (DALException e) {
-	//			throw new BLLException("Echec addUtilisateur", e);
-	//		}
-	//	}
-
 	//vérification email 
 	public Utilisateur validerEmail(String email) {
 		Utilisateur utilisateur = new Utilisateur();
@@ -81,7 +60,11 @@ public class UtilisateurManager {
 		boolean valide =  true;
 		StringBuffer sb = new StringBuffer();
 
-		if (u.getPseudo().isEmpty() && u.getPseudo().trim().length()< 30) {
+		if (u == null) {
+			throw new BLLException("Utilisateur null");
+		}
+		
+		if (u.getPseudo().isEmpty() || u.getPseudo().trim().length()> 30) {
 			sb.append("Veuillez saisir un pseudo. \n");
 			valide = false;		
 		} else if (!u.getPseudo().matches("[A-Za-z0-9_]+")) {
@@ -91,55 +74,55 @@ public class UtilisateurManager {
 		if (u.getNom().isEmpty()) {
 			sb.append("Veuillez saisir un nom \n");
 			valide = false;
-		}else if (u.getNom() != null && u.getNom().trim().length()>30) {
+		}else if (u.getNom() == null || u.getNom().trim().length()>30) {
 			sb.append("Le nom ne doit pas dépasser 30 caractères \n");
 			valide = false;
 		}
 		if (u.getPrenom().isEmpty()) {
 			sb.append("Veuillez saisir un prenom");
 			valide = false;
-		}else if (u.getPrenom() != null && u.getPrenom().trim().length()>30) {
+		}else if (u.getPrenom() == null || u.getPrenom().trim().length()>30) {
 			sb.append("Le prenom ne doit pas dépasser 30 caractères");
 			valide = false;
 		}
-		if (u.getEmail() != null && u.getEmail().trim().length()>100)  {
+		if (u.getEmail() == null || u.getEmail().trim().length()>100)  {
 			sb.append("Merci de saisir une adresse mail valide.\n");
 			sb.append("L'adresse mail ne doit pas dépasser 100 caractères\n");
 			valide = false;
 
 		}else if (u.getEmail().isEmpty()) {
-			sb.append("L'adresse mail doit être renseignée \n");
+			sb.append("L'adresse mail doit être renseignée. \n");
 			valide = false;
-			
-		}else if (!u.getEmail().matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")){
+		}
+		if (!u.getEmail().matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")){
 			sb.append("Merci de saisir une adresse mail valide.\n");
 			valide = false;
-
-			if (u.getTelephone() != null && u.getTelephone().trim().length()>10) {
+		}
+			if (u.getTelephone() == null || u.getTelephone().trim().length()>10) {
 				sb.append("Le numéro de téléphone doit comporter au moins 10 chiffres \n");
 				valide = false;
-			}else if (!u.getTelephone().matches("\\+?[0-9][0-9][0-9]([0-9][0-9])+")) {
+			}else if (!u.getTelephone().matches("([0-9][0-9])+")) {
 				sb.append("Le numéro de téléphone saisi n'est pas valide \n");
 				valide = false;
 			}else if (u.getTelephone().isEmpty()) {
 				sb.append("Le numéro de téléphone doit être renseigné \n");
 				valide = false;
 			}
-			if (u.getRue() != null && u.getRue().trim().length()>50) {
+			if (u.getRue() == null || u.getRue().trim().length()>50) {
 				sb.append("Merci de saisir un nom de rue valide \n");
 				valide = false;
 			}else if (u.getRue() == null) {
 				sb.append("Merci de saisir un nom de rue \n ");
 				valide = false;
 			}
-			if (u.getCodePostal() != null && u.getCodePostal().trim().length()>5) {
+			if (u.getCodePostal() == null || u.getCodePostal().trim().length()>5) {
 				sb.append("Le code postal doit comporter 5 chiffres \n");
 				valide = false;
 			}else if (u.getCodePostal().isEmpty()) {
 				sb.append("Veuillez saisir un code postal \n");
 				valide = false;
 			}
-			if (u.getVille() != null && u.getVille().length()>30) {
+			if (u.getVille() == null || u.getVille().length()>30) {
 				sb.append("Merci de saisir un nom de ville valide \n");
 				valide = false;
 			}else if (u.getVille().isEmpty()) {
@@ -151,7 +134,7 @@ public class UtilisateurManager {
 				throw new BLLException(sb.toString());
 			}
 		}
-		}
+		
 
 		public void motDePasse (String motDePasse, String confirmationMDP) throws BLLException {
 
@@ -171,7 +154,7 @@ public class UtilisateurManager {
 				sb.append("Merci de saisir et confirmer votre mot de passe.");
 				valide = false;
 			}
-			if (!valide) {
+			if (valide = false) {
 				throw new BLLException(sb.toString());
 			}
 		}
