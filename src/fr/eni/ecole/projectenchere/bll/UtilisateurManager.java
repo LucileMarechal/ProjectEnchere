@@ -189,7 +189,7 @@ public class UtilisateurManager {
 	    	  valide = false;
 			}
 		
-			if (email != password || pseudo != password) {
+			if (email != password && pseudo != password) {
 	    	  sb.append("\nLe login ou mot de passe ne correspond pas");
 	    	  valide = false;
 			}
@@ -200,6 +200,21 @@ public class UtilisateurManager {
 		      
 			}      
 
+		
+		public Utilisateur getUtilisateur(Integer no_utilisateur) throws BLLException {
+			Utilisateur utilisateur = null;
+			
+			try {
+				utilisateur = daoUtilisateur.selectById(no_utilisateur);
+			} catch (DALException e) {
+				throw new BLLException("Echec récupération utilisateur", e);
+			}
+			
+			return utilisateur;
+
+		}
+		
+		
 	}
 
 
