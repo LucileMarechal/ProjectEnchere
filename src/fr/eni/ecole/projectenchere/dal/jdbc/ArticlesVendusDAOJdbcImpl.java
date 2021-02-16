@@ -27,18 +27,20 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	
 	private static final String SELECT_ARTICLE_PLUS_UTILISATEUR = "SELECT nom_article, prix_initial, date_fin_encheres, pseudo\r\n" + 
 			"FROM ARTICLES_VENDUS\r\n" + 
-			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur";
+			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur\r\n"
+			+ "WHERE date_fin_encheres > getdate()";
+	//********************pb DATE
 	
 	private static final String SELECT_BY_NAME = "SELECT nom_article, prix_initial, date_fin_encheres, pseudo\r\n" + 
 			"FROM ARTICLES_VENDUS\r\n" + 
 			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur\r\n" + 
-			"where nom_article like ?";
+			"WHERE nom_article like ? AND date_fin_encheres > getdate()";
 	
 	private static final String SELECT_BY_CATEGORIE = "SELECT nom_article, prix_initial, date_fin_encheres, pseudo, ARTICLES_VENDUS.no_categorie\r\n" + 
 			"FROM ARTICLES_VENDUS\r\n" + 
 			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur\r\n" + 
 			"INNER JOIN CATEGORIES ON CATEGORIES.no_categorie = ARTICLES_VENDUS.no_categorie\r\n" + 
-			"WHERE CATEGORIES.no_categorie like ?";
+			"WHERE CATEGORIES.no_categorie like ? AND date_fin_encheres > getdate()";
 	
 	
 	private static final String SELECT_BY_ID = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, "

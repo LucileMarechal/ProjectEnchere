@@ -100,8 +100,6 @@ public class ArticleVendu {
 
 
 
-
-
 	public String getPseudo() {
 		return pseudo;
 	}

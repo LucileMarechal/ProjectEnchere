@@ -61,7 +61,7 @@
 				<img alt="#image" src="">
 				<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
 				<p class="card-text">Date de fin d'enchère : <%=date %><br></p>
-				<p> Vendeur : <a href="#"><%=vendeur %></a></p>
+				<p> Vendeur : <%=vendeur %></p>
 				</div>
 			<%}%>
 		</div>

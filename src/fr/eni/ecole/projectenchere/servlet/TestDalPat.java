@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.ecole.projectenchere.bll.ArticleVendusManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
+import fr.eni.ecole.projectenchere.bo.Utilisateur;
 import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DALException;
 import fr.eni.ecole.projectenchere.dal.DAOFactory;
@@ -41,6 +42,8 @@ public class TestDalPat extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		/*
+		//test filtre par catégorie
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticlesVendusDAO artVenduDAO = null;
 		String message="";
@@ -57,15 +60,16 @@ public class TestDalPat extends HttpServlet {
 				
 			
 		
-		} 
+		} */
 		
 		
-		/*
+		
 		//test pour afficher tous les articles + utilisateurs
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticlesVendusDAO artVenduDAO = null;
 		String message="";
 		
+		/*
 		try {
 			artVenduDAO = DAOFactory.getArticlesVendusDAO();
 			artVendu = artVenduDAO.selectArticlePlusUtilisateur();
@@ -101,13 +105,13 @@ public class TestDalPat extends HttpServlet {
 		
 		
 
-		/**
+		
 		//Test insert
 		ArticlesVendusDAOJdbcImpl articleVenduDAO = new ArticlesVendusDAOJdbcImpl();
 		Utilisateur utilisateur = new Utilisateur();
 		
 		//test � modifier avec une utilisateur et une cat�gorie
-		ArticleVendu aV1 = new ArticleVendu("Pat", "PatTest", Date.valueOf("2022-05-06"), Date.valueOf("2022-07-06") , 10, 50, utilisateur, null, null);
+		ArticleVendu aV1 = new ArticleVendu("Chaussette", "Belle chaussette", Date.valueOf("2022-05-06"), Date.valueOf("2022-07-06") , 10, 50, 2, 4, null);
 		System.out.println("Visualisation article avant insertion : "+aV1);
 		
 		try {
@@ -116,7 +120,7 @@ public class TestDalPat extends HttpServlet {
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	/**

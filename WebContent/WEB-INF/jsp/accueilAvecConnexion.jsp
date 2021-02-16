@@ -38,12 +38,14 @@
 	<div class="achat">
 	<input type="radio" id="achats" name="name" value="achats" checked onclick="selectAchatOuVente(this)">
 	<label for="achats">Achats</label><br>
-  		<input type="checkbox" id="1" name="sAchats">
-  		<label for="enchOuvertes"> Enchères ouvertes</label><br>
+		
+  		<input type="checkbox" id="1" name="sAchats" checked>
+  		<label for="enchOuvertes" > Enchères ouvertes</label><br>
   		<input type="checkbox" id="2" name="sAchats">
   		<label for="mesEncheres"> Mes enchères</label><br>
   		<input type="checkbox" id="3" name="sAchats">
   		<label for="reporte"> Mes enchères reportées</label><br><br>
+  		
 	</div>
 	
 	<div class="vente">
@@ -73,11 +75,11 @@
 				String vendeur = articleVendu.getPseudo();
 				%>
 				<div class="card border-primary m-1 p-2" style="max-width: 18rem;">
-				<div class="card-header"><%=nom %></div>
+				<div class="card-header"><a href="<%=request.getContextPath()%>/DetailVente.html"><%=nom %></a></div>
 				<img alt="#image" src="">
 				<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
 				<p class="card-text">Date de fin d'enchère : <%=date %><br></p>
-				<p> Vendeur : <a href="#"><%=vendeur %></a></p>
+				<p> Vendeur : <a href="<%=request.getContextPath()%>/profilUtilisateur.html"><%=vendeur %></a></p>
 				</div>
 			<%}%>
 		</div>

@@ -44,6 +44,7 @@ public class AccueilServlet extends HttpServlet {
 		String message="";
 		
 		
+		
 		try {
 			artVendu = artVendu1.ArticlesVendusManager().selectArticlePlusUtilisateur();
 			if (artVendu.isEmpty()) {
