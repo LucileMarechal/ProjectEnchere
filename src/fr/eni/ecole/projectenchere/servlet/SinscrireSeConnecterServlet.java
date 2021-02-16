@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.ecole.projectenchere.bll.BLLException;
 import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
-import fr.eni.ecole.projectenchere.bo.Utilisateur;
 
 /**
  * Servlet implementation class SinsrireSeConnecterServlet
@@ -19,16 +18,6 @@ import fr.eni.ecole.projectenchere.bo.Utilisateur;
 public class SinscrireSeConnecterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public static final String PSEUDO = "pseudo" ;
-	public static final String NOM = "nom" ;
-	public static final String PRENOM = "prénom";
-	public static final String EMAIL = "email";
-	public static final String TELEPHONE = "téléphone";
-	public static final String RUE = "rue";
-	public static final String CODE_POSTAL = "code postal";
-	public static final String VILLE = "ville";
-	public static final String MOT_DE_PASSE = "mot de passe";
-	public static final String CONFIRMATION = "confirmation";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
