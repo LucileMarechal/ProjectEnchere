@@ -136,7 +136,6 @@ public class UtilisateurManager {
 				throw new BLLException(sb.toString());
 			}
 		}
-		
 		public void validerMotDePasse (String motDePasse, String confirmationMDP) throws BLLException {
 
 			boolean valide =  true;
@@ -155,7 +154,7 @@ public class UtilisateurManager {
 				sb.append("Merci de saisir et confirmer votre mot de passe.");
 				valide = false;
 			}
-			if (valide = false) {
+			if (!valide) {
 				throw new BLLException(sb.toString());
 			}
 		}
