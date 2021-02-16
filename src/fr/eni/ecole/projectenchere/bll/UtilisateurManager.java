@@ -189,6 +189,10 @@ public class UtilisateurManager {
 	    	  valide = false;
 			}
 		
+			// mauvaise condition...
+			// il faut chercher à comparer si le pseudo ou l'email de l'utilisateur 
+			// correspond bien à son password 
+			// et non à comparer l'email ou le pseudo avec le password
 			if (email != password && pseudo != password) {
 	    	  sb.append("\nLe login ou mot de passe ne correspond pas");
 	    	  valide = false;
