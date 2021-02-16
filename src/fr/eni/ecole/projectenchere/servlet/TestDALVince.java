@@ -130,7 +130,19 @@ public class TestDALVince extends HttpServlet {
 //		} catch (DALException e) {
 //			response.getWriter().append(e.getMessage());
 //		}
-//		
+
+		// tester méthode selectByMailPseudo -> ça marche !
+		try {
+			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
+			utilisateur = utilisateurDAO2.selectByMailPseudo("Simba", "mufasa_lelion@gmail.com");
+			
+			response.getWriter().append(utilisateur.toString());
+			
+			
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		}
+		
 		
 	}
 

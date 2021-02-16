@@ -78,6 +78,13 @@ public class Utilisateur {
 		setVille(ville);
 		setMotDePasse(motDePasse);
 		}
+		
+		public Utilisateur(String pseudo, String email, String motDePasse) {
+		setPseudo(pseudo);
+		setEmail(email);
+		setMotDePasse(motDePasse);
+		}
+		
 
 
 		public Utilisateur() {

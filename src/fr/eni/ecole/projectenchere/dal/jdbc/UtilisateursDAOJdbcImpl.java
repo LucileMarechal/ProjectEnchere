@@ -36,8 +36,8 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 private static final String GET_USER_BY_EMAIL ="SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal,"
 			 	+ "ville FROM Utilisateurs WHERE email = ?";
 	 
-//	 private static final String SELECT_BY_PSEUDO_UTILISATEUR = "SELECT pseudo, nom , prenom, email, telephone, rue, code_postal"
-//	 		+ "ville FROM Utilisateurs WHERE pseudo LIKE ?";
+	 private static final String SELECT_BY_MOT_CLE = "SELECT pseudo, email, mot_de_passe "
+	 		+ "FROM Utilisateurs WHERE pseudo = ? OR email = ?";
 
 	 
 	/**
@@ -343,48 +343,56 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 
 
 
-//	@Override
-//	public Utilisateur selectByPseudo(String pseudo) throws DALException {
-//		ResultSet rs = null;
-//		Connection connexion = DBConnexion.seConnecter();
-//		PreparedStatement pstmt = null;
-//		Utilisateur utilisateur = new Utilisateur();
-//		
-//		connexion = DBConnexion.seConnecter();
-//		
-//		try {
-//			pstmt = connexion.prepareStatement(SELECT_BY_PSEUDO_UTILISATEUR);
-//			pstmt.setString(1, pseudo);
-//			
-//			rs = pstmt.executeQuery();
-//
-//			if (rs.next()) {
-//				utilisateur = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), rs.getString("prenom"), 
-//						rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), rs.getString("code_postal"), 
-//						rs.getString("ville"));
-//			}
-//
-//		} catch (SQLException e) {
-//			throw new DALException("Erreur lors de la sélection de l'utilisateur par son pseudo : " + pseudo, e);
-//			
-//		} finally {
-//			try {	
-//				if(pstmt != null) {
-//					pstmt.close();
-//				}
-//				
-//				if(connexion != null) {
-//					connexion.close();
-//				}
-//				
-//			} catch (SQLException e) {
-//				throw new DALException("Erreur lors de la sélection de l'utilisateur par son pseudo : " + pseudo, e);
-//			}
-//		}
-//		
-//		return utilisateur;
-//	}
+	@Override
+	public Utilisateur selectByMailPseudo(String pseudo, String email) throws DALException {
+		PreparedStatement pstmt = null;
+		Connection connexion = null;
+		ResultSet rs = null;
+		Utilisateur utilisateur = null;
+		
+		try {
+			connexion = DBConnexion.seConnecter();
+			pstmt = connexion.prepareStatement(SELECT_BY_MOT_CLE);
+			pstmt.setString(1, pseudo);
+			pstmt.setString(2, email);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				utilisateur = new Utilisateur(rs.getString("pseudo"), rs.getString("email"), rs.getString("mot_de_passe"));
+			}
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DALException("Erreur lors de la sélection de l'utilisateur par mot clef : " + pseudo, e);
+		} finally {
+		    try { 
+		        if(pstmt != null) {
+		          pstmt.close();
+		        }
+		        
+		        if(connexion != null) {
+		          connexion.close();
+		        }
+		        
+		      } catch (SQLException e) {
+		        throw new DALException("Erreur lors de la sélection de l'utilisateur par mot clef : " + pseudo, e);
+		      }
+		}   
+		
+		
+		
+		
+		return utilisateur;
+	}
 
 	 
 	 
 }
+
+
+
+
+
+
+

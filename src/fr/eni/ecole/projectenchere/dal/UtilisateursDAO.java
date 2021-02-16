@@ -18,6 +18,8 @@ public interface UtilisateursDAO {
 	
 	List<Utilisateur> selectAll() throws DALException;
 	
+	public Utilisateur selectByMailPseudo(String pseudo, String email) throws DALException;
+	
 	// public Utilisateur selectByPseudo(String pseudo) throws DALException;
 	
 	
