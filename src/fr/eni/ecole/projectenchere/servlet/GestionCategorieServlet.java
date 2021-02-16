@@ -35,6 +35,28 @@ public class GestionCategorieServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		List<ArticleVendu> artVendu = new ArrayList<>();
+		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		String valueCategorie;
+		int noCategorie;
+		
+		valueCategorie = request.getParameter("Categorie") ;
+			noCategorie = Integer.parseInt(valueCategorie) ;
+		
+		if (noCategorie == 0) {
+			try {
+				artVendu = artVendu1.ArticlesVendusManager().selectArticlePlusUtilisateur();
+			} catch (DALException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			artVendu = artVendu1.ArticlesVendusManager().selectByCategorie(noCategorie);
+		}
+			
+		request.setAttribute("listeArticles", artVendu);
+
+		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 	}
 
 	/**
@@ -45,7 +67,7 @@ public class GestionCategorieServlet extends HttpServlet {
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
 		String valueCategorie;
-		int noCategorie = 0;
+		int noCategorie;
 		
 		valueCategorie = request.getParameter("Categorie") ;
 			noCategorie = Integer.parseInt(valueCategorie) ;

@@ -1,5 +1,8 @@
 
 <!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@page import="fr.eni.ecole.projectenchere.bo.ArticleVendu"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Date"%>
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
 
@@ -11,21 +14,23 @@
 
 	<P>Filtres :</P>
 
-	<form action="" method="post">
-		<input type="search">
-		<button>RECHERCHE</button>
+	<form action="<%=request.getContextPath()%>/accueilAvecConnexion.html" method="post">
+		<input type="search" name="sRechercher" placeholder="Search" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
 	</form>
-	<br>
 
 	<!-- Catégorie avec liste déroulante -->
 	<label>Catégorie : </label>
-	<select>
-		<option>Toutes</option>
-		<option>Informatique</option>
-		<option>Ameublement</option>
-		<option>Vêtement</option>
-		<option>Sport&#38;Loisirs</option>
-	</select>
+	<form action="<%=request.getContextPath()%>/Categorie.html" method="get">
+		<select name="Categorie" onchange="submit()">
+			<option value="0">Toutes</option>
+			<option value="1">Informatique</option>
+			<option value="2">Ameublement</option>
+			<option value="3">Vêtement</option>
+			<option value="4">Sport&#38;Loisirs</option>
+		</select>
+		<!-- <button type="submit">valider</button> -->
+	</form>
 	<br>
 	<br>
 
@@ -58,12 +63,27 @@
 	<hr>
 
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
-	<h3> Liste des enchères en cours à afficher</h3>
+		<div class="d-flex flex-wrap">
+			<%
+			List<ArticleVendu> liste = (List<ArticleVendu>) request.getAttribute("listeArticles");
+			for(ArticleVendu articleVendu : liste){
+				String nom = articleVendu.getNomArticle();
+				int prix =articleVendu.getPrixInitial();
+				Date date = articleVendu.getDateFinEncheres();
+				String vendeur = articleVendu.getPseudo();
+				%>
+				<div class="card border-primary m-1 p-2" style="max-width: 18rem;">
+				<div class="card-header"><%=nom %></div>
+				<img alt="#image" src="">
+				<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
+				<p class="card-text">Date de fin d'enchère : <%=date %><br></p>
+				<p> Vendeur : <a href="#"><%=vendeur %></a></p>
+				</div>
+			<%}%>
+		</div>
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
 
-<form action="<%=request.getContextPath()%>/DetailVente.html" method="get">
-<input  type="submit" value="Articles">
-</form>
+
 
 </body>
 </html>
