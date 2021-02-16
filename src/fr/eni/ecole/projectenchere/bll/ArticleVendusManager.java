@@ -16,12 +16,14 @@ public class ArticleVendusManager {
 		return daoArticlesVendus = DAOFactory.getArticlesVendusDAO();
 	}
 	
-
+/******TEST A ENRICHIR*************/
+	/*TODO*/
 	public void verifArticle(ArticleVendu article) {
 		if (article.getPrixVente() == null) {
 			article.setPrixVente(article.getPrixInitial());
 		}
 	}
+/******TEST A ENRICHIR*************/
 	
 
 

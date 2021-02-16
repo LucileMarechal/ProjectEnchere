@@ -39,9 +39,9 @@ public class NouvelleVenteServlet extends HttpServlet {
 		ArticleVendusManager artA = new ArticleVendusManager();
 		
 		
-		String article = request.getParameter("sarticle");
+		String nomArticle = request.getParameter("sarticle");
 		String description = request.getParameter("sdescription");
-		String categorie = request.getParameter("Categorie");
+		Integer noCategorie = Integer.parseInt(request.getParameter("Categorie")) ;
 		//Cast du String en Int
 		int prixInitial = Integer.parseInt(request.getParameter("sprix"));
 /*************CAST DE DATE A FAIRE************************************/
@@ -55,9 +55,9 @@ public class NouvelleVenteServlet extends HttpServlet {
 		String codePostal = request.getParameter("scodepostal");
 		String ville = request.getParameter("sville");
 		
-		response.getWriter().append("sarticle : "+article+"<br> "
+		response.getWriter().append("sarticle : "+nomArticle+"<br> "
 				+ "sdescription : "+description+"<br> "
-				+ "Catégorie : "+categorie+"<br> Prix "
+				+ "Catégorie : "+noCategorie+"<br> Prix "
 				+ "Date de Début : "+dateDebut+"<br> "
 				+ "Date de Fin : "+dateFin+"<br> "
 				+ "initial : "+prixInitial+"<br> "
@@ -65,6 +65,9 @@ public class NouvelleVenteServlet extends HttpServlet {
 				+ "Code postal : "+codePostal+"<br>"
 				+ " Ville : "+ville );
 		
+/****** le noUtilisateur 5 doit être remplacé par un paramètre utilisateur issue  de l'utilisateur connecté****************/
+		articleAVendre = new ArticleVendu(nomArticle, description, dateDebut, dateFin, prixInitial, null, 5, noCategorie, null);
+/****** le noUtilisateur 5 doit être remplacé par un paramètre utilisateur issue  de l'utilisateur connecté****************/
 		
 		try {
 			artA.verifArticle(articleAVendre);
