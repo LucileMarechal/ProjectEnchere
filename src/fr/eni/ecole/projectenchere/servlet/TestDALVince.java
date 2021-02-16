@@ -119,6 +119,7 @@ public class TestDALVince extends HttpServlet {
 		
 		// tester la méthode getUserByEmail -> ça marche !
 		Utilisateur utilisateur = new Utilisateur();
+		Utilisateur utilisateur2 = new Utilisateur();
 //		
 //		try {
 //			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
@@ -135,6 +136,7 @@ public class TestDALVince extends HttpServlet {
 		try {
 			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
 			utilisateur = utilisateurDAO2.selectByMailPseudo("Simba", "mufasa_lelion@gmail.com");
+			//utilisateur2 = utilisateurDAO2.selectByMailPseudo("Bambi", "mufasa_lelion@gmail.com");
 			
 			response.getWriter().append(utilisateur.toString());
 			

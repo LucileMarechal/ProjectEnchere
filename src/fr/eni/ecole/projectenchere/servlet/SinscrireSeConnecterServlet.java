@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ecole.projectenchere.bll.BLLException;
+import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
+import fr.eni.ecole.projectenchere.bo.Utilisateur;
+
 /**
  * Servlet implementation class SinsrireSeConnecterServlet
  */
@@ -41,20 +45,39 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 
 	//Traitement des données du formulaire
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String login = request.getParameter("slogin").trim();
+		String pseudo = request.getParameter("slogin").trim();
+		String email = request.getParameter("slogin").trim();
 		String password = request.getParameter("spassword").trim();
 		
-		response.getWriter().append("le login est : " + login);
+		// Utilisateur utilisateur = new Utilisateur();
+		UtilisateurManager usermgr = new UtilisateurManager();
+		
+		
+		
+		
+		try {
+			
+			usermgr.validerConnexionUtilisateur("slogin", "slogin", "spassword");
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		response.getWriter().append("le login est : " + pseudo);
 		response.getWriter().append("\nle mot de passe est : " +password);
 		
-		if (request.getParameter("slogin").trim().isEmpty()) {
-			response.getWriter().append("erreur login vide");
-			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
-		}
-		if (request.getParameter("spassword").trim().isEmpty()) {
-			response.getWriter().append("\nerreur password vide");
-			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
-		}
+		
+		
+		
+		
+//		if (request.getParameter("slogin").trim().isEmpty()) {
+//			response.getWriter().append("erreur login vide");
+//			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
+//		}
+//		if (request.getParameter("spassword").trim().isEmpty()) {
+//			response.getWriter().append("\nerreur password vide");
+//			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
+//		}
 
 
 		
@@ -62,36 +85,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		//getServletContext().getRequestDispatcher("/accueilAvecConnexion.html").forward(request, response);
 
 		
-		
-		
 
-		
-		//récupération des champs du formulaire
-		//Appel à la méthode getParameter
-//		String pseudo = request.getParameter(PSEUDO);
-//		String nom = request.getParameter(NOM);
-//		String prenom = request.getParameter(PRENOM);
-//		String email = request.getParameter(EMAIL);
-//		String telephone = request.getParameter(TELEPHONE);
-//		String rue = request.getParameter(RUE);
-//		String codePostal = request.getParameter(CODE_POSTAL);
-//		String ville = request.getParameter(VILLE);
-//		String motDePasse = request.getParameter(MOT_DE_PASSE);
-//		String confirmation = request.getParameter(CONFIRMATION);
-
-//		try {
-//			validationPseudo(pseudo);
-//			validationNom(nom);
-//			validationPrenom(prenom);
-//			validationEmail(email);
-//			validationTelephone (telephone);
-//			validationAdresse(rue, codePostal, ville);
-//			validationMotsDePasse(motDePasse, confirmation);
-//
-//		} catch (Exception e) {
-//			//gestion des erreurs de validation
-//		}
-//	}
 
 	}
 }

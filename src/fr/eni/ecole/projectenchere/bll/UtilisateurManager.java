@@ -170,35 +170,35 @@ public class UtilisateurManager {
 
 		
 		public void validerConnexionUtilisateur (String email, String pseudo, String password) throws BLLException {
+		
+			boolean valide =  true;
+			StringBuffer sb = new StringBuffer();
 
-		      boolean valide =  true;
-		      StringBuffer sb = new StringBuffer();
-
-		      if (email == null || email.trim().length() == 0) {
-		        sb.append("L'adresse mail doit être renseignée");
-		        valide = false;
-		      }
-
-		      if (pseudo == null || pseudo.trim().length() == 0) {
-		        sb.append("Le pseudo doit être renseigné");
-		        valide = false;
-		      }
-
-		      if (password == null || password.trim().length() == 0) {
-		        sb.append("Le mot de passe doit être renseigné");
-		        valide = false;
-		      }
-
-		      if (email != password || pseudo != password) {
-		        sb.append("Le login ou mot de passe ne correspond pas");
-		        valide = false;
-		      }
-
-		      if (!valide) {
-		        throw new BLLException(sb.toString());
-		      }
+			if (email == null || email.trim().length() == 0) {
+		    	  sb.append("L'adresse mail doit être renseignée");
+		    	  valide = false;
+			}
+		
+			if (pseudo == null || pseudo.trim().length() == 0) {
+	    	  sb.append("\nLe pseudo doit être renseigné");
+	    	  valide = false;
+			}
+		
+			if (password == null || password.trim().length() == 0) {
+	    	  sb.append("\nLe mot de passe doit être renseigné");
+	    	  valide = false;
+			}
+		
+			if (email != password || pseudo != password) {
+	    	  sb.append("\nLe login ou mot de passe ne correspond pas");
+	    	  valide = false;
+			}
+	
+			if (!valide) {
+	    	  throw new BLLException(sb.toString());
+			}
 		      
-		}      
+			}      
 
 	}
 
