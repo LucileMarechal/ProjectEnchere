@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.ecole.projectenchere.bll.BLLException;
 import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
+import fr.eni.ecole.projectenchere.bo.Utilisateur;
 
 /**
  * Servlet implementation class SinsrireSeConnecterServlet
@@ -37,7 +38,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		String pseudo = request.getParameter("slogin").trim();
 		String email = request.getParameter("slogin").trim();
 		String password = request.getParameter("spassword").trim();
-		
+		Utilisateur utilisateur = new Utilisateur();
 		// Utilisateur utilisateur = new Utilisateur();
 		UtilisateurManager usermgr = new UtilisateurManager();
 		
@@ -45,8 +46,9 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		
 		
 		try {
-			
+			usermgr.getUtilisateur(20); 
 			usermgr.validerConnexionUtilisateur(pseudo, email, password);
+			
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
