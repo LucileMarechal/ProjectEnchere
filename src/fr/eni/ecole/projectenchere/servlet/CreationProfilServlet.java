@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/creationProfil.html")
 public class CreationProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+       //
     /**
      * @see HttpServlet#HttpServlet()
      */

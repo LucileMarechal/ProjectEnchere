@@ -4,7 +4,7 @@
 
 <form method="post" action="inscription">
 	<fieldset>
-		<legend>Mon profil
+		<legend>Mon profil <!--  -->
 
 <label for="pseudo">Pseudo :<span class="requis">*</span></label>
 <input type="text" id="pseudo" name="spseudo" value="" size="20" maxlength="60">

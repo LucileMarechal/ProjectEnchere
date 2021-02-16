@@ -44,7 +44,7 @@ public class CreerCompteServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//
 		// faire appel au manager -> appel méthode DAO insert
 		//récupération des champs du formulaire
 		//Appel à la méthode getParameter
