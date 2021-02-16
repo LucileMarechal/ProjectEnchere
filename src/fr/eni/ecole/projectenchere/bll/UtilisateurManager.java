@@ -2,6 +2,8 @@ package fr.eni.ecole.projectenchere.bll;
 
 
 
+import java.sql.SQLException;
+
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
 import fr.eni.ecole.projectenchere.dal.DALException;
 import fr.eni.ecole.projectenchere.dal.DAOFactory;
@@ -54,7 +56,7 @@ public class UtilisateurManager {
 		}
 	}
 
-	private void validerUtilisateur(Utilisateur u) throws BLLException {
+	public void validerUtilisateur(Utilisateur u) throws BLLException {
 		//vérifier les différents champs du formulaire 
 
 		boolean valide =  true;
@@ -135,8 +137,7 @@ public class UtilisateurManager {
 			}
 		}
 		
-
-		public void motDePasse (String motDePasse, String confirmationMDP) throws BLLException {
+		public void validerMotDePasse (String motDePasse, String confirmationMDP) throws BLLException {
 
 			boolean valide =  true;
 			StringBuffer sb = new StringBuffer();
@@ -158,6 +159,14 @@ public class UtilisateurManager {
 				throw new BLLException(sb.toString());
 			}
 		}
+		
+		public void InsertUtilisateur(Utilisateur u1) throws SQLException {
+	         try {
+	        	 daoUtilisateur.insert(u1);//Méthode présente dans la DAL
+	        } catch (DALException e) {
+	            e.printStackTrace();
+	        }        
+	     }
 
 
 	}

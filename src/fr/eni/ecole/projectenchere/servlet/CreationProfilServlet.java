@@ -27,6 +27,8 @@ public class CreationProfilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/jsp/creationProfil.jsp").forward(request, response);
 	}
+	
+	//on est pas sur qu'elle soit utile
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

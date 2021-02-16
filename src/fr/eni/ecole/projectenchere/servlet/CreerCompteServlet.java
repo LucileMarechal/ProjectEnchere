@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
+import fr.eni.ecole.projectenchere.bo.Utilisateur;
+
 /**
  * Servlet implementation class CreerCompteServlet
  */
@@ -14,6 +17,18 @@ import javax.servlet.http.HttpServletResponse;
 public class CreerCompteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	public static final String PSEUDO = "spseudo" ;
+	public static final String NOM = "sname" ;
+	public static final String PRENOM = "sfirstname";
+	public static final String EMAIL = "semail";
+	public static final String TELEPHONE = "sphone";
+	public static final String RUE = "sstreet";
+	public static final String CODE_POSTAL = "spostalCode";
+	public static final String VILLE = "scity";
+	public static final String MOT_DE_PASSE = "spassWord";
+	public static final String CONFIRMATION = "sconfirmation";
+	
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,12 +43,42 @@ public class CreerCompteServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/jsp/creationProfil.jsp").forward(request, response);
+		
 		// faire appel au manager -> appel méthode DAO insert
-	}
+		//récupération des champs du formulaire
+		//Appel à la méthode getParameter
+		
+		String pseudo = request.getParameter(PSEUDO);
+		String nom = request.getParameter(NOM);
+		String prenom = request.getParameter(PRENOM);
+		String email = request.getParameter(EMAIL);
+		String telephone = request.getParameter(TELEPHONE);
+		String rue = request.getParameter(RUE);
+		String codePostal = request.getParameter(CODE_POSTAL);
+		String ville = request.getParameter(VILLE);
+		String motDePasse = request.getParameter(MOT_DE_PASSE);
+		String confirmation = request.getParameter(CONFIRMATION);
 
+		Utilisateur u1 = new Utilisateur(pseudo,nom,prenom,email,telephone,rue,codePostal,ville,motDePasse);
+		//création du constructeur dans utilisateurBO 
+		UtilisateurManager usermgr = new UtilisateurManager();
+		
+		try {
+			usermgr.validerUtilisateur(u1);
+			usermgr.validerMotDePasse(motDePasse, confirmation);
+			usermgr.InsertUtilisateur(u1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
+			//gestion des erreurs de validation
+		}
+	
+	
+	
 }
+
+
+
