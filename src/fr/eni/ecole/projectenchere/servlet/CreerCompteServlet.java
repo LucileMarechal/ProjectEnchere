@@ -76,16 +76,16 @@ public class CreerCompteServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 		
 		
-		//gestion des erreurs de validation
-		}
-	
+	//gestion des erreurs de validation
+	}
 
 
-	
-	
+
+
+
 }
 
 
