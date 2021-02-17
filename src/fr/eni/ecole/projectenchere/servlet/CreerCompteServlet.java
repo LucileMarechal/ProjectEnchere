@@ -86,7 +86,7 @@ public class CreerCompteServlet extends HttpServlet {
 		}
 		//appeler la servlet qui affiche "accueil avec connexion" 
 
-		//
+		
 		
 		
 		//gestion des erreurs de validation
