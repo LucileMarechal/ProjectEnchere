@@ -82,6 +82,9 @@ public class AccueilAvecConnexionServlet extends HttpServlet {
 		
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		
+		List<Categories> categorie = new ArrayList<>();
+		CategoriesManager categories = new CategoriesManager();
 		String message="";
 		String motCle = "";
 		
@@ -109,7 +112,19 @@ public class AccueilAvecConnexionServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		
+		try {
+			categorie = categories.CategorieManager().selectAll();
+			if (categorie.isEmpty()) {
+				message = "Pas de catégorie en BDD";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(categorie.toString());
+			}
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		} 
+				
+		request.setAttribute("listeCategorie", categorie);
 		request.setAttribute("listeArticles", artVendu);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);

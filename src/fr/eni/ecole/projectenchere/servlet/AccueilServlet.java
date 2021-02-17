@@ -89,6 +89,9 @@ public class AccueilServlet extends HttpServlet {
 		
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		
+		List<Categories> categorie = new ArrayList<>();
+		CategoriesManager categories = new CategoriesManager();
 		String message="";
 		String motCle = "";
 		
@@ -117,6 +120,19 @@ public class AccueilServlet extends HttpServlet {
 			e.printStackTrace();
 		} 
 		
+		try {
+			categorie = categories.CategorieManager().selectAll();
+			if (categorie.isEmpty()) {
+				message = "Pas de catégorie en BDD";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(categorie.toString());
+			}
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		} 
+				
+		request.setAttribute("listeCategorie", categorie);
 		request.setAttribute("listeArticles", artVendu);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);

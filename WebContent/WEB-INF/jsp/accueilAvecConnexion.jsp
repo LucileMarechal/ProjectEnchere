@@ -1,5 +1,6 @@
 
 <!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@page import="fr.eni.ecole.projectenchere.bo.Categories"%>
 <%@page import="fr.eni.ecole.projectenchere.bo.ArticleVendu"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
@@ -21,15 +22,20 @@
 
 	<!-- Catégorie avec liste déroulante -->
 	<label>Catégorie : </label>
+	<label>Catégorie : </label>
 	<form action="<%=request.getContextPath()%>/Categorie.html" method="get">
 		<select name="Categorie" onchange="submit()">
-			<option value="0">Toutes</option>
-			<option value="1">Informatique</option>
-			<option value="2">Ameublement</option>
-			<option value="3">Vêtement</option>
-			<option value="4">Sport&#38;Loisirs</option>
+		<option value="0">Toutes</option>
+		<%
+		List<Categories> listeC = (List<Categories>) request.getAttribute("listeCategorie");
+		for(Categories listeCat : listeC){
+			int noCategorie = listeCat.getNoCategorie();
+			String libelle = listeCat.getLibelle();
+			%>
+			<option value="<%=noCategorie%>"><%=libelle %></option>
+		
+		<%} %>
 		</select>
-		<!-- <button type="submit">valider</button> -->
 	</form>
 	<br>
 	<br>

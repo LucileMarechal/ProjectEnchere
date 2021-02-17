@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.ecole.projectenchere.bll.ArticleVendusManager;
+import fr.eni.ecole.projectenchere.bll.CategoriesManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
+import fr.eni.ecole.projectenchere.bo.Categories;
 import fr.eni.ecole.projectenchere.dal.DALException;
 
 /**
@@ -37,8 +39,12 @@ public class GestionCategorieServlet extends HttpServlet {
 		
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		
+		List<Categories> categorie = new ArrayList<>();
+		CategoriesManager categories = new CategoriesManager();
 		String valueCategorie;
 		int noCategorie;
+		String message = "";
 		
 		valueCategorie = request.getParameter("Categorie") ;
 			noCategorie = Integer.parseInt(valueCategorie) ;
@@ -53,12 +59,26 @@ public class GestionCategorieServlet extends HttpServlet {
 		} else {
 			artVendu = artVendu1.ArticlesVendusManager().selectByCategorie(noCategorie);
 		}
-			
+		try {
+			categorie = categories.CategorieManager().selectAll();
+			if (categorie.isEmpty()) {
+				message = "Pas de catégorie en BDD";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(categorie.toString());
+			}
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		} 
+				
+		request.setAttribute("listeCategorie", categorie);	
 		request.setAttribute("listeArticles", artVendu);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 	}
-
+		
+	
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -66,25 +86,44 @@ public class GestionCategorieServlet extends HttpServlet {
 
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		
+		List<Categories> categorie = new ArrayList<>();
+		CategoriesManager categories = new CategoriesManager();
 		String valueCategorie;
 		int noCategorie;
+		String message = "";
 		
 		valueCategorie = request.getParameter("Categorie") ;
-			noCategorie = Integer.parseInt(valueCategorie) ;
+		noCategorie = Integer.parseInt(valueCategorie) ;
 		
 		if (noCategorie == 0) {
 			try {
 				artVendu = artVendu1.ArticlesVendusManager().selectArticlePlusUtilisateur();
+				request.setAttribute("listeArticles", artVendu);
+				response.sendRedirect("./accueil.html");
 			} catch (DALException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
 			artVendu = artVendu1.ArticlesVendusManager().selectByCategorie(noCategorie);
-		}
-			
-		request.setAttribute("listeArticles", artVendu);
 
+		}
+		
+		try {
+			categorie = categories.CategorieManager().selectAll();
+			if (categorie.isEmpty()) {
+				message = "Pas de catégorie en BDD";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(categorie.toString());
+			}
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		} 
+				
+		request.setAttribute("listeCategorie", categorie);
+		request.setAttribute("listeArticles", artVendu);
 		request.getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
 
 		
