@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ecole.projectenchere.bll.BLLException;
+import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
 import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
@@ -146,17 +148,53 @@ public class TestDALVince extends HttpServlet {
 //		}
 		
 		// tester méthode selectByPseudo -> ça marche ! 
-		try {
-			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
-			utilisateur = utilisateurDAO2.selectByPseudo("Simba");
-			//utilisateur2 = utilisateurDAO2.selectByMailPseudo("Bambi", "mufasa_lelion@gmail.com");
-			
-			response.getWriter().append(utilisateur.toString());
-			
-			
-		} catch (DALException e) {
-			response.getWriter().append(e.getMessage());
-		}
+//		try {
+//			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
+//			utilisateur = utilisateurDAO2.selectByPseudo("Simba");
+//			//utilisateur2 = utilisateurDAO2.selectByMailPseudo("Bambi", "mufasa_lelion@gmail.com");
+//			
+//			response.getWriter().append(utilisateur.toString());
+//			
+//			
+//		} catch (DALException e) {
+//			response.getWriter().append(e.getMessage());
+//		}
+		
+		
+		// test BLL pour profil utilisateur -> ok ! 
+//		Utilisateur u1 = new Utilisateur();
+//		UtilisateurManager usermanager = new UtilisateurManager();
+//		
+//		try {
+//			u1 = usermanager.getUtilisateur("Simba");
+//			response.getWriter().append(u1.toString());
+//		} catch (BLLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		String pseudo = u1.getPseudo();
+//		String nom = u1.getNom();
+//		String prenom = u1.getPrenom();
+//		String email = u1.getEmail();
+//		String telephone = u1.getTelephone();
+//		String rue = u1.getRue();
+//		String codePostal = u1.getCodePostal();
+//		String ville = u1.getVille();
+//		
+//	
+//			//response.getWriter().append(utilisateur.toString());
+//			request.setAttribute("pseudo", pseudo);
+//			request.setAttribute("nom", nom);
+//			request.setAttribute("prenom", prenom);
+//			request.setAttribute("email", email);
+//			request.setAttribute("telephone", telephone);
+//			request.setAttribute("rue", rue);
+//			request.setAttribute("code_postal", codePostal);
+//			request.setAttribute("ville", ville);
+//			
+//			request.getRequestDispatcher("/WEB-INF/jsp/profilUtilisateur.jsp").forward(request, response);
+
 		
 	}
 

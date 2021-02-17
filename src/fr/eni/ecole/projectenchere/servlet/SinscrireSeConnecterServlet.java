@@ -46,6 +46,9 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		
 		Utilisateur utilisateur = new Utilisateur();
 		
+//		if (request.getParameter("slogin") == null) {
+//			response.getWriter().append("Le login n'est pas renseigné");
+//		}
 		
 		try {
 			utilisateur = usermgr.validerConnexionUtilisateur(email, pseudo, password);

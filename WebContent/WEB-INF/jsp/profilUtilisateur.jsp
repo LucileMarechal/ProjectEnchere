@@ -4,12 +4,6 @@
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
 
-<!-- créer variable sous include pour la récupérer  -->
-<!-- mettre variable pseudo dans les <> -->
-<%!
-	Utilisateur utilisateur;
-%>
-
 	<div>
 		<div>
 			Pseudo : <%=request.getAttribute("pseudo") %>

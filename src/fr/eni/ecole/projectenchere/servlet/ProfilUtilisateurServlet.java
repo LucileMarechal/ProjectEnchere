@@ -42,23 +42,31 @@ public class ProfilUtilisateurServlet extends HttpServlet {
 		// autant de variables que de champs à compléter sur jsp
 		// exemple nom : String nom = utilisateur.getNom();
 		// request.setAttribute("nom", nom);
-		Utilisateur utilisateur = new Utilisateur();
+		Utilisateur u1 = new Utilisateur();
+		UtilisateurManager usermanager = new UtilisateurManager();
 		
-		String pseudo = utilisateur.getPseudo();
-		String nom = utilisateur.getNom();
-		String prenom = utilisateur.getPrenom();
-		String email = utilisateur.getEmail();
-		String telephone = utilisateur.getTelephone();
-		String rue = utilisateur.getRue();
-		String codePostal = utilisateur.getCodePostal();
-		String ville = utilisateur.getVille();
-		
-		
-		UtilisateurManager usermgr = new UtilisateurManager();
 		try {
-			
-			utilisateur = usermgr.getUtilisateur(pseudo);
-			
+			// remplacer Simba par n'importe quel utilisateur 
+			// récupérer pseudo de la personne connectée 
+			// session
+			u1 = usermanager.getUtilisateur("Simba");
+			response.getWriter().append(u1.toString());
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String pseudo = u1.getPseudo();
+		String nom = u1.getNom();
+		String prenom = u1.getPrenom();
+		String email = u1.getEmail();
+		String telephone = u1.getTelephone();
+		String rue = u1.getRue();
+		String codePostal = u1.getCodePostal();
+		String ville = u1.getVille();
+		
+	
+			//response.getWriter().append(utilisateur.toString());
 			request.setAttribute("pseudo", pseudo);
 			request.setAttribute("nom", nom);
 			request.setAttribute("prenom", prenom);
@@ -69,10 +77,6 @@ public class ProfilUtilisateurServlet extends HttpServlet {
 			request.setAttribute("ville", ville);
 			
 			request.getRequestDispatcher("/WEB-INF/jsp/profilUtilisateur.jsp").forward(request, response);
-		} catch (BLLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 	}
 
