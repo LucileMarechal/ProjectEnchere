@@ -76,16 +76,24 @@ public class CreerCompteServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 			request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 		
 		
 		//gestion des erreurs de validation
 		}
+=======
+		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
+>>>>>>> branch 'main' of https://github.com/Code-Me-live/ProjectEnchere
 	
+	
+	//gestion des erreurs de validation
+	}
 
 
-	
-	
+
+
+
 }
 
 
