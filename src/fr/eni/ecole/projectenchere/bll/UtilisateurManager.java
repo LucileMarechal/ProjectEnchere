@@ -221,7 +221,7 @@ public class UtilisateurManager {
 		        return utilisateur;
 		      } else {
 		        valide = false;
-		        throw new BLLException("Le mot de passe renseigné n'est pas correct");
+		        throw new BLLException("Le login ou le mot de passe renseigné n'est pas correct");
 		      }
 		  
 

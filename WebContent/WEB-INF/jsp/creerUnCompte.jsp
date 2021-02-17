@@ -14,12 +14,13 @@
 	<div class="container-fluid">
 	<form  action="<%= request.getContextPath() %>/SinscrireSeConnecter.html" method="post">
 		<div class="col-md-3">
-			Identifiant : <input  type="text" class="form-control" name="slogin"/>
+			Identifiant : <input  type="text" class="form-control" name="slogin" />
 		</div>
 		<br>
 		<div class="col-md-3">
 			Mot de passe : <input type="password" class="form-control" name="spassword"/>
 		</div>
+		<font color="red"><%=request.getAttribute("erreur") != null ? request.getAttribute("erreur") : ""%></font>
 		<br>
 		<div>
 			<button type="submit" class="btn btn-primary">Connexion</button>

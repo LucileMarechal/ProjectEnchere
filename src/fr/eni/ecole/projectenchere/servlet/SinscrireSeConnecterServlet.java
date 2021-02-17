@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.ecole.projectenchere.bll.BLLException;
 import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
@@ -35,6 +36,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 
 	//Traitement des données du formulaire
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String pseudo = request.getParameter("slogin").trim();
 		String email = request.getParameter("slogin").trim();
 		String password = request.getParameter("spassword").trim();
@@ -46,35 +48,26 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		
 		
 		try {
-			//usermgr.getUtilisateur(utilisateur.getNoUtilisateur());
-			//usermgr.validerConnexionUtilisateur(pseudo, email, password);
 			utilisateur = usermgr.validerConnexionUtilisateur(email, pseudo, password);
 			response.getWriter().append(utilisateur.toString());
 			// dispatcher session en mode connecté
 			// créer un attribut de session pour stocker utilisateur connecté
 			// dispatcher pour afficher page accueil en mode connecté
+			request.getSession().setAttribute("loginSession", pseudo);
+			request.getSession().setAttribute("loginSession", email);
+			response.sendRedirect("./accueilAvecConnexion.html");
+			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 			
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("erreur", e.getMessage());
 			response.getWriter().append("Erreur : " +e.getMessage());
+			request.getRequestDispatcher("/WEB-INF/jsp/creerUnCompte.jsp").forward(request, response);
 		}
 		
 		
 		//response.getWriter().append("\nle mot de passe est : " +password);
-		
-		
-		
-		
-		
-//		if (request.getParameter("slogin").trim().isEmpty()) {
-//			response.getWriter().append("erreur login vide");
-//			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
-//		}
-//		if (request.getParameter("spassword").trim().isEmpty()) {
-//			response.getWriter().append("\nerreur password vide");
-//			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
-//		}
 
 
 		
