@@ -11,10 +11,8 @@
 	<a href="<%=request.getContextPath()%>/profilUtilisateur.html">  Mon profil</a>
 	<a href="<%=request.getContextPath()%>/accueil.html">  Déconnexion </a>
 
-<div class="row">
-  <div class="col-lg-6 col-lg-4"></div>
-  <div class="col-lg-6 col-lg-4"><h2>Liste des enchères</h2></div>
-  <div class="col-lg-6 col-lg-4"></div>
+<div class="d-flex justify-content-center">
+	<h2>Liste des enchères</h2>
 </div>
 
 	<P>Filtres :</P>
