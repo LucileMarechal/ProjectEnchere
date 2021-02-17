@@ -2,9 +2,10 @@
 <!-- Fragment qui ramène à la page AccueilASansConnexion -->
 <%@ include file="../fragments/fragmentAccueilSansConnexion.jspf" %>
 
-<form method="post" action="/creerUnCompte.html" >
-	<fieldset>
-		<legend>Mon profil <!--  -->
+<h1>Mon profil</h1>
+
+	<div class="container-fluid">
+	<form  action="<%= request.getContextPath() %>/creerUnCompte.html" method="post">
 
 <label for="pseudo">Pseudo :<span class="requis">*</span></label>
 <input type="text" id="pseudo" name="spseudo" value="" size="20" maxlength="60">
@@ -61,5 +62,5 @@
 			<br>
 			
 				<a href="<%= request.getContextPath() %>/accueil.html"><input type="submit" value="Annuler"></a>
-			</legend></fieldset></form>
+			</form></div>
 </body>
