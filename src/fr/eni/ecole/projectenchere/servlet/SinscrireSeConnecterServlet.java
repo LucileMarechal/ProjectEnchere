@@ -38,24 +38,30 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		String pseudo = request.getParameter("slogin").trim();
 		String email = request.getParameter("slogin").trim();
 		String password = request.getParameter("spassword").trim();
-		Utilisateur utilisateur = new Utilisateur();
-		// Utilisateur utilisateur = new Utilisateur();
+
+		
 		UtilisateurManager usermgr = new UtilisateurManager();
 		
-		
+		Utilisateur utilisateur = new Utilisateur();
 		
 		
 		try {
 			//usermgr.getUtilisateur(utilisateur.getNoUtilisateur());
-			usermgr.validerConnexionUtilisateur(pseudo, email, password);
+			//usermgr.validerConnexionUtilisateur(pseudo, email, password);
+			utilisateur = usermgr.validerConnexionUtilisateur(email, pseudo, password);
+			response.getWriter().append(utilisateur.toString());
+			// dispatcher session en mode connecté
+			// créer un attribut de session pour stocker utilisateur connecté
+			// dispatcher pour afficher page accueil en mode connecté
 			
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			response.getWriter().append("Erreur : " +e.getMessage());
 		}
 		
-		response.getWriter().append("le login est : " + pseudo);
-		response.getWriter().append("\nle mot de passe est : " +password);
+		
+		//response.getWriter().append("\nle mot de passe est : " +password);
 		
 		
 		

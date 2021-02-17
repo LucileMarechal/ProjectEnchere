@@ -36,7 +36,9 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 private static final String GET_USER_BY_EMAIL ="SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal,"
 			 	+ "ville FROM Utilisateurs WHERE email = ?";
 	 
-	 private static final String SELECT_BY_MOT_CLE = "SELECT pseudo, email, mot_de_passe "
+	 // à modifier -> toutes les infos utilisateur
+	 private static final String SELECT_BY_MOT_CLE = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, "
+	 		+ "rue, code_postal, ville, mot_de_passe, credit, administrateur "
 	 		+ "FROM Utilisateurs WHERE pseudo = ? OR email = ?";
 
 	 
@@ -357,8 +359,13 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			pstmt.setString(2, email);
 			rs = pstmt.executeQuery();
 			
+			// no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur
+			
 			if (rs.next()) {
-				utilisateur = new Utilisateur(rs.getString("pseudo"), rs.getString("email"), rs.getString("mot_de_passe"));
+				utilisateur = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), 
+						rs.getString("prenom"), rs.getString("email"), rs.getString("telephone"), rs.getString("rue"),
+						rs.getString("code_postal"), rs.getString("ville"), rs.getString("mot_de_passe"), rs.getInt("credit"),
+						rs.getBoolean("administrateur"));
 			}
 
 			

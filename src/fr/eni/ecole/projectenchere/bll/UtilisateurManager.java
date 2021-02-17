@@ -169,54 +169,78 @@ public class UtilisateurManager {
 	     }
 
 		
-		public void validerConnexionUtilisateur (String email, String pseudo, String password) throws BLLException {
-		
-			boolean valide =  true;
-			StringBuffer sb = new StringBuffer();
-
-			if (email == null || email.trim().length() == 0) {
-		    	  sb.append("L'adresse mail doit être renseignée");
-		    	  valide = false;
-			}
-		
-			if (pseudo == null || pseudo.trim().length() == 0) {
-	    	  sb.append("\nLe pseudo doit être renseigné");
-	    	  valide = false;
-			}
-		
-			if (password == null || password.trim().length() == 0) {
-	    	  sb.append("\nLe mot de passe doit être renseigné");
-	    	  valide = false;
-			}
-		
-			// mauvaise condition...
-			// il faut chercher à comparer si le pseudo ou l'email de l'utilisateur 
-			// correspond bien à son password 
-			// et non à comparer l'email ou le pseudo avec le password
-			if (email != password && pseudo != password) {
-	    	  sb.append("\nLe login ou mot de passe ne correspond pas");
-	    	  valide = false;
-			}
-	
-			if (!valide) {
-	    	  throw new BLLException(sb.toString());
-			}
+		public Utilisateur validerConnexionUtilisateur (String email, String pseudo, String password) throws BLLException {
+		      Utilisateur utilisateur = new Utilisateur();
 		      
-			}      
+		      boolean valide = true;
+		      StringBuffer sb = new StringBuffer();
 
-		
-		public Utilisateur getUtilisateur(Integer no_utilisateur) throws BLLException {
-			Utilisateur utilisateur = null;
-			
-			try {
-				utilisateur = daoUtilisateur.selectById(no_utilisateur);
-			} catch (DALException e) {
-				throw new BLLException("Echec récupération utilisateur", e);
-			}
-			
-			return utilisateur;
-////
-		}
+		      // tester si j'ai bien un pseudo, un mail et un password
+		      // sinon message erreur
+		      
+		      
+		      try {
+		        utilisateur = daoUtilisateur.selectByMailPseudo(pseudo, email);
+		      } catch (DALException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		      }
+		      
+		      
+		      // pas besoin de ces méthodes car infos déjà en BDD
+//		      if (utilisateur.getEmail() == null || utilisateur.getEmail().trim().length() == 0) {
+//		            sb.append("L'adresse mail doit être renseignée");
+//		            valide = false;
+//		            return null;
+//		      }
+		//    
+//		      if (utilisateur.getPseudo() == null || utilisateur.getPseudo().trim().length() == 0) {
+//		            sb.append("\nLe pseudo doit être renseigné");
+//		            valide = false;
+//		            return null;
+//		      }
+		//    
+//		      if (utilisateur.getMotDePasse() == null || utilisateur.getMotDePasse().trim().length() == 0) {
+//		            sb.append("\nLe mot de passe doit être renseigné");
+//		            valide = false;
+//		            return null;
+//		      }
+		//    
+		      // mauvaise condition...
+		      // il faut chercher à comparer si le pseudo ou l'email de l'utilisateur 
+		      // correspond bien à son password 
+		      // et non à comparer l'email ou le pseudo avec le password
+//		      if (email != password && pseudo != password) {
+//		          sb.append("\nLe login ou mot de passe ne correspond pas");
+//		          valide = false;
+//		      }
+		      
+		      // comparer mot de passe saisi par utilisateur et celui en BDD
+		      if (utilisateur.getMotDePasse().equals(password)) {
+		        valide = true;
+		        return utilisateur;
+		      } else {
+		        valide = false;
+		        throw new BLLException("Le mot de passe renseigné n'est pas correct");
+		      }
+		  
+
+		    }      
+
+		    
+		    public Utilisateur getUtilisateur(Integer no_utilisateur) throws BLLException {
+		      Utilisateur utilisateur = null;
+		      
+		      try {
+		        utilisateur = daoUtilisateur.selectById(no_utilisateur);
+		      } catch (DALException e) {
+		        throw new BLLException("Echec récupération utilisateur", e);
+		      }
+		      
+		      return utilisateur;
+
+		    }
+		    
 		
 		
 	}
