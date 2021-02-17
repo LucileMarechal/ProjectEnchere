@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 
 import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
@@ -76,11 +75,8 @@ public class CreerCompteServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			//message erreur
-			
 		}
 			request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
-			
 		
 		
 		//gestion des erreurs de validation
