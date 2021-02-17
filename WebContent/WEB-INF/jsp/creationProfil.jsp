@@ -59,7 +59,8 @@
 				<a href="<%= request.getContextPath()%>/accueilAvecConnexion.html"><input type="submit" value="Créer"></a>
 		
 			<br>
-			</legend></fieldset></form>
 			
+
+			</legend></fieldset></form>
 			<a href="<%= request.getContextPath() %>/accueil.html"><input type="submit" value="Annuler"></a>
 </body>

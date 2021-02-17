@@ -16,7 +16,7 @@ public class BLLException extends Exception {
 		
 		@Override
 		public String getMessage() {
-			return " "+ super.getMessage();
+			return " Erreur - "+ super.getMessage();
 		}
 		
 		
