@@ -228,11 +228,11 @@ public class UtilisateurManager {
 		    }      
 
 		    
-		    public Utilisateur getUtilisateur(Integer no_utilisateur) throws BLLException {
+		    public Utilisateur getUtilisateur(String pseudo) throws BLLException {
 		      Utilisateur utilisateur = null;
 		      
 		      try {
-		        utilisateur = daoUtilisateur.selectById(no_utilisateur);
+		        utilisateur = daoUtilisateur.selectByPseudo(pseudo);
 		      } catch (DALException e) {
 		        throw new BLLException("Echec récupération utilisateur", e);
 		      }

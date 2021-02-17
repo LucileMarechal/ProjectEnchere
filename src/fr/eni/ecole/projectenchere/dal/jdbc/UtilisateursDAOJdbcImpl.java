@@ -36,11 +36,13 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 private static final String GET_USER_BY_EMAIL ="SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal,"
 			 	+ "ville FROM Utilisateurs WHERE email = ?";
 	 
-	 // à modifier -> toutes les infos utilisateur
 	 private static final String SELECT_BY_MOT_CLE = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, "
 	 		+ "rue, code_postal, ville, mot_de_passe, credit, administrateur "
 	 		+ "FROM Utilisateurs WHERE pseudo = ? OR email = ?";
 
+	 private static final String SELECT_BY_PSEUDO = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville "
+	 		+ "FROM Utilisateurs WHERE pseudo = ?";
+	 
 	 
 	/**
 	 * Méthode permettant d'insérer un utilisateur
@@ -358,8 +360,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			pstmt.setString(1, pseudo);
 			pstmt.setString(2, email);
 			rs = pstmt.executeQuery();
-			
-			// no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur
+		
 			
 			if (rs.next()) {
 				utilisateur = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), 
@@ -387,13 +388,56 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 		      }
 		}   
 		
-		
-		
-		
 		return utilisateur;
 	}
 
-	 
+	@Override
+	public Utilisateur selectByPseudo (String pseudo) throws DALException {
+		PreparedStatement stmt = null;
+		Connection cnx = null;
+		ResultSet rs = null;
+		Utilisateur user = null;
+		
+		try {
+			cnx = DBConnexion.seConnecter();
+			stmt = cnx.prepareStatement(SELECT_BY_PSEUDO);
+			stmt.setString(1, pseudo);
+			rs = stmt.executeQuery();
+			
+			
+			if (rs.next()) {
+				user = new Utilisateur(rs.getString("pseudo"), rs.getString("nom"), rs.getString("prenom"),
+					rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), rs.getString("code_postal"), 
+					rs.getString("ville"));
+		}
+	
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DALException("Erreur lors de la sélection de l'utilisateur par son pseudo : " + pseudo, e);
+			
+		} finally {
+			try {	
+				if(stmt != null) {
+					stmt.close();
+				}
+				
+				if(cnx != null) {
+					cnx.close();
+				}
+				
+			} catch (SQLException e) {
+				throw new DALException("Erreur lors de la sélection de l'utilisateur par son pseudo : " + pseudo, e);
+			}
+			
+		}
+		return user;
+		
+	
+	
+		
+	}
+	
+	
 	 
 }
 

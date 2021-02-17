@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ecole.projectenchere.bll.BLLException;
+import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
 import fr.eni.ecole.projectenchere.dal.DALException;
 import fr.eni.ecole.projectenchere.dal.DAOFactory;
@@ -40,17 +42,34 @@ public class ProfilUtilisateurServlet extends HttpServlet {
 		// autant de variables que de champs à compléter sur jsp
 		// exemple nom : String nom = utilisateur.getNom();
 		// request.setAttribute("nom", nom);
+		Utilisateur utilisateur = new Utilisateur();
 		
+		String pseudo = utilisateur.getPseudo();
+		String nom = utilisateur.getNom();
+		String prenom = utilisateur.getPrenom();
+		String email = utilisateur.getEmail();
+		String telephone = utilisateur.getTelephone();
+		String rue = utilisateur.getRue();
+		String codePostal = utilisateur.getCodePostal();
+		String ville = utilisateur.getVille();
+		
+		
+		UtilisateurManager usermgr = new UtilisateurManager();
 		try {
-			UtilisateursDAO utilisateurDAO = DAOFactory.getUtilisateursDAO();
-			Utilisateur utilisateur = utilisateurDAO.selectById(18);
 			
-			request.setAttribute("utilisateur", utilisateur);
+			utilisateur = usermgr.getUtilisateur(pseudo);
 			
-			response.getWriter().append("Utilisateur : " +utilisateur);
+			request.setAttribute("pseudo", pseudo);
+			request.setAttribute("nom", nom);
+			request.setAttribute("prenom", prenom);
+			request.setAttribute("email", email);
+			request.setAttribute("telephone", telephone);
+			request.setAttribute("rue", rue);
+			request.setAttribute("code_postal", codePostal);
+			request.setAttribute("ville", ville);
 			
 			request.getRequestDispatcher("/WEB-INF/jsp/profilUtilisateur.jsp").forward(request, response);
-		} catch (DALException e) {
+		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

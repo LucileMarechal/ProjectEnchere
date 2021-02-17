@@ -133,9 +133,22 @@ public class TestDALVince extends HttpServlet {
 //		}
 
 		// tester méthode selectByMailPseudo -> ça marche !
+//		try {
+//			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
+//			utilisateur = utilisateurDAO2.selectByMailPseudo("Simba", "mufasa_lelion@gmail.com");
+//			//utilisateur2 = utilisateurDAO2.selectByMailPseudo("Bambi", "mufasa_lelion@gmail.com");
+//			
+//			response.getWriter().append(utilisateur.toString());
+//			
+//			
+//		} catch (DALException e) {
+//			response.getWriter().append(e.getMessage());
+//		}
+		
+		// tester méthode selectByPseudo -> ça marche ! 
 		try {
 			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
-			utilisateur = utilisateurDAO2.selectByMailPseudo("Simba", "mufasa_lelion@gmail.com");
+			utilisateur = utilisateurDAO2.selectByPseudo("Simba");
 			//utilisateur2 = utilisateurDAO2.selectByMailPseudo("Bambi", "mufasa_lelion@gmail.com");
 			
 			response.getWriter().append(utilisateur.toString());
@@ -144,7 +157,6 @@ public class TestDALVince extends HttpServlet {
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
 		}
-		
 		
 	}
 

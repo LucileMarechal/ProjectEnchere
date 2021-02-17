@@ -56,7 +56,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 			request.getSession().setAttribute("loginSession", pseudo);
 			request.getSession().setAttribute("loginSession", email);
 			response.sendRedirect("./accueilAvecConnexion.html");
-			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
+			//request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 			
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
@@ -65,9 +65,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 			response.getWriter().append("Erreur : " +e.getMessage());
 			request.getRequestDispatcher("/WEB-INF/jsp/creerUnCompte.jsp").forward(request, response);
 		}
-		
-		
-		//response.getWriter().append("\nle mot de passe est : " +password);
+
 
 
 		
