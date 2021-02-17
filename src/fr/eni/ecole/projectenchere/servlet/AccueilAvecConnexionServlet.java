@@ -35,6 +35,10 @@ public class AccueilAvecConnexionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//test session
+		String pseudo = (String) request.getSession().getAttribute("loginSession");
+		System.out.println(pseudo);
+
 		
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();

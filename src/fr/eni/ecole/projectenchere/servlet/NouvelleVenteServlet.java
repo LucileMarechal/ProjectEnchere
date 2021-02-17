@@ -29,6 +29,9 @@ public class NouvelleVenteServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String pseudo = (String) request.getSession().getAttribute("loginSession");
+		System.out.println(pseudo);
+		
 		request.getRequestDispatcher("/WEB-INF/jsp/nouvelleVente.jsp").forward(request, response);
 	}
 
