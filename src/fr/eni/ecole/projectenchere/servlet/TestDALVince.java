@@ -72,7 +72,7 @@ public class TestDALVince extends HttpServlet {
 //		}
 		
 		// tester la méthode insert -> ça marche ! 
-//		Utilisateur u1 = new Utilisateur("Bambi", "Bambi", "Bambo", "bambi@gmail.com", "0123456789", "4 rue des coquelicots", 
+//		Utilisateur u1 = new Utilisateur("Snoopy", "Snoopy", "Droopy", "snoopydroopy@gmail.com", "0123456789", "4 rue des coquelicots", 
 //				"14200", "Foret", "bonjour", 100, false);
 //		try {
 //			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();

@@ -46,7 +46,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 		
 		
 		try {
-			usermgr.getUtilisateur(utilisateur.getNoUtilisateur());
+			//usermgr.getUtilisateur(utilisateur.getNoUtilisateur());
 			usermgr.validerConnexionUtilisateur(pseudo, email, password);
 			
 		} catch (BLLException e) {
