@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ecole.projectenchere.bll.BLLException;
 import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
 
@@ -72,12 +73,21 @@ public class CreerCompteServlet extends HttpServlet {
 			usermgr.validerMotDePasse(motDePasse, confirmation);
 			usermgr.addUtilisateur(u1);
 //			usermgr.validerEmail(email);
+			response.sendRedirect("./accueilAvecConnexion.html");
 			
-		} catch (Exception e) {
+		} catch (BLLException e) {
 			e.printStackTrace();
+			System.out.println("servlet :" + e.getMessage());
+			//creer un attribut de request pour transmettre à la jsp
+			request.setAttribute("erreur", e.getMessage());
+			
+			response.getWriter().append("erreur :" +e.getMessage());
+			request.getRequestDispatcher("/WEB-INF/jsp/creationProfil.jsp").forward(request, response);
 		}
-			request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
-		//
+		//appeler la servlet qui affiche "accueil avec connexion" 
+
+		
+		
 		
 		//gestion des erreurs de validation
 		}

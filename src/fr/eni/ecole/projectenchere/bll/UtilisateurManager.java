@@ -96,7 +96,7 @@ public class UtilisateurManager {
 			sb.append("L'adresse mail doit être renseignée. \n");
 			valide = false;
 		}
-		if (!u.getEmail().matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")){
+		if (!u.getEmail().matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$")){
 			sb.append("Merci de saisir une adresse mail valide.\n");
 			valide = false;
 		}
