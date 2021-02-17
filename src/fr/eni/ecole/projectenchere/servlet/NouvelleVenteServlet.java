@@ -44,12 +44,12 @@ public class NouvelleVenteServlet extends HttpServlet {
 		Integer noCategorie = Integer.parseInt(request.getParameter("Categorie")) ;
 		//Cast du String en Int
 		int prixInitial = Integer.parseInt(request.getParameter("sprix"));
-/*************CAST DE DATE A FAIRE************************************/
+/*************CAST DE DATE DATE.SQL************************************/
 		String dateD = request.getParameter("sdate_debut");
 		String dateF = request.getParameter("sdate_fin");
 		Date dateDebut = Date.valueOf(dateD);
 		Date dateFin = Date.valueOf(dateF);
-/*************CAST DE DATE A FAIRE************************************/
+/*************CAST DE DATE DATE.SQL************************************/
 
 		String rue = request.getParameter("srue");
 		String codePostal = request.getParameter("scodepostal");
