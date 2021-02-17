@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.ecole.projectenchere.bll.ArticleVendusManager;
+import fr.eni.ecole.projectenchere.bll.CategoriesManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
+import fr.eni.ecole.projectenchere.bo.Categories;
 import fr.eni.ecole.projectenchere.dal.DALException;
 
 /**
@@ -33,8 +35,12 @@ public class AccueilAvecConnexionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		
+		List<Categories> categorie = new ArrayList<>();
+		CategoriesManager categories = new CategoriesManager();
 		String message="";
 		
 		
@@ -51,6 +57,19 @@ public class AccueilAvecConnexionServlet extends HttpServlet {
 			response.getWriter().append(e.getMessage());
 		} 
 		
+		try {
+			categorie = categories.CategorieManager().selectAll();
+			if (categorie.isEmpty()) {
+				message = "Pas de catégorie en BDD";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(categorie.toString());
+			}
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		} 
+				
+		request.setAttribute("listeCategorie", categorie);
 		request.setAttribute("listeArticles", artVendu);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);

@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jdt.internal.compiler.env.IModule.IService;
 
 import fr.eni.ecole.projectenchere.bll.ArticleVendusManager;
+import fr.eni.ecole.projectenchere.bll.CategoriesManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
+import fr.eni.ecole.projectenchere.bo.Categories;
 import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DALException;
 import fr.eni.ecole.projectenchere.dal.DAOFactory;
@@ -39,8 +41,13 @@ public class AccueilServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		List<ArticleVendu> artVendu = new ArrayList<>();
 		ArticleVendusManager artVendu1 = new ArticleVendusManager();
+		
+		List<Categories> categorie = new ArrayList<>();
+		CategoriesManager categories = new CategoriesManager();
+		
 		String message="";
 		
 		
@@ -57,6 +64,19 @@ public class AccueilServlet extends HttpServlet {
 			response.getWriter().append(e.getMessage());
 		} 
 		
+		try {
+			categorie = categories.CategorieManager().selectAll();
+			if (categorie.isEmpty()) {
+				message = "Pas de catégorie en BDD";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(categorie.toString());
+			}
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		} 
+				
+		request.setAttribute("listeCategorie", categorie);
 		request.setAttribute("listeArticles", artVendu);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);

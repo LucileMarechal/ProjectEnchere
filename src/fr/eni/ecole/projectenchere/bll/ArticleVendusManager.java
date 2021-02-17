@@ -1,8 +1,5 @@
 package fr.eni.ecole.projectenchere.bll;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
 import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DAOFactory;

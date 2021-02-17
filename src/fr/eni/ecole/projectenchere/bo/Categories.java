@@ -1,19 +1,17 @@
 package fr.eni.ecole.projectenchere.bo;
 
-public class CategorieArticle {
+public class Categories {
 	private Integer noCategorie;
 	private String libelle;
 
 	//Constructeur
-	public CategorieArticle(Integer noArticle, String libelle) {
+	public Categories(Integer noCategorie, String libelle) {
+		super();
+		this.noCategorie = noCategorie;
+		this.libelle = libelle;
 	}
-	public CategorieArticle() {
-		// TODO Auto-generated constructor stub
-	}
+
 	//Getter et Setter
-	
-
-
 	public Integer getNoCategorie() {
 		return noCategorie;
 	}

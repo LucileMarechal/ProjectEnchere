@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
-import fr.eni.ecole.projectenchere.bo.CategorieArticle;
+import fr.eni.ecole.projectenchere.bo.Categories;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
 import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DALException;

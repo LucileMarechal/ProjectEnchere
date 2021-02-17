@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.ecole.projectenchere.bll.ArticleVendusManager;
+import fr.eni.ecole.projectenchere.bll.CategoriesManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
+import fr.eni.ecole.projectenchere.bo.Categories;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
 import fr.eni.ecole.projectenchere.dal.ArticlesVendusDAO;
 import fr.eni.ecole.projectenchere.dal.DALException;
@@ -41,6 +43,29 @@ public class TestDalPat extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*
+		//test pour afficher tous les articles + utilisateurs
+		List<ArticleVendu> artVendu = new ArrayList<>();
+		ArticlesVendusDAO artVenduDAO = null;
+		String message="";
+		*/
+		
+		List<Categories> categorie = new ArrayList<>();
+		CategoriesManager categories = new CategoriesManager();
+		String message = "";
+		
+		try {
+			categorie = categories.CategorieManager().selectAll();
+			if (categorie.isEmpty()) {
+				message = "Pas de catégorie en BDD";
+				response.getWriter().append(message);
+			}else {
+				response.getWriter().append(categorie.toString());
+			}
+		} catch (DALException e) {
+			response.getWriter().append(e.getMessage());
+		} 
+		request.setAttribute("listeCategorie", categorie);
 		
 		/*
 		//test filtre par catégorie
@@ -57,17 +82,12 @@ public class TestDalPat extends HttpServlet {
 				response.getWriter().append(message);
 			}else {
 				response.getWriter().append(artVendu.toString());
-				
-			
-		
+
 		} */
 		
 		
 		
-		//test pour afficher tous les articles + utilisateurs
-		List<ArticleVendu> artVendu = new ArrayList<>();
-		ArticlesVendusDAO artVenduDAO = null;
-		String message="";
+
 		
 		/*
 		try {
@@ -105,7 +125,7 @@ public class TestDalPat extends HttpServlet {
 		
 		
 
-		
+		/*
 		//Test insert
 		ArticlesVendusDAOJdbcImpl articleVenduDAO = new ArticlesVendusDAOJdbcImpl();
 		Utilisateur utilisateur = new Utilisateur();
@@ -120,7 +140,7 @@ public class TestDalPat extends HttpServlet {
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	/**
