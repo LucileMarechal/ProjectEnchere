@@ -44,7 +44,7 @@ public class CreerCompteServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//
+		
 		// faire appel au manager -> appel méthode DAO insert
 		//récupération des champs du formulaire
 		//Appel à la méthode getParameter
@@ -67,12 +67,12 @@ public class CreerCompteServlet extends HttpServlet {
 		try {
 			usermgr.validerUtilisateur(u1);
 			usermgr.validerMotDePasse(motDePasse, confirmation);
-			usermgr.InsertUtilisateur(u1);
+			usermgr.addUtilisateur(u1);
+			usermgr.validerEmail(email);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 			//gestion des erreurs de validation
 		}
 	

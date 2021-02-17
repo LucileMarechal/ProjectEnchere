@@ -2,9 +2,10 @@
 <!-- Fragment qui ramène à la page AccueilASansConnexion -->
 <%@ include file="../fragments/fragmentAccueilSansConnexion.jspf" %>
 
-<form method="post" action="inscription">
-	<fieldset>
-		<legend>Mon profil <!--  -->
+<h1>Mon profil</h1>
+
+	<div class="container-fluid">
+	<form  action="<%= request.getContextPath() %>/creerUnCompte.html" method="post">
 
 <label for="pseudo">Pseudo :<span class="requis">*</span></label>
 <input type="text" id="pseudo" name="spseudo" value="" size="20" maxlength="60">
@@ -47,12 +48,12 @@
 <br />
 
 <label for="passWord">Mot de passe :<span class="requis">*</span></label>
-<input type="text" id="passWord" name="spassWord" value="" size="20" maxlength="60">
+<input type="password" id="passWord" name="spassWord" value="" size="20" maxlength="60">
 
 <br />
 
 <label for="confirmation">Confirmation :<span class="requis">*</span></label>
-<input type="text" id="confirmation" name="sconfirmation" value="" size="20" maxlength="60">
+<input type="password" id="confirmation" name="sconfirmation" value="" size="20" maxlength="60">
 
 <br />
 			<!-- en appuyant sur créer, on arrive à la page d'accueil connecté (liste enchères -->
@@ -61,5 +62,5 @@
 			<br>
 			
 				<a href="<%= request.getContextPath() %>/accueil.html"><input type="submit" value="Annuler"></a>
-			</legend></fieldset></form>
+			</form></div>
 </body>
