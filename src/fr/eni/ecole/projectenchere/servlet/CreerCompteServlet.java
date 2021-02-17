@@ -27,6 +27,8 @@ public class CreerCompteServlet extends HttpServlet {
 	public static final String VILLE = "scity";
 	public static final String MOT_DE_PASSE = "spassWord";
 	public static final String CONFIRMATION = "sconfirmation";
+	public static final int CREDIT = 100;
+	public static final boolean ADMINISTRATEUR = false;
 	
 	
     /**
@@ -59,16 +61,17 @@ public class CreerCompteServlet extends HttpServlet {
 		String ville = request.getParameter(VILLE);
 		String motDePasse = request.getParameter(MOT_DE_PASSE);
 		String confirmation = request.getParameter(CONFIRMATION);
+		
 
-		Utilisateur u1 = new Utilisateur(pseudo,nom,prenom,email,telephone,rue,codePostal,ville,motDePasse);
+		Utilisateur u1 = new Utilisateur(pseudo,nom,prenom,email,telephone,rue,codePostal,ville,motDePasse,  CREDIT, ADMINISTRATEUR);
 		//création du constructeur dans utilisateurBO 
 		UtilisateurManager usermgr = new UtilisateurManager();
 		
 		try {
-			usermgr.validerUtilisateur(u1);
+//			usermgr.validerUtilisateur(u1);
 			usermgr.validerMotDePasse(motDePasse, confirmation);
 			usermgr.addUtilisateur(u1);
-			usermgr.validerEmail(email);
+//			usermgr.validerEmail(email);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -55,12 +55,13 @@
 <label for="confirmation">Confirmation :<span class="requis">*</span></label>
 <input type="password" id="confirmation" name="sconfirmation" value="" size="20" maxlength="60">
 
-<br />
+<input type="submit" value="Créer">
+<br /></form>
 			<!-- en appuyant sur créer, on arrive à la page d'accueil connecté (liste enchères -->
-				<a href="<%= request.getContextPath()%>/accueilAvecConnexion.html"><input type="submit" value="Créer"></a>
+				<a href="<%= request.getContextPath()%>/accueilAvecConnexion.html"></a>
 		
 			<br>
 			
 				<a href="<%= request.getContextPath() %>/accueil.html"><input type="submit" value="Annuler"></a>
-			</form></div>
+			</div>
 </body>

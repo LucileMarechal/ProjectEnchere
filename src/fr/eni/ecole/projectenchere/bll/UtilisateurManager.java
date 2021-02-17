@@ -27,7 +27,7 @@ public class UtilisateurManager {
 	//vérification email 
 	public Utilisateur validerEmail(String email) {
 		Utilisateur utilisateur = new Utilisateur();
-		boolean checkFormulaire;
+		boolean checkFormulaire = true;
 
 		try {
 			UtilisateursDAO utilisateurDao = null;
@@ -192,8 +192,8 @@ public class UtilisateurManager {
 			// mauvaise condition...
 			// il faut chercher à comparer si le pseudo ou l'email de l'utilisateur 
 			// correspond bien à son password 
-			// et non à comparer l'email ou le pseudo avec le password 
-			if (email.matches(password) || pseudo.matches(password)) {
+			// et non à comparer l'email ou le pseudo avec le password
+			if (email != password && pseudo != password) {
 	    	  sb.append("\nLe login ou mot de passe ne correspond pas");
 	    	  valide = false;
 			}
