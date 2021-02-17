@@ -43,7 +43,7 @@ public class TestBLL extends HttpServlet {
 	
 	//Nouvel utilisateur : fonctionne
 	Utilisateur utilisateur = new Utilisateur
-			("Tagada", "Tsouin", "Tsouin", "taga&datsouin@gmail.com", "0767058277", "4 rue des coquelicots",
+			("", "Tsouin", "Tsouin", "taga&datsouin@gmail.com", "0767058277", "4 rue des coquelicots",
 			 "14200", "Foret", "bonjour", 100, false);
 	try {
 		test.addUtilisateur(utilisateur);

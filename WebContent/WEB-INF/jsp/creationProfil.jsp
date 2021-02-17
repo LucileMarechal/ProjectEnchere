@@ -2,7 +2,7 @@
 <!-- Fragment qui ramène à la page AccueilASansConnexion -->
 <%@ include file="../fragments/fragmentAccueilSansConnexion.jspf" %>
 
-<form method="post" action="inscription">
+<form method="post" action="/creerUnCompte.html" >
 	<fieldset>
 		<legend>Mon profil <!--  -->
 
@@ -47,12 +47,12 @@
 <br />
 
 <label for="passWord">Mot de passe :<span class="requis">*</span></label>
-<input type="text" id="passWord" name="spassWord" value="" size="20" maxlength="60">
+<input type="password" id="passWord" name="spassWord" value="" size="20" maxlength="60">
 
 <br />
 
 <label for="confirmation">Confirmation :<span class="requis">*</span></label>
-<input type="text" id="confirmation" name="sconfirmation" value="" size="20" maxlength="60">
+<input type="password" id="confirmation" name="sconfirmation" value="" size="20" maxlength="60">
 
 <br />
 			<!-- en appuyant sur créer, on arrive à la page d'accueil connecté (liste enchères -->
