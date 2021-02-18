@@ -17,7 +17,11 @@ public class Retrait {
 	}
 
 
-//Getter et Setter
+public Retrait() {
+		// TODO Auto-generated constructor stub
+	}
+
+	//Getter et Setter
 	public String getRue() {
 		return rue;
 	}

@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
 import fr.eni.ecole.projectenchere.bll.BLLException;
+import fr.eni.ecole.projectenchere.bll.RetraitManager;
 import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
 import fr.eni.ecole.projectenchere.dal.DALException;
 import fr.eni.ecole.projectenchere.dal.DAOFactory;
+import fr.eni.ecole.projectenchere.dal.RetraitsDAO;
 import fr.eni.ecole.projectenchere.dal.UtilisateursDAO;
 
 /**
@@ -30,7 +32,17 @@ public class TestBLL extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	UtilisateurManager test = new UtilisateurManager();
+	RetraitManager test = new RetraitManager();
+	
+	try {
+		test.selectByNoRetrait(1);
+		System.err.println(test);
+	} catch (BLLException e) {
+		e.printStackTrace();
+	}
+	
+		
+//	UtilisateurManager test = new UtilisateurManager();
 	/*
 	 *Ca fonctionne!!!!!!!!!!
 	 *
@@ -42,16 +54,16 @@ public class TestBLL extends HttpServlet {
 	}*/
 	
 	//Nouvel utilisateur : fonctionne
-	Utilisateur utilisateur = new Utilisateur
-			("", "Tsouin", "Tsouin", "taga&datsouin@gmail.com", "0767058277", "4 rue des coquelicots",
-			 "14200", "Foret", "bonjour", 100, false);
-	try {
-		test.addUtilisateur(utilisateur);
-		utilisateur.toString();
-	} catch (BLLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+//	Utilisateur utilisateur = new Utilisateur
+//			("", "Tsouin", "Tsouin", "taga&datsouin@gmail.com", "0767058277", "4 rue des coquelicots",
+//			 "14200", "Foret", "bonjour", 100, false);
+//	try {
+//		test.addUtilisateur(utilisateur);
+//		utilisateur.toString();
+//	} catch (BLLException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 	
 	//ValiderUtilisateur
 	
