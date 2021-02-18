@@ -305,7 +305,7 @@ public class UtilisateurManager {
 		     */
 		    public void updateUtilisateur(Utilisateur utilisateur) throws BLLException {
 		    	try {
-		    		validerUtilisateur(utilisateur);
+		    		//validerUtilisateur(utilisateur);
 		    		daoUtilisateur.update(utilisateur);
 		    	} catch (DALException e) {
 		    		throw new BLLException("Echec de la modification du profil de l'utilisateur : " +utilisateur, e);

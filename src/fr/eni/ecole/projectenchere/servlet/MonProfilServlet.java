@@ -60,10 +60,7 @@ public class MonProfilServlet extends HttpServlet {
 
 		u2.setPseudo(pseudo);
 		u2.setPrenom(prenom);
-		if (telephone != null) {
-			u2.setTelephone(telephone);
-		}
-		
+		u2.setTelephone(telephone);
 		u2.setCodePostal(codePostal);
 		u2.setNom(nom);
 		u2.setEmail(email);
