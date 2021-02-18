@@ -52,7 +52,7 @@
 			</div>
 			<br>
 			<div>
-				Crédit : <%= request.getAttribute("credit") %><br>
+				Crédit : <%= request.getAttribute("credit") %><br>  
 			</div>
 			<br>
 			<!-- en cliquant sur supprimer, ça m'amène à l'accueil non connecté -->
