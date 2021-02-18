@@ -4,6 +4,7 @@
 
 	<h1>Mon profil</h1>
 	
+<form action="<%=request.getContextPath() %>/monProfil.html" method="post">	
 	<div>
 		<div>
 			<div>
@@ -44,11 +45,11 @@
 			</div>
 			<br>
 			<div>
-				Nouveau mot de passe : <input type="password" name="smdp"><br>
+				Nouveau mot de passe : <input type="password" name="snewmdp"><br>
 			</div>
 			<br>
 			<div>
-				Confirmation : <input type="password" name="sconf"><br>
+				Confirmation : <input type="password" name="sconfnewmdp"><br>
 			</div>
 			<br>
 			<div>
@@ -57,13 +58,14 @@
 			<br>
 			<!-- en cliquant sur supprimer, ça m'amène à l'accueil non connecté -->
 			<div>
-				<a href="<%=request.getContextPath() %>/accueilAvecConnexion.html"><input type="submit" value="Enregistrer"></a>
+				<input type="submit" value="Enregistrer">
 			</div>
 			<br>
-			<div>
-				<a href="<%=request.getContextPath() %>/accueil.html"><input type="submit" value="Supprimer mon compte"></a>
-			</div>
 		</div>
 	</div>
+</form>		
+		<div>
+			<a href="<%=request.getContextPath() %>/accueil.html"><input type="submit" value="Supprimer mon compte"></a>
+		</div>
 </body>
 </html>
