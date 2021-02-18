@@ -25,6 +25,11 @@ public class UtilisateurManager {
 	//
 
 	//vérification email 
+	/**
+	 * Méthode permettant de vérifier l'adresse email de l'utilisateur
+	 * @param email
+	 * @return
+	 */
 	public Utilisateur validerEmail(String email) {
 		Utilisateur utilisateur = new Utilisateur();
 		boolean checkFormulaire = true;
@@ -44,6 +49,13 @@ public class UtilisateurManager {
 
 
 	} 
+	
+	
+	/**
+	 * Méthode permettant d'ajouter un utilisateur
+	 * @param newUser
+	 * @throws BLLException
+	 */
 	public void addUtilisateur(Utilisateur newUser) throws BLLException {
 		if (newUser.getNoUtilisateur()!=null) {
 			throw new BLLException("utilisateur déjà existant");
@@ -56,6 +68,11 @@ public class UtilisateurManager {
 		}
 	}
 
+	/**
+	 * Méthode permettant de valider les paramètres d'un utilisateur lorsqu'il s'inscrit
+	 * @param u
+	 * @throws BLLException
+	 */
 	public void validerUtilisateur(Utilisateur u) throws BLLException {
 		//vérifier les différents champs du formulaire 
 
@@ -137,6 +154,12 @@ public class UtilisateurManager {
 			}
 		}
 
+		/**
+		 * Méthode permettant de valider si le mot de passe de l'utilisateur est identique au mot de passe de confirmation
+		 * @param motDePasse
+		 * @param confirmationMDP
+		 * @throws BLLException
+		 */
 		public void validerMotDePasse (String motDePasse, String confirmationMDP) throws BLLException {
 
 			boolean valide =  true;
@@ -169,6 +192,14 @@ public class UtilisateurManager {
 	     }
 
 		
+		/**
+		 * Méthode permettant de valider la connexion de l'utilisateur en fonction de son login et de son mot de passe
+		 * @param email
+		 * @param pseudo
+		 * @param password
+		 * @return utilisateur
+		 * @throws BLLException
+		 */
 		public Utilisateur validerConnexionUtilisateur (String email, String pseudo, String password) throws BLLException {
 		      Utilisateur utilisateur = new Utilisateur();
 		      
@@ -228,6 +259,12 @@ public class UtilisateurManager {
 		    }      
 
 		    
+		    /**
+		     * Méthode permettant de récupérer un utilisateur par son pseudo
+		     * @param pseudo
+		     * @return utilisateur
+		     * @throws BLLException
+		     */
 		    public Utilisateur getUtilisateur(String pseudo) throws BLLException {
 		      Utilisateur utilisateur = null;
 		      
@@ -242,6 +279,11 @@ public class UtilisateurManager {
 		    }
 		    
 		    
+		    /**
+		     * Méthode permettant de mettre à jour les données utilisateur
+		     * @param utilisateur
+		     * @throws BLLException
+		     */
 		    public void updateUtilisateur(Utilisateur utilisateur) throws BLLException {
 		    	try {
 		    		validerUtilisateur(utilisateur);
@@ -251,6 +293,11 @@ public class UtilisateurManager {
 		    	}
 		    }
 		
+		    /**
+		     * Méthode permettant de supprimer un utilisateur
+		     * @param no_utilisateur
+		     * @throws BLLException
+		     */
 		    public void removeUtilisateur(Integer no_utilisateur) throws BLLException {
 		    	try {
 		    		daoUtilisateur.delete(no_utilisateur);
