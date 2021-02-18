@@ -278,6 +278,25 @@ public class UtilisateurManager {
 
 		    }
 		    
+		    /**
+		     * Méthode permettant de récupérer un utilisateur par son numéro utilisateur
+		     * @param noUtilisateur
+		     * @return utilisateur
+		     * @throws BLLException
+		     */
+		    public Utilisateur getUtilisateurById(Integer noUtilisateur) throws BLLException {
+			      Utilisateur utilisateur = null;
+			      
+			      try {
+			        utilisateur = daoUtilisateur.selectById(noUtilisateur);
+			      } catch (DALException e) {
+			        throw new BLLException("Echec récupération utilisateur", e);
+			      }
+			      
+			      return utilisateur;
+
+			    }
+		    
 		    
 		    /**
 		     * Méthode permettant de mettre à jour les données utilisateur
