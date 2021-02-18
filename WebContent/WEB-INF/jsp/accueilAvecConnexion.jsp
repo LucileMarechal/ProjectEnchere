@@ -1,5 +1,6 @@
 
 <!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@page import="fr.eni.ecole.projectenchere.bo.Utilisateur"%>
 <%@page import="fr.eni.ecole.projectenchere.bo.Categories"%>
 <%@page import="fr.eni.ecole.projectenchere.bo.ArticleVendu"%>
 <%@page import="java.util.List"%>
@@ -88,7 +89,7 @@
 				<img alt="#image" src="">
 				<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
 				<p class="card-text">Date de fin d'enchère : <%=date %><br></p>
-				<p> Vendeur : <a href="<%=request.getContextPath()%>/profilUtilisateur.html"><%=vendeur %></a></p>
+				<p> Vendeur : <a href="<%=request.getContextPath()%>/profilUtilisateur.html?noVendeur=<%=articleVendu.getNoUtilisateur()%>"><%=vendeur %></a></p>
 				</div>
 			<%}%>
 		</div>
