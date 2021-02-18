@@ -11,17 +11,13 @@ public class Retrait {
 	public Retrait(String rue, String code_postal, String ville) {
 	}
 	
-	
-
-	//Getter et Setter
-	
-//Constructeur - selectByNoRetrait
+	//Constructeur - selectByNoRetrait
 	public Retrait(int no_retrait, String rue, String code_postal, String ville) {
 		// TODO Auto-generated constructor stub
 	}
 
 
-
+//Getter et Setter
 	public String getRue() {
 		return rue;
 	}
