@@ -51,6 +51,10 @@
 				Confirmation : <input type="password" name="sconf"><br>
 			</div>
 			<br>
+			<div>
+				Crédit : <%= request.getAttribute("credit") %><br>
+			</div>
+			<br>
 			<!-- en cliquant sur supprimer, ça m'amène à l'accueil non connecté -->
 			<div>
 				<a href="<%=request.getContextPath() %>/accueilAvecConnexion.html"><input type="submit" value="Enregistrer"></a>
