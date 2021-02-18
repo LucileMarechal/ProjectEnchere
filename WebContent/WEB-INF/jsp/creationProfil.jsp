@@ -28,6 +28,7 @@
 
 			<div class="col-2">
 			<input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Créer">
+			<small><font color="red"><%=request.getAttribute("erreur") != null ? request.getAttribute("erreur") : ""%></font></small>
 			</div>
 		</div>
 	</div>	
