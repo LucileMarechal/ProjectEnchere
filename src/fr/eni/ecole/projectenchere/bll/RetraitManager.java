@@ -22,8 +22,6 @@ public class RetraitManager {
 	}
 	
 	
-	
-	
 	//Méthode selectByNoRetrait
 	public Retrait selectByNoRetrait (Integer no_retrait) throws BLLException {
 		
