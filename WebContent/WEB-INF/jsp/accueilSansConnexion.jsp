@@ -13,16 +13,14 @@
 <title>Accueil</title>
 </head>
 <body>
-
+<div class="ml-3">
 <div class="row">
   <div class="col-md-1 col-lg-8" class="text-left"><h1>ENI-Enchères</h1></div>
   <div class="col-xs-6 col-lg-4"><a href="<%=request.getContextPath()%>/SinscrireSeConnecter.html">S'inscrire - Se connecter</a></div>
 </div>
 
-<div class="row">
-  <div class="col-lg-6 col-lg-4"></div>
-  <div class="col-lg-6 col-lg-4"><h2>Liste des enchères</h2></div>
-  <div class="col-lg-6 col-lg-4"></div>
+<div class="d-flex justify-content-center">
+	<h2>Liste des enchères</h2>
 </div>
 
 	<P>Filtres :</P>
@@ -74,6 +72,6 @@
 	
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
-
+</div>
 </body>
 </html>

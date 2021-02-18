@@ -6,15 +6,13 @@
 <%@page import="java.util.Date"%>
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
-
+<div class="ml-3">
 	<a href="<%=request.getContextPath()%>/NouvelleVente.html">Vendre un article</a>
 	<a href="<%=request.getContextPath()%>/profilUtilisateur.html">  Mon profil</a>
 	<a href="<%=request.getContextPath()%>/accueil.html">  Déconnexion </a>
 
-<div class="row">
-  <div class="col-lg-6 col-lg-4"></div>
-  <div class="col-lg-6 col-lg-4"><h2>Liste des enchères</h2></div>
-  <div class="col-lg-6 col-lg-4"></div>
+<div class="d-flex justify-content-center">
+	<h2>Liste des enchères</h2>
 </div>
 
 	<P>Filtres :</P>
@@ -24,7 +22,7 @@
 		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
 	</form>
 
-	<!-- Catégorie avec liste déroulante -->
+	<!-- Catégorie avec liste déroulante Dynamique avec la BDD -->
 	<label>Catégorie : </label>
 	<label>Catégorie : </label>
 	<form action="<%=request.getContextPath()%>/Categorie.html" method="get">
@@ -44,8 +42,8 @@
 	<br>
 	<br>
 
-	<form>
-	<div class="achat">
+	<form class="row">
+	<div class="achat col">
 	<input type="radio" id="achats" name="name" value="achats" checked onclick="selectAchatOuVente(this)">
 	<label for="achats">Achats</label><br>
 		
@@ -58,7 +56,7 @@
   		
 	</div>
 	
-	<div class="vente">
+	<div class="vente col">
 	<input type="radio" id="ventes" name="name" value="ventes" onclick="selectAchatOuVente(this)">
 	<label for="ventes">Mes ventes</label><br>
   		<input type="checkbox" id="4" name="sVentes">
@@ -68,6 +66,7 @@
   		<input type="checkbox" id="6" name="sVentes">
   		<label for="termine"> Ventes terminées</label><br>
 	</div>
+	<div class="vente col"></div>
 	</form>
 	<br>
 	<br>
@@ -96,6 +95,6 @@
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
 
 
-
+</div>
 </body>
 </html>

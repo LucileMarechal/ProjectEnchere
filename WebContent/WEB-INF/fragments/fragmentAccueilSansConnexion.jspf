@@ -8,5 +8,6 @@
 <title>ENI-Enchères</title>
 </head>
 <body>
-
+<div class="ml-3">
 <h1> <a href="<%= request.getContextPath() %>/accueil.html">ENI-Enchères</a></h1>
+</div>

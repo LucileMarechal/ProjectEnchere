@@ -1,28 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Cr√©er un compte</title>
-</head>
-<body>
-<h1>ENI-Ench√®res</h1>
+<!-- Fragment qui ramËne ‡ la page AccueilASansConnexion -->
+<%@ include file="../fragments/fragmentAccueilSansConnexion.jspf" %>
 
+<div class="ml-3">
+<form>
 	<div>
-		<div>
-			Identifiant : <input type="text" name="sid">
-		</div>
-		<br>
-		<br>
-		<div>
-			<a href="<%= request.getContextPath() %>/SinscrireSeConnecter.html">
-			<input type="submit" value="R√©initialisation du mot de passe">
-			</a>
-		</div>	
-		<br>
-
+		<label for="id">Pseudo/Mail : </label><input id="id" type="text" name="sid">
 	</div>
-
+	<input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="RÈinitialisation du mot de passe">
+</form>
+</div>
 </body>
 </html>

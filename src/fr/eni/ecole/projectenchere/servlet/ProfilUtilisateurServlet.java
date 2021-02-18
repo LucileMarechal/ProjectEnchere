@@ -42,11 +42,18 @@ public class ProfilUtilisateurServlet extends HttpServlet {
 		Utilisateur u1 = new Utilisateur();
 		UtilisateurManager usermanager = new UtilisateurManager();
 		
+/******AJOUT PAT************************************/
+
+		String pseudoUser = (String) request.getSession().getAttribute("loginSession");
+		
+/******AJOUT PAT************************************/		
+		
+		
 		try {
 			// remplacer Simba par n'importe quel utilisateur 
 			// récupérer pseudo de la personne connectée 
 			// session
-			u1 = usermanager.getUtilisateur("Simba");
+			u1 = usermanager.getUtilisateur(pseudoUser);
 			response.getWriter().append(u1.toString());
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block

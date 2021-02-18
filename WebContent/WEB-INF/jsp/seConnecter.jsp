@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div class="ml-3">
+
 <h1>ENI-Enchères</h1>
 
 	<div class="container-fluid">
@@ -22,25 +24,29 @@
 		</div>
 		<font color="red"><%=request.getAttribute("erreur") != null ? request.getAttribute("erreur") : ""%></font>
 		<br>
-		<div>
+		<div class="col-md-3">
 			<button type="submit" class="btn btn-primary">Connexion</button>
+			<input class="form-check form-check-inline" type="checkbox" name="smemo" value="memo">Se souvenir de moi
 		</div>
+		
 	</form>
 		<br>
 		
-		<div>
-			<input class="form-check-input" type="checkbox" name="smemo" value="memo">Se souvenir de moi
-			<a href="<%= request.getContextPath() %>/ReinitialisationMdp.html"><input type="button" value="Mot de passe oublié">
+		<div class="col-md-3">
+			<a href="<%= request.getContextPath() %>/ReinitialisationMdp.html">
+			<input class="btn btn-outline-danger" type="button" value="Mot de passe oublié">
 			</a>
+			<br>
 		</div>
-	
-		<div>
+	<br>
+
+		<div class="col-md-3">
 			<a href="<%= request.getContextPath() %>/creationProfil.html">
-			<input type="submit" value="Créer un compte">
+			<input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Créer un compte">
 			</a>
 		</div>
 	</div>
-
+</div>
 
 </body>
 </html>

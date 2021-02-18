@@ -4,6 +4,10 @@
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
 
+<div class="d-flex justify-content-center">
+	<h2>Mon profil</h2>
+</div>
+
 	<div>
 		<div>
 			Pseudo : <%=request.getAttribute("pseudo") %>
@@ -39,7 +43,7 @@
 		<br>
 		<div>
 			<a href="<%= request.getContextPath() %>/monProfil.html">
-			<input type="submit" value="Modifier">
+			<input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Modifier">
 			</a>
 		</div>
 	</div>
