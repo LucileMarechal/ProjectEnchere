@@ -51,10 +51,6 @@
 				Confirmation : <input type="password" name="sconf"><br>
 			</div>
 			<br>
-			<div>
-				Crédit : <input type="text" name="scred"><br>
-			</div>
-			<br>
 			<!-- en cliquant sur supprimer, ça m'amène à l'accueil non connecté -->
 			<div>
 				<a href="<%=request.getContextPath() %>/accueilAvecConnexion.html"><input type="submit" value="Enregistrer"></a>
