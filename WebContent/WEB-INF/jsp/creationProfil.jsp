@@ -36,8 +36,5 @@
 <form  class="form col-2" action="<%=request.getContextPath()%>/accueil.html" method="get">
 	<input class="btn btn-outline-danger" type="submit" value="Annuler">
 </form>
-	
-	
+
 </body>
-
-

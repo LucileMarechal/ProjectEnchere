@@ -31,7 +31,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 
 	//Affichage de la page d'inscription
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/jsp/creerUnCompte.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/seConnecter.jsp").forward(request, response);
 	} 
 
 	//Traitement des données du formulaire
@@ -66,7 +66,7 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("erreur", e.getMessage());
 			response.getWriter().append("Erreur : " +e.getMessage());
-			request.getRequestDispatcher("/WEB-INF/jsp/creerUnCompte.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/jsp/seConnecter.jsp").forward(request, response);
 		}
 
 
