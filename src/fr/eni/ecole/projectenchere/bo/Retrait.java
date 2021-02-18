@@ -7,15 +7,25 @@ public class Retrait {
 	private String code_postal;
 	private String ville;
 	
-	//Constructeur
-	public Retrait(String rue, String code_postal, String ville) {
-	}
+	
+	
 	
 	//Constructeur - selectByNoRetrait
-	public Retrait(int no_retrait, String rue, String code_postal, String ville) {
-		// TODO Auto-generated constructor stub
+public Retrait(Integer noRetrait, String rue, String code_postal, String ville) {
+		super();
+		this.noRetrait = noRetrait;
+		this.rue = rue;
+		this.code_postal = code_postal;
+		this.ville = ville;
 	}
 
+//Constructeur
+public Retrait(String rue, String code_postal, String ville) {
+	super();
+	this.rue = rue;
+	this.code_postal = code_postal;
+	this.ville = ville;
+}
 
 public Retrait() {
 		// TODO Auto-generated constructor stub
@@ -53,20 +63,26 @@ public Retrait() {
 	public void setNoRetrait(Integer noRetrait) {
 		this.noRetrait = noRetrait;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Retrait [rue=");
-		builder.append(getRue());
+		builder.append("Retrait [noRetrait=");
+		builder.append(noRetrait);
+		builder.append(", rue=");
+		builder.append(rue);
 		builder.append(", code_postal=");
-		builder.append(getCode_postal());
+		builder.append(code_postal);
 		builder.append(", ville=");
-		builder.append(getVille());
+		builder.append(ville);
 		builder.append("]");
 		return builder.toString();
 	}
+	
+	
+	
+	
+	
 
 
 	

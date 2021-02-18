@@ -34,28 +34,28 @@ public class TestDALLucile extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Méthode selectBy
-		Retrait retraits = new Retrait();
-		RetraitsDAO daoRetrait = null;
-		
-		try {
-			daoRetrait = DAOFactory.getRetraitsDAO();
-		retraits = daoRetrait.selectByNoRetrait(1);
-		
-		response.getWriter().append(retraits.toString());
-		response.getWriter().append(daoRetrait.toString());
-		
-		} catch (DALException e) {
-			response.getWriter().append(e.getMessage());
-		}
+//		//Méthode selectBy
+//		Retrait retraits = new Retrait();
+//		RetraitsDAO daoRetrait = null;
+//		
+//		try {
+//			daoRetrait = DAOFactory.getRetraitsDAO();
+//		retraits = daoRetrait.selectByNoRetrait(1);
+//		
+//		response.getWriter().append(retraits.toString());
+////		response.getWriter().append(daoRetrait.toString());
+//		
+//		} catch (DALException e) {
+//			response.getWriter().append(e.getMessage());
+//		}
 		
 		//Méthode insert
 		Retrait r = new Retrait("De la paix", "44400", "Reze");
-		
+		RetraitsDAO daoRetrait2 = null;
 		
 		try {
-			daoRetrait = DAOFactory.getRetraitsDAO();
-			daoRetrait.insert(retraits);
+			daoRetrait2 = DAOFactory.getRetraitsDAO();
+			daoRetrait2.insert(r);
 			
 			response.getWriter().append(r.toString());
 			
