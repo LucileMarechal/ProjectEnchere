@@ -26,7 +26,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 	 		+ "WHERE no_utilisateur = ?";
 	 
 	 private static final String SELECT_BY_ID_UTILISATEUR = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue,"
-	 		+ "code_postal, ville, mot_de_passe FROM Utilisateurs WHERE no_utilisateur = ?";
+	 		+ "code_postal, ville, mot_de_passe, credit FROM Utilisateurs WHERE no_utilisateur = ?";
 	
 	 private static final String DELETE_BY_ID_UTILISATEUR = "DELETE FROM Utilisateurs WHERE no_utilisateur = ?";
 	 
@@ -189,7 +189,7 @@ public class UtilisateursDAOJdbcImpl implements UtilisateursDAO {
 			if (rs.next()) {
 					utilisateur = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), 
 						rs.getString("prenom"),rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), 
-						rs.getString("code_postal"), rs.getString("ville"), rs.getString("mot_de_passe"));
+						rs.getString("code_postal"), rs.getString("ville"), rs.getString("mot_de_passe"), rs.getInt("credit"));
 			}
 		
 			

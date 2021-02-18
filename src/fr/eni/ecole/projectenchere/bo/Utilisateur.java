@@ -95,7 +95,7 @@ public class Utilisateur {
 		}
 		
 		public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-				String rue, String codePostal, String ville, String motDePasse) {
+				String rue, String codePostal, String ville, String motDePasse, Integer credit) {
 			setNoUtilisateur(noUtilisateur);
 			setPseudo(pseudo);
 			setNom(nom);
@@ -106,6 +106,7 @@ public class Utilisateur {
 			setCodePostal(codePostal);
 			setVille(ville);
 			setMotDePasse(motDePasse);
+			setCredit(credit);
 			}
 		
 
