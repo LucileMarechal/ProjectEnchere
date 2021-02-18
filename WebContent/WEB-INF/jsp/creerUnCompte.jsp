@@ -22,7 +22,7 @@
 		</div>
 		<font color="red"><%=request.getAttribute("erreur") != null ? request.getAttribute("erreur") : ""%></font>
 		<br>
-		<div>
+		<div class="col-md-3">
 			<button type="submit" class="btn btn-primary">Connexion</button>
 		</div>
 	</form>
