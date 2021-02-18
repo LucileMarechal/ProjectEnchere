@@ -52,7 +52,7 @@ public class UtilisateurManager {
 			validerUtilisateur(newUser);
 			daoUtilisateur.insert(newUser);
 		} catch (DALException e) {
-			throw new BLLException("Echec addUtilisateur", e);
+			throw new BLLException("utilisateur déjà existant", e);
 		}
 	}
 
