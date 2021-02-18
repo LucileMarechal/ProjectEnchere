@@ -42,9 +42,15 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			"INNER JOIN CATEGORIES ON CATEGORIES.no_categorie = ARTICLES_VENDUS.no_categorie\r\n" + 
 			"WHERE CATEGORIES.no_categorie like ? AND date_fin_encheres > getdate()";
 	
-	//Jointure avec catégorie et utilisateur à faire
+	
 	private static final String SELECT_BY_ID = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, "
 			+ "prix_vente,no_utilisateur, no_categorie, no_retrait FROM articles_vendus where no_article = ?";
+	
+	private static final String SELECT_BY_ID2 = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, ARTICLES_VENDUS.no_utilisateur, CATEGORIES.no_categorie, no_retrait, libelle \r\n" + 
+			"FROM articles_vendus\r\n" + 
+			"INNER JOIN UTILISATEURS ON ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur\r\n" + 
+			"INNER JOIN CATEGORIES ON CATEGORIES.no_categorie = ARTICLES_VENDUS.no_categorie "
+			+ "WHERE no_article = ?";
 	
 	private static final String UPDATE_ARTICLES_VENDUS ="UPDATE articles_vendus SET no_article=?, nom_article=?, date_debut_encheres=?, "
 			+ "date_fin_encheres=?, prix_initial=?, prix_vente,no_utilisateur=?, no_categorie=?, no_retrait=? WHERE no_article=?";
@@ -305,6 +311,46 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	
 	
 	
+	}
+
+	@Override
+	public ArticleVendu selectById2(Integer no_article) throws DALException {
+		ResultSet rs=null;
+		ArticleVendu artVendu=null;
+		Connection cnx=null;
+		PreparedStatement pstmt=null;
+		
+		cnx = DBConnexion.seConnecter();
+		
+		try {
+			pstmt=cnx.prepareStatement(SELECT_BY_ID2);
+			pstmt.setInt(1, no_article);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				artVendu = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), rs.getString("description"), rs.getDate("date_debut_encheres"), 
+						rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), 
+						rs.getInt("no_categorie"), rs.getInt("no_retrait"), rs.getString("libelle"));
+			}
+
+		} catch (SQLException e) {
+			throw new DALException("Probleme pendant le selectionById : "+e);
+		}finally {
+			try {	
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				
+				if(cnx != null) {
+					cnx.close();
+				}
+				
+			} catch (SQLException e) {
+				throw new DALException("Erreur lors de la sélection de l'article par son numéro : " + no_article, e);
+			}
+		}
+		
+		return artVendu;
+		
 	}
 
 }

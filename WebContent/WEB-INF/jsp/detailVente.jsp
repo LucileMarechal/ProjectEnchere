@@ -15,7 +15,7 @@
 	</div>
 	<br>
 	<div>
-		<label>Catégorie :  </label>
+		<label>Catégorie : <%=article.getLibelle() %> </label>
 	</div>
 	<br>
 	<div>
@@ -31,7 +31,7 @@
 	</div>
 	<br>
 	<div>
-		<label>Retrait :</label>
+		<label>Retrait : <%=article.getRetrait() %> </label>
 	</div>
 	<br>
 	<div>

@@ -30,6 +30,10 @@ public class MonProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Utilisateur u1 = (Utilisateur) request.getSession().getAttribute("loginSession");
+
+		
+		request.setAttribute("u1", u1);
 		request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp").forward(request, response);
 	}
 
@@ -37,7 +41,7 @@ public class MonProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utilisateur u1 = (Utilisateur) request.getSession().getAttribute("loginSession");
+		
 		Utilisateur u2 = new Utilisateur();
 		UtilisateurManager usermgr = new UtilisateurManager();
 		
@@ -54,20 +58,30 @@ public class MonProfilServlet extends HttpServlet {
 		String confirmationNouveauMotDePasse = request.getParameter("sconfnewmdp");
 		//Integer credit = utilisateur.getCredit();
 
-		
-		
+		u2.setPseudo(pseudo);
+		u2.setPrenom(prenom);
+		u2.setTelephone(telephone);
+		u2.setCodePostal(codePostal);
+		u2.setNom(nom);
+		u2.setEmail(email);
+		u2.setRue(rue);
+		u2.setVille(ville);
 		
 		
 		
 		try { 
-			usermgr.getUtilisateurById(u1.getNoUtilisateur());
-			usermgr.validerMotDePasse(nouveauMotDePasse, confirmationNouveauMotDePasse);
-			u1.setPseudo(pseudo);
-			usermgr.updateUtilisateur(u1);
-			request.getSession().setAttribute("loginSession", u1);
+			if (nouveauMotDePasse.equals(confirmationNouveauMotDePasse)) {
+				usermgr.validerMotDePasse(nouveauMotDePasse, confirmationNouveauMotDePasse);
+				u2.setMotDePasse(nouveauMotDePasse);
+			}
+
+			usermgr.updateUtilisateur(u2);
+			request.getSession().setAttribute("loginSession", u2);
 		} catch (BLLException e) {
 			e.getMessage();
 		}
+		
+		
 		
 		
 		response.getWriter().append(pseudo);

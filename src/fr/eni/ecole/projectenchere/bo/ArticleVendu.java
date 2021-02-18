@@ -96,10 +96,15 @@ public class ArticleVendu {
 			this.noCategorie = noCategorie;
 	}
 	
-	
+		
+		/**
+		 * Constructeur servant à afficher une vente
+		 */
+		public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int prixInitial, int int3, int int4,
+			int int5, int int6, String string3) {
+		// TODO Details vente à faire
+	}
 	//Getter et Setter
-
-
 
 	public String getPseudo() {
 		return pseudo;

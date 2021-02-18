@@ -41,7 +41,7 @@ public class DetailVenteServlet extends HttpServlet {
 		ArticleVendusManager articleManager = new ArticleVendusManager();
 		
 		try {
-			afficherArticle = articleManager.ArticlesVendusManager().selectById(noArticle);
+			afficherArticle = articleManager.ArticlesVendusManager().selectById2(noArticle);
 			
 			if (afficherArticle == null) {
 				message = "Il n'y a pas de n° d'article";
