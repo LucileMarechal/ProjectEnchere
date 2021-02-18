@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div class="ml-3">
+
 <h1>ENI-Enchères</h1>
 
 	<div class="container-fluid">
@@ -44,7 +46,7 @@
 			</a>
 		</div>
 	</div>
-
+</div>
 
 </body>
 </html>

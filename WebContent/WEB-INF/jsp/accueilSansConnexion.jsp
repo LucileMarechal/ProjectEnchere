@@ -13,7 +13,7 @@
 <title>Accueil</title>
 </head>
 <body>
-
+<div class="ml-3">
 <div class="row">
   <div class="col-md-1 col-lg-8" class="text-left"><h1>ENI-Enchères</h1></div>
   <div class="col-xs-6 col-lg-4"><a href="<%=request.getContextPath()%>/SinscrireSeConnecter.html">S'inscrire - Se connecter</a></div>
@@ -72,6 +72,6 @@
 	
 	
 <!-- RETOUR DAL A FAIRE POUR AFFICHAGE DE LA LISTE -->
-
+</div>
 </body>
 </html>
