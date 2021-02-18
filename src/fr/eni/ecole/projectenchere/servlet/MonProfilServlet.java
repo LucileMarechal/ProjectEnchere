@@ -41,7 +41,7 @@ public class MonProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		Utilisateur u1 = (Utilisateur) request.getSession().getAttribute("loginSession");
 		Utilisateur u2 = new Utilisateur();
 		UtilisateurManager usermgr = new UtilisateurManager();
 		
@@ -66,6 +66,8 @@ public class MonProfilServlet extends HttpServlet {
 		u2.setEmail(email);
 		u2.setRue(rue);
 		u2.setVille(ville);
+		int noUtilisateur = u1.getNoUtilisateur();
+		u2.setNoUtilisateur(noUtilisateur);
 		
 		
 		
