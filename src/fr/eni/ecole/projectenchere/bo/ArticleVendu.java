@@ -70,7 +70,8 @@ public class ArticleVendu {
 			this.retrait = int6;
 		}
 
-	public ArticleVendu(String nomArticle, Integer prixInitial, Date dateFinEncheres,  String pseudo) {
+	public ArticleVendu(Integer noArticle,  String nomArticle, Integer prixInitial, Date dateFinEncheres,  String pseudo) {
+		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
 		this.dateFinEncheres = dateFinEncheres;
 		this.prixInitial = prixInitial;

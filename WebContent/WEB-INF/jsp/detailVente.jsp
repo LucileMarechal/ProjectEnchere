@@ -1,30 +1,33 @@
 
 <!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@page import="fr.eni.ecole.projectenchere.bo.ArticleVendu"%>
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
 	<h1>Détail vente</h1>
 	<div>
-		<label><a href="Nom de l'article"></a>Titre de l'article</label>
+	<% ArticleVendu article = (ArticleVendu) request.getAttribute("Article"); %>
+	
+		<label>Nom de l'article : <%=article.getNomArticle() %> </label>
 	</div>
 	<br>
 	<div>
-		<label><a href="Description"></a>Description :</label>
+		<label>Description : <%=article.getDescription() %> </label>
 	</div>
 	<br>
 	<div>
-		<label><a href="categorie"></a>Catégorie :</label>
+		<label>Catégorie :  </label>
 	</div>
 	<br>
 	<div>
-		<label>Meilleure offre :</label>
+		<label>Meilleure offre : </label>
 	</div>
 	<br>
 	<div>
-		<label>Mise à prix :</label>
+		<label>Mise à prix : <%=article.getPrixVente() %></label>
 	</div>
 	<br>
 	<div>
-		<label>Fin de l'enchère :</label>
+		<label>Fin de l'enchère : <%=article.getDateFinEncheres() %> </label>
 	</div>
 	<br>
 	<div>
@@ -32,7 +35,7 @@
 	</div>
 	<br>
 	<div>
-		<label>Vendeur :</label>
+		<label>Vendeur : <%=article.getPseudo() %> </label>
 	</div>
 	<br>
 	<div>
@@ -41,7 +44,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="submit" value="Ench�rir">
+		<input type="submit" value="Enchérir">
 	</div>
 	<!-- Si l'action permettant d'ench�rir a bien fonctionn�, 
 	ce sera la page d'accueil qui sera affich�e avec un message du type 

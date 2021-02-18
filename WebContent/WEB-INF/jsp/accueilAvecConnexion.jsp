@@ -84,7 +84,7 @@
 				String vendeur = articleVendu.getPseudo();
 				%>
 				<div class="card border-primary m-1 p-2" style="max-width: 18rem;">
-				<div class="card-header" ><a href="<%=request.getContextPath()%>/DetailVente.html?noArticle=<%=articleVendu.getNomArticle()%>"><%=nom %></a></div>
+				<div class="card-header" ><a href="<%=request.getContextPath()%>/DetailVente.html?noArticle=<%=articleVendu.getNoArticle()%>"><%=nom %></a></div>
 				<img alt="#image" src="">
 				<h5 class="card-title">Prix : <%=prix %> k&#128;</h5>
 				<p class="card-text">Date de fin d'enchère : <%=date %><br></p>
