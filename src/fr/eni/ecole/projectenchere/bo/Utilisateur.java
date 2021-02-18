@@ -1,7 +1,5 @@
 package fr.eni.ecole.projectenchere.bo;
 
-import java.util.List;
-
 public class Utilisateur {
 		//Attributs d'instance
 		private Integer noUtilisateur;
@@ -96,11 +94,19 @@ public class Utilisateur {
 		setMotDePasse(motDePasse);
 		}
 		
-		public Utilisateur(String pseudo, String email, String motDePasse) {
-		setPseudo(pseudo);
-		setEmail(email);
-		setMotDePasse(motDePasse);
-		}
+		public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+				String rue, String codePostal, String ville, String motDePasse) {
+			setNoUtilisateur(noUtilisateur);
+			setPseudo(pseudo);
+			setNom(nom);
+			setPrenom(prenom);
+			setEmail(email);
+			setTelephone(telephone);
+			setRue(rue);
+			setCodePostal(codePostal);
+			setVille(ville);
+			setMotDePasse(motDePasse);
+			}
 		
 
 

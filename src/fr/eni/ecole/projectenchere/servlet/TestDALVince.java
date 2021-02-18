@@ -86,24 +86,19 @@ public class TestDALVince extends HttpServlet {
 //		}
 		
 		
-		// tester la méthode update -> marche pas encore
-//		Utilisateur u = new Utilisateur();
-//		try {
-//			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
-//			u = utilisateurDAO2.selectById(30);
-//			response.getWriter().append("Utilisateur avant modification : " +u);
-//			
-//			
-//			
-//			response.getWriter().append("\nUtilisateur après modif : " +u);
-//			u.setPrenom("Roger");
-//			utilisateurDAO2.update(u);
-//
-//			
-//		} catch (DALException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		// tester la méthode update -> ça marche ! 
+		Utilisateur u = new Utilisateur();
+		try {
+			utilisateurDAO2 = DAOFactory.getUtilisateursDAO();
+			u = utilisateurDAO2.selectById(31);
+			response.getWriter().append(u.toString());
+			u.setPseudo("Roger");
+			utilisateurDAO2.update(u);
+			response.getWriter().append(u.toString());
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		// tester la méthode delete -> ça marche 
