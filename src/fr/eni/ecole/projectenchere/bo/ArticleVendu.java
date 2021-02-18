@@ -15,6 +15,7 @@ public class ArticleVendu {
 	private Integer noUtilisateur;
 	private Integer noCategorie;
 	private Integer retrait;
+	private String libelle;
 	
 	
 	//Constructeur
@@ -100,10 +101,23 @@ public class ArticleVendu {
 		/**
 		 * Constructeur servant à afficher une vente
 		 */
-		public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int prixInitial, int int3, int int4,
-			int int5, int int6, String string3) {
-		// TODO Details vente à faire
+		public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur,
+			int noCategorie, int retrait, String libelle) {
+		this.noArticle=noArticle;
+		this.nomArticle=nomArticle;
+		this.description=description;
+		this.dateDebutEncheres=dateDebutEncheres;
+		this.dateFinEncheres=dateFinEncheres;
+		this.prixInitial=prixInitial;
+		this.prixVente=prixVente;
+		this.noUtilisateur=noUtilisateur;
+		this.noCategorie=noCategorie;
+		this.retrait=retrait;
+		this.libelle=libelle;
 	}
+		
+		
+		
 	//Getter et Setter
 
 	public String getPseudo() {
