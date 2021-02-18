@@ -32,6 +32,21 @@ public class MonProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String pseudo = request.getParameter("pseudo");
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String email = request.getParameter("email");
+		String telephone = request.getParameter("telephone");
+		String rue = request.getParameter("rue");
+		String codePostal = request.getParameter("code_postal");
+		String ville = request.getParameter("ville");
+		String motDePasse = request.getParameter("mot_de_passe");
+		
+		
+		
+		
+		
+		
 		request.getRequestDispatcher("/WEB-INF/jsp/accueilSansConnexion.jsp").forward(request, response);
 	}
 
