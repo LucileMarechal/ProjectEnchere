@@ -14,6 +14,7 @@ import fr.eni.ecole.projectenchere.bll.ArticleVendusManager;
 import fr.eni.ecole.projectenchere.bll.CategoriesManager;
 import fr.eni.ecole.projectenchere.bo.ArticleVendu;
 import fr.eni.ecole.projectenchere.bo.Categories;
+import fr.eni.ecole.projectenchere.bo.Utilisateur;
 import fr.eni.ecole.projectenchere.dal.DALException;
 
 /**
@@ -36,8 +37,8 @@ public class AccueilAvecConnexionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//test session
-		String pseudo = (String) request.getSession().getAttribute("loginSession");
-		System.out.println(pseudo);
+		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("loginSession");
+		System.out.println(utilisateur);
 
 		
 		List<ArticleVendu> artVendu = new ArrayList<>();

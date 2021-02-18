@@ -39,26 +39,26 @@ public class ProfilUtilisateurServlet extends HttpServlet {
 		// autant de variables que de champs à compléter sur jsp
 		// exemple nom : String nom = utilisateur.getNom();
 		// request.setAttribute("nom", nom);
-		Utilisateur u1 = new Utilisateur();
-		UtilisateurManager usermanager = new UtilisateurManager();
+		// Utilisateur u1 = new Utilisateur();
+		// UtilisateurManager usermanager = new UtilisateurManager();
 		
 /******AJOUT PAT************************************/
 
-		String pseudoUser = (String) request.getSession().getAttribute("loginSession");
+		Utilisateur u1 = (Utilisateur) request.getSession().getAttribute("loginSession");
 		
 /******AJOUT PAT************************************/		
 		
 		
-		try {
-			// remplacer Simba par n'importe quel utilisateur 
-			// récupérer pseudo de la personne connectée 
-			// session
-			u1 = usermanager.getUtilisateur(pseudoUser);
-			response.getWriter().append(u1.toString());
-		} catch (BLLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			// remplacer Simba par n'importe quel utilisateur 
+//			// récupérer pseudo de la personne connectée 
+//			// session
+//			// u1 = usermanager.getUtilisateur(pseudoUser);
+//			response.getWriter().append(u1.toString());
+//		} catch (BLLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		String pseudo = u1.getPseudo();
 		String nom = u1.getNom();

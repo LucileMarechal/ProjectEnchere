@@ -56,8 +56,8 @@ public class SinscrireSeConnecterServlet extends HttpServlet {
 			// dispatcher session en mode connecté
 			// créer un attribut de session pour stocker utilisateur connecté
 			// dispatcher pour afficher page accueil en mode connecté
-			request.getSession().setAttribute("loginSession", pseudo);
-			request.getSession().setAttribute("loginSession", email);
+			request.getSession().setAttribute("loginSession", utilisateur);
+			//request.getSession().setAttribute("loginSession", email);
 			response.sendRedirect("./accueilAvecConnexion.html");
 			//request.getRequestDispatcher("/WEB-INF/jsp/accueilAvecConnexion.jsp").forward(request, response);
 			
