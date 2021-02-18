@@ -79,7 +79,17 @@ public class ArticleVendu {
 		this.pseudo = pseudo;
 	}
 	
-	
+			public ArticleVendu(int noArticle, String nomArticle, int prixInitial, Date dateFinEncheres, String pseudo, int noUtilisateur) {
+				this.noArticle = noArticle;
+				this.nomArticle = nomArticle;
+				this.prixInitial = prixInitial;
+				this.dateFinEncheres = dateFinEncheres;
+				this.pseudo = pseudo;
+				this.noUtilisateur = noUtilisateur;
+				
+		}	
+			
+			
 	/**
 	 * Ce constructeur sert pour la selection par catégorie via le libelle
 	 * @param nomArticle
@@ -117,9 +127,12 @@ public class ArticleVendu {
 		this.pseudo=pseudo;
 	}
 		
-		
-		
+
+
+
 	//Getter et Setter
+
+
 
 	public void setLibelle(String libelle) {
 			this.libelle = libelle;

@@ -1,38 +1,41 @@
 
 <!-- Fragment qui ramène à la page AccueilAvecConnexion -->
+<%@page import="fr.eni.ecole.projectenchere.bo.Utilisateur"%>
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
+
+<% Utilisateur u = (Utilisateur) request.getAttribute("utilisateur"); %>
 
 	<div>
 		<div>
-			Pseudo : <!-- request.getParameter("spseudo") -->
+			Pseudo : <%=u.getPseudo() %>
 		</div>
 		<br>
 		<div>
-			Nom : <!-- request.getParameter("snom") -->
+			Nom : <%=u.getNom() %>
 		</div>
 		<br>
 		<div>
-			Prénom : <!-- request.getParameter("sprenom") -->
+			Prénom : <%=u.getPrenom() %>
 		</div>
 		<br>
 		<div>
-			Email : <!-- request.getParameter("semail") -->
+			Email : <%=u.getEmail() %>
 		</div>
 		<br>
 		<div>
-			Téléphone : <!-- request.getParameter("stel") -->
+			Téléphone : <%=u.getTelephone() %>
 		</div>
 		<br>
 		<div>
-			Rue : <!-- request.getParameter("srue") -->
+			Rue : <%=u.getRue() %>
 		</div>
 		<br>
 		<div>
-			Code postal : <!-- request.getParameter("scpo") -->
+			Code postal : <%=u.getCodePostal() %>
 		</div>
 		<br>
 		<div>
-			Ville : <!-- request.getParameter("sville") -->
+			Ville : <%=u.getVille() %>
 		</div>
 		<br>
 	</div>

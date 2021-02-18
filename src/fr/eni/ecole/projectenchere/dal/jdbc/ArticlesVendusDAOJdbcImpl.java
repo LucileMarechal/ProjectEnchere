@@ -25,7 +25,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	private static final String SELECT_ARTICLES_VENDUS = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, "
 			+ "prix_initial, prix_vente, no_utilisateur, no_categorie, no_retrait FROM articles_vendus";
 	
-	private static final String SELECT_ARTICLE_PLUS_UTILISATEUR = "SELECT no_article, nom_article, prix_initial, date_fin_encheres, pseudo\r\n" + 
+	private static final String SELECT_ARTICLE_PLUS_UTILISATEUR = "SELECT no_article, nom_article, prix_initial, date_fin_encheres, pseudo, ARTICLES_VENDUS.no_utilisateur\r\n" + 
 			"FROM ARTICLES_VENDUS\r\n" + 
 			"INNER JOIN UTILISATEURS ON  ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur\r\n"
 			+ "WHERE date_fin_encheres > getdate()";
@@ -221,7 +221,8 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				artVendu = new ArticleVendu(rs.getInt("no_article"),  rs.getString("nom_article"), rs.getInt("prix_initial"), rs.getDate("date_fin_encheres") , rs.getString("pseudo"));
+				artVendu = new ArticleVendu(rs.getInt("no_article"),  rs.getString("nom_article"), rs.getInt("prix_initial"),
+						rs.getDate("date_fin_encheres") , rs.getString("pseudo"), rs.getInt("no_utilisateur"));
 			
 				if (liste == null) {
 					liste = new ArrayList<ArticleVendu>();

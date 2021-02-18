@@ -25,7 +25,7 @@
 	</div>
 	<br>
 	<div>
-		<label>Mise à prix : <%=article.getPrixVente() %></label>
+		<label>Mise a prix : <%=article.getPrixVente() %></label>
 	</div>
 	<br>
 	<div>
