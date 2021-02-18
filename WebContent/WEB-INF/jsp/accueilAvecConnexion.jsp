@@ -9,7 +9,7 @@
 <div class="ml-3">
 	<a href="<%=request.getContextPath()%>/NouvelleVente.html">Vendre un article</a>
 	<a href="<%=request.getContextPath()%>/profilUtilisateur.html">  Mon profil</a>
-	<a href="<%=request.getContextPath()%>/accueil.html">  Déconnexion </a>
+	<a href="<%=request.getContextPath()%>/seDeconnecter.html">  Déconnexion </a>
 
 <div class="d-flex justify-content-center">
 	<h2>Liste des enchères</h2>

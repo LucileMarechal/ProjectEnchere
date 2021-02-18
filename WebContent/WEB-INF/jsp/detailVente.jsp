@@ -3,7 +3,7 @@
 <%@page import="fr.eni.ecole.projectenchere.bo.ArticleVendu"%>
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
-	<h1>DÃ©tail vente</h1>
+	<h1>Détails vente</h1>
 	<div>
 	<% ArticleVendu article = (ArticleVendu) request.getAttribute("Article"); %>
 	
@@ -15,7 +15,7 @@
 	</div>
 	<br>
 	<div>
-		<label>CatÃ©gorie : <%=article.getLibelle() %> </label>
+		<label>Catégorie : <%=article.getLibelle() %> </label>
 	</div>
 	<br>
 	<div>
@@ -23,11 +23,11 @@
 	</div>
 	<br>
 	<div>
-		<label>Mise Ã  prix : <%=article.getPrixVente() %></label>
+		<label>Mise à prix : <%=article.getPrixVente() %></label>
 	</div>
 	<br>
 	<div>
-		<label>Fin de l'enchÃ¨re : <%=article.getDateFinEncheres() %> </label>
+		<label>Fin de l'enchère : <%=article.getDateFinEncheres() %> </label>
 	</div>
 	<br>
 	<div>
@@ -44,7 +44,7 @@
 	</div>
 	<br>
 	<div>
-		<input type="submit" value="EnchÃ©rir">
+		<input type="submit" value="Enchérir">
 	</div>
 	<!-- Si l'action permettant d'enchï¿½rir a bien fonctionnï¿½, 
 	ce sera la page d'accueil qui sera affichï¿½e avec un message du type 
