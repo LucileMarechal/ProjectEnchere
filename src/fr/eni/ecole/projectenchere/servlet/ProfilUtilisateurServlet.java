@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.ecole.projectenchere.bll.BLLException;
 import fr.eni.ecole.projectenchere.bll.UtilisateurManager;
 import fr.eni.ecole.projectenchere.bo.Utilisateur;
-import fr.eni.ecole.projectenchere.dal.DALException;
-import fr.eni.ecole.projectenchere.dal.DAOFactory;
-import fr.eni.ecole.projectenchere.dal.UtilisateursDAO;
 
 /**
  * Servlet implementation class ProfilUtilisateurServlet
