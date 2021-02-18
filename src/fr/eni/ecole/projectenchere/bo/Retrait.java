@@ -15,6 +15,12 @@ public class Retrait {
 
 	//Getter et Setter
 	
+//Constructeur - selectByNoRetrait
+	public Retrait(int no_retrait, String rue, String code_postal, String ville) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public String getRue() {
 		return rue;

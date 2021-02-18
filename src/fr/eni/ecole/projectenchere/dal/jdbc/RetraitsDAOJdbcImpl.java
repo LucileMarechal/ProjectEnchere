@@ -66,8 +66,49 @@ public class RetraitsDAOJdbcImpl implements RetraitsDAO {
 
 	@Override
 	public Retrait selectByNoRetrait(Integer no_retrait) throws DALException {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs = null;
+		Retrait retrait = null;
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		
+		cnx = DBConnexion.seConnecter();
+		
+		try {
+			pstmt = cnx.prepareStatement(SELECT_BY_NO_RETRAIT);
+			pstmt.setInt(1, no_retrait);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				retrait = new Retrait(rs.getInt("no_retrait"), rs.getString("rue"), rs.getString("Code_Postal"), rs.getString("ville"));
+			}
+		} catch (SQLException e) {
+			throw new DALException("Problème pendant le selectyByNORetrait :" +e);
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				
+				if (cnx != null) {
+					cnx.close();
+				}
+			} catch (SQLException e) {
+				throw new DALException("Erreur lors de la sélection du retrait par son numéro :" + no_retrait, e);
+			}
+		}
+	
+		return retrait;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
