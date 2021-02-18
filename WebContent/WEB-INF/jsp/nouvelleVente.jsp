@@ -2,8 +2,12 @@
 <!-- Fragment qui ramène à la page AccueilAvecConnexion -->
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
-	<h1>Nouvelle vente</h1>
 
+<div class="d-flex justify-content-center">
+	<h1>Nouvelle vente</h1>
+</div>
+
+<div class="ml-3">
 	<!-- Création des catégories Article et Description -->
 <form method="post" action="<%=request.getContextPath()%>/NouvelleVente.html">
 		<div>
@@ -76,18 +80,19 @@
 	<!--  Enregistrer ou Annuler -->
 
 	<div>
-		<input type="submit" value="Enregistrer">
+		<input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Enregistrer">
 	</div>
 </form>
 <br>
 
 <form method="get" action="<%=request.getContextPath()%>/accueilAvecConnexion.html">
 	<div>
-		<input type="submit" value="Annuler">
+		<input class="btn btn-outline-danger" type="submit" value="Annuler">
 	</div>
 </form>
 
 <!--  en fonction de la date de début d'enchere et la tete du jour, bouton "annuler la vente" -->
 
+</div>
 </body>
 </html>
