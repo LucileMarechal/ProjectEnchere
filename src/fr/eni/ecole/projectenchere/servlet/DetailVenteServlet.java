@@ -34,14 +34,16 @@ public class DetailVenteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer noArticle = Integer.parseInt(request.getParameter("noArticle"));
 		//System.out.println(noArticle);
-		
+		int  i= 0;
 		String message = "";
+		String categorie = null;
 		
 		ArticleVendu afficherArticle = new ArticleVendu();
 		ArticleVendusManager articleManager = new ArticleVendusManager();
 		
 		try {
 			afficherArticle = articleManager.ArticlesVendusManager().selectById2(noArticle);
+			
 			
 			if (afficherArticle == null) {
 				message = "Il n'y a pas de n° d'article";
@@ -50,7 +52,17 @@ public class DetailVenteServlet extends HttpServlet {
 		} catch (DALException e) {
 			response.getWriter().append(e.getMessage());
 		}
+
+		i =afficherArticle.getLibelle();
+		switch (i) {
+		case 1: categorie="Informatique"; break;
+		case 2: categorie="Ameublement"; break;
+		case 3: categorie="Vêtement"; break;
+		case 4: categorie="Sport&Loisirs"; break;
+
 		
+		}
+		request.setAttribute("categorie", categorie);
 		request.setAttribute("Article", afficherArticle);
 		request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp").forward(request, response);
 	}

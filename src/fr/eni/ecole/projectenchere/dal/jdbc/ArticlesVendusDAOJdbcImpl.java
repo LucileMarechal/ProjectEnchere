@@ -46,7 +46,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 	private static final String SELECT_BY_ID = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, "
 			+ "prix_vente,no_utilisateur, no_categorie, no_retrait FROM articles_vendus where no_article = ?";
 	
-	private static final String SELECT_BY_ID2 = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, ARTICLES_VENDUS.no_utilisateur, CATEGORIES.no_categorie, no_retrait, libelle \r\n" + 
+	private static final String SELECT_BY_ID2 = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, ARTICLES_VENDUS.no_utilisateur, CATEGORIES.no_categorie, no_retrait, libelle, pseudo \r\n" + 
 			"FROM articles_vendus\r\n" + 
 			"INNER JOIN UTILISATEURS ON ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur\r\n" + 
 			"INNER JOIN CATEGORIES ON CATEGORIES.no_categorie = ARTICLES_VENDUS.no_categorie "
@@ -329,7 +329,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticlesVendusDAO {
 			if (rs.next()) {
 				artVendu = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), rs.getString("description"), rs.getDate("date_debut_encheres"), 
 						rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), 
-						rs.getInt("no_categorie"), rs.getInt("no_retrait"), rs.getString("libelle"));
+						rs.getInt("no_categorie"), rs.getInt("no_retrait"), rs.getString("libelle"), rs.getString("pseudo"));
 			}
 
 		} catch (SQLException e) {

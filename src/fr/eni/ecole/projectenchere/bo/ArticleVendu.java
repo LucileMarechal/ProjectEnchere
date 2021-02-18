@@ -102,7 +102,7 @@ public class ArticleVendu {
 		 * Constructeur servant à afficher une vente
 		 */
 		public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur,
-			int noCategorie, int retrait, String libelle) {
+			int noCategorie, int retrait, String libelle , String pseudo) {
 		this.noArticle=noArticle;
 		this.nomArticle=nomArticle;
 		this.description=description;
@@ -114,11 +114,16 @@ public class ArticleVendu {
 		this.noCategorie=noCategorie;
 		this.retrait=retrait;
 		this.libelle=libelle;
+		this.pseudo=pseudo;
 	}
 		
 		
 		
 	//Getter et Setter
+
+	public void setLibelle(String libelle) {
+			this.libelle = libelle;
+		}
 
 	public String getPseudo() {
 		return pseudo;
@@ -207,10 +212,6 @@ public class ArticleVendu {
 	public void setRetrait(Integer retrait) {
 		this.retrait = retrait;
 	}
-	
-	
-	
-	
 
 	public Integer getLibelle() {
 		return noCategorie;
