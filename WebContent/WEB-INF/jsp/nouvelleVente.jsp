@@ -12,7 +12,7 @@
 <div class="ml-3">
 	<!-- Création des catégories Article et Description -->
 
-<form action="">
+<form action="<%= request.getContextPath() %>/NouvelleVente.html" method="post">
 	<label for="article">Article : <input type="text" id="article" name="sarticle" required></label><br>
 
 	<label for="description">Description : <input type="text" id="description" name="sdescription" required></label> 

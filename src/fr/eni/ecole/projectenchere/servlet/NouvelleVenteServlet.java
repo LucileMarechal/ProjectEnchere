@@ -118,6 +118,7 @@ public class NouvelleVenteServlet extends HttpServlet {
 		} 
 				
 		request.setAttribute("listeCategorie", categorie);
+		response.sendRedirect("./accueilAvecConnexion.html");
 		
 		
 		}
