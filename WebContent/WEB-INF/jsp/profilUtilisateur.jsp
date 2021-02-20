@@ -3,49 +3,32 @@
 <%@page import="fr.eni.ecole.projectenchere.bo.Utilisateur"%>
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
-
 <div class="d-flex justify-content-center">
 	<h2>Mon profil</h2>
 </div>
+<div class="d-flex justify-content-center">
 
-	<div>
-		<div>
-			Pseudo : <%=request.getAttribute("pseudo") %>
-		</div>
-		<br>
-		<div>
-			Nom : <%=request.getAttribute("nom") %>
-		</div>
-		<br>
-		<div>
-			Prénom : <%=request.getAttribute("prenom") %>
-		</div>
-		<br>
-		<div>
-			Email : <%=request.getAttribute("email") %>
-		</div>
-		<br>
-		<div>
-			Téléphone : <%=request.getAttribute("telephone") %>
-		</div>
-		<br>
-		<div>
-			Rue : <%=request.getAttribute("rue") %>
-		</div>
-		<br>
-		<div>
-			Code postal : <%=request.getAttribute("code_postal") %>
-		</div>
-		<br>
-		<div>
-			Ville : <%=request.getAttribute("ville") %>
-		</div>
-		<br>
-		<div>
+
+			Pseudo : <%=request.getAttribute("pseudo") %><br>
+
+			Nom : <%=request.getAttribute("nom") %><br>
+
+			Prénom : <%=request.getAttribute("prenom") %><br>
+
+			Email : <%=request.getAttribute("email") %><br>
+
+			Téléphone : <%=request.getAttribute("telephone") %><br>
+
+			Rue : <%=request.getAttribute("rue") %><br>
+
+			Code postal : <%=request.getAttribute("code_postal") %><br>
+
+			Ville : <%=request.getAttribute("ville") %><br>
+</div>
+<div class="d-flex justify-content-center">
 			<a href="<%= request.getContextPath() %>/monProfil.html">
 			<input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Modifier">
 			</a>
-		</div>
-	</div>
+</div>
 </body>
 </html>
