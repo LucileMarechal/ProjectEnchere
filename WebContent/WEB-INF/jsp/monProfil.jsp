@@ -4,7 +4,7 @@
 <%@ include file="../fragments/fragmentAccueilConnexion.jspf" %>
 
 <div class="d-flex justify-content-center">
-	<h1>Mon profil</h1>
+	<h2>Mon profil</h2>
 </div>
 
 <%Utilisateur u1 = (Utilisateur) request.getAttribute("u1"); %>	
@@ -28,15 +28,13 @@
 		Rue : <input type="text" name="srue" value="<%=u1.getRue() %>"><br>
 		Ville : <input type="text" name="sville" value="<%=u1.getVille() %>"><br><br>
 		Confirmation : <input type="password" name="sconfnewmdp"><br>
-		<a href="<%=request.getContextPath() %>/accueil.html"><input type="submit" value="Supprimer mon compte"></a>
+		
 	</div>
-</form>			 
+</form>	
+	
 </div>
 	
+<a href="<%=request.getContextPath() %>/accueil.html"><input type="submit" value="Supprimer mon compte"></a>	 
 
-
-	
-	
-	
 </body>
 </html>
