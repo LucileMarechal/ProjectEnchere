@@ -23,7 +23,6 @@ public class ArticleVendu {
 	 * Constructeur de base #vide
 	 */
 	public ArticleVendu() {
-		
 	}
 	
 	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
@@ -132,19 +131,10 @@ public class ArticleVendu {
 
 	//Getter et Setter
 
+		
+		
 
 
-	public void setLibelle(String libelle) {
-			this.libelle = libelle;
-		}
-
-	public String getPseudo() {
-		return pseudo;
-	}
-
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
-	}
 
 	public Integer getNoArticle() {
 		return noArticle;
@@ -190,8 +180,8 @@ public class ArticleVendu {
 		return prixInitial;
 	}
 
-	public void setPrixInitial(Integer miseAprix) {
-		this.prixInitial = miseAprix;
+	public void setPrixInitial(Integer prixInitial) {
+		this.prixInitial = prixInitial;
 	}
 
 	public Integer getPrixVente() {
@@ -200,6 +190,14 @@ public class ArticleVendu {
 
 	public void setPrixVente(Integer prixVente) {
 		this.prixVente = prixVente;
+	}
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
 	}
 
 	public Integer getNoUtilisateur() {
@@ -226,12 +224,12 @@ public class ArticleVendu {
 		this.retrait = retrait;
 	}
 
-	public Integer getLibelle() {
-		return noCategorie;
+	public String getLibelle() {
+		return libelle;
 	}
 
-	public void setLibelle(Integer noCategorie) {
-		this.noCategorie = noCategorie;
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 
 	@Override
@@ -264,8 +262,6 @@ public class ArticleVendu {
 		builder.append("]");
 		return builder.toString();
 	}
-
-
 	
 
 

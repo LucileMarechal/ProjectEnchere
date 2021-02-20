@@ -53,15 +53,7 @@ public class DetailVenteServlet extends HttpServlet {
 			response.getWriter().append(e.getMessage());
 		}
 
-		i =afficherArticle.getLibelle();
-		switch (i) {
-		case 1: categorie="Informatique"; break;
-		case 2: categorie="Ameublement"; break;
-		case 3: categorie="Vêtement"; break;
-		case 4: categorie="Sport&Loisirs"; break;
 
-		
-		}
 		request.setAttribute("categorie", categorie);
 		request.setAttribute("Article", afficherArticle);
 		request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp").forward(request, response);
