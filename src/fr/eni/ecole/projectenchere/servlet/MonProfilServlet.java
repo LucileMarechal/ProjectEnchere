@@ -68,9 +68,7 @@ public class MonProfilServlet extends HttpServlet {
 		u2.setVille(ville);
 		int noUtilisateur = u1.getNoUtilisateur();
 		u2.setNoUtilisateur(noUtilisateur);
-		
-		
-		
+
 		try { 
 			if (nouveauMotDePasse.equals(confirmationNouveauMotDePasse)) {
 				usermgr.validerMotDePasse(nouveauMotDePasse, confirmationNouveauMotDePasse);
@@ -82,19 +80,13 @@ public class MonProfilServlet extends HttpServlet {
 		} catch (BLLException e) {
 			e.getMessage();
 		}
-		
-		
-		
-		
+
 		response.getWriter().append(pseudo);
 		
 		response.sendRedirect("./accueilAvecConnexion.html");
 		
 		//request.setAttribute("credit", credit);
-		
-		
-		
-		
+
 	}
 
 }
