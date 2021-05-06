@@ -1,5 +1,3 @@
 # ProjectEnchere
-Projet ENI
-test
+Projet ENI - Vincent LOREAU - Patrice BELDA - Lucile MARECHAL
 
-Modification Lucile
